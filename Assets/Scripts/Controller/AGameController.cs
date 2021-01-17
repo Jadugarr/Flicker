@@ -96,7 +96,18 @@ namespace SemoGames.Controller
         protected abstract IContext GetContext();
 
 
-        protected abstract void CreateSystems(IContext context);
+        private void CreateSystems(IContext context)
+        {
+            updateSystems.Add(CreateUpdateSystems(context));
+            lateUpdateSystems.Add(CreateLateUpdateSystems(context));
+            fixedUpdateSystems.Add(CreateFixedUpdateSystems(context));
+        }
+
+        protected abstract Systems CreateUpdateSystems(IContext context);
+
+        protected abstract Systems CreateLateUpdateSystems(IContext context);
+
+        protected abstract Systems CreateFixedUpdateSystems(IContext context);
 
         private void Update()
         {
