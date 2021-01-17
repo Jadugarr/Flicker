@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using GameScene.Systems;
 using SemoGames.GameCamera;
 
 namespace SemoGames.Controller
@@ -27,8 +28,12 @@ namespace SemoGames.Controller
 
         protected override Systems CreateUpdateSystems(IContext context)
         {
+            GameContext gameContext = (GameContext) context;
+            
             return new Systems()
-                .Add(new InitCameraSystem());
+                .Add(new InitCameraSystem())
+                .Add(new InitCurrentSceneSystem())
+                .Add(new LoadNewSceneSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
