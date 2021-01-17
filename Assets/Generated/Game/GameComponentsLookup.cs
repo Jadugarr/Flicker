@@ -8,15 +8,24 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Controller = 0;
+    public const int Id = 0;
+    public const int Controller = 1;
+    public const int Camera = 2;
+    public const int CurrentScene = 3;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
-        "Controller"
+        "Id",
+        "Controller",
+        "Camera",
+        "CurrentScene"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(SemoGames.Controller.ControllerComponent)
+        typeof(SemoGames.Common.IdComponent),
+        typeof(SemoGames.Controller.ControllerComponent),
+        typeof(SemoGames.GameCamera.CameraComponent),
+        typeof(SemoGames.GameScene.CurrentSceneComponent)
     };
 }
