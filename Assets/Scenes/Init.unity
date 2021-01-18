@@ -208,7 +208,7 @@ Transform:
   m_Children:
   - {fileID: 2085268161}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &793999425
 MonoBehaviour:
@@ -296,6 +296,171 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2085268161}
+--- !u!1 &1364358596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1364358598}
+  - component: {fileID: 1364358597}
+  - component: {fileID: 1364358600}
+  - component: {fileID: 1364358599}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1364358597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364358596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 1364358599}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 87857b2a-b79b-4bee-9c06-c3c7ab36a1ac
+    m_ActionName: Player/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c8770baf-2d06-4ece-9a16-ca9acf9eb1d0
+    m_ActionName: Player/Fire[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a9e0ece-bc3d-47d8-a144-2372ac4ed715
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8cd14d81-d14a-4b19-8566-88a76cdbbe84
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8965a7c7-b542-4236-afdd-7f50ca451f3b
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 280e9d8b-84d1-4019-a4c8-a5a01ce117ac
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c4b0c0c3-ecda-4ffd-a8fd-5d1c1e16e5b9
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5c4e1a71-8272-44d2-b4fb-b7c6b1181146
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f0412005-3691-4f04-8bc9-57a17012c26e
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0381a139-3c2d-4b77-9d0d-ae6a985938bd
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a6b50dd0-2a03-4fb8-bdfd-53c59c034475
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f546ff8c-d670-49dc-9ea4-5f2049223c81
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &1364358598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364358596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1364358599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364358596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_PointAction: {fileID: -2611452477725350761, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_MoveAction: {fileID: 5290741403482623082, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_SubmitAction: {fileID: 946664279954785370, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_CancelAction: {fileID: 3500372261178333614, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_LeftClickAction: {fileID: -9085958931944000235, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_MiddleClickAction: {fileID: -866674106383912657, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_RightClickAction: {fileID: 3116710597196212553, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 2481354083844518165, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 3524370577161258127, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 2164343276247884149, guid: ca7d66ac0fcbb0c448587a70d69ca783,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1364358600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364358596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1748611651
 GameObject:
   m_ObjectHideFlags: 0
