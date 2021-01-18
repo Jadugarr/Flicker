@@ -16,7 +16,33 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 2f36cce4309cdf243aa19a59e1a8d3b2
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 649aa5a10b79be041b4a813bb4d5141a
+    m_Address: InputSettings
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 11400000, guid: 649aa5a10b79be041b4a813bb4d5141a, type: 2}
+    m_TargetAsset: {fileID: 11400000, guid: 649aa5a10b79be041b4a813bb4d5141a, type: 2}
+  - m_GUID: 2ea124d50a654ec4dbe3966657ba9b45
+    m_Address: Level_001
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 7862903190541715545, guid: 2ea124d50a654ec4dbe3966657ba9b45,
+      type: 3}
+    m_TargetAsset: {fileID: 7862903190541715545, guid: 2ea124d50a654ec4dbe3966657ba9b45,
+      type: 3}
+  - m_GUID: f6b010971a9dde8428b9668d1d437d94
+    m_Address: InitScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: f6b010971a9dde8428b9668d1d437d94, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: f6b010971a9dde8428b9668d1d437d94, type: 3}
+  - m_GUID: 580b06805b10a9d45b0d5da68b3d16d7
+    m_Address: GameScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 102900000, guid: 580b06805b10a9d45b0d5da68b3d16d7, type: 3}
+    m_TargetAsset: {fileID: 102900000, guid: 580b06805b10a9d45b0d5da68b3d16d7, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6ee6f672b34ed4a41b9d4a981b7bec8d, type: 2}
   m_SchemaSet:
