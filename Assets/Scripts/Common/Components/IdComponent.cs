@@ -2,7 +2,7 @@
 
 namespace SemoGames.Common
 {
-    [Game]
+    [Game, Input]
     public class IdComponent : IComponent
     {
         public int Value;

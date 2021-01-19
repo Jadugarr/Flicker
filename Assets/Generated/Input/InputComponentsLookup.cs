@@ -8,15 +8,21 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int Id = 0;
+    public const int InputAction = 1;
+    public const int PlayerInput = 2;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
-
+        "Id",
+        "InputAction",
+        "PlayerInput"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(SemoGames.Common.IdComponent),
+        typeof(SemoGames.GameInput.InputActionComponent),
+        typeof(SemoGames.GameInput.PlayerInputComponent)
     };
 }
