@@ -5,6 +5,7 @@ namespace SemoGames.Controller
         None,
         Init,
         Input,
-        Game
+        Game,
+        MainMenu
     }
 }

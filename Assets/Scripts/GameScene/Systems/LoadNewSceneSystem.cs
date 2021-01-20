@@ -2,7 +2,7 @@
 using Entitas;
 using UnityEngine.SceneManagement;
 
-namespace GameScene.Systems
+namespace SemoGames.GameScene
 {
     public class LoadNewSceneSystem : ReactiveSystem<GameEntity>
     {
