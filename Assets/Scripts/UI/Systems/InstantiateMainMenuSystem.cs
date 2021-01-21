@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using SemoGames.Configurations;
+using SemoGames.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -34,21 +35,12 @@ namespace SemoGames.UI
                 // Create proper system to load/unload assets
                 AssetReference mainMenuReference = GameConfigurations.AssetReferenceConfiguration.MainMenuReference;
 
-                AsyncOperationHandle<GameObject> operationHandle =
-                    Addressables.LoadAssetAsync<GameObject>(mainMenuReference);
-                operationHandle.Completed += handle =>
+                AssetLoaderUtils.LoadAssetAsync(mainMenuReference, loadedObject =>
                 {
-                    if (gameEntity != null && gameEntity.isMainMenu)
-                    {
-                        GameObject mainMenuBehaviour = GameObject.Instantiate(handle.Result, Contexts.sharedInstance.game.staticLayer.Value.transform,
-                            false);
-                        gameEntity.AddMainMenuBehaviour(mainMenuBehaviour.GetComponent<MainMenuBehaviour>());
-                    }
-                    else
-                    {
-                        Addressables.Release(operationHandle);
-                    }
-                };
+                    GameObject mainMenuBehaviour = GameObject.Instantiate(loadedObject, Contexts.sharedInstance.game.staticLayer.Value.transform,
+                        false);
+                    gameEntity.AddMainMenuBehaviour(mainMenuBehaviour.GetComponent<MainMenuBehaviour>());
+                });
             }
         }
     }
