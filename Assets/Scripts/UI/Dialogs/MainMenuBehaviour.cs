@@ -29,6 +29,9 @@ namespace SemoGames.UI
             IGroup<GameEntity> activeSceneEntities = gameContext.GetGroup(GameMatcher.ActiveSceneName);
             
             gameContext.CreateEntity().AddActiveSceneName(GameConfigurations.GameSceneConfiguration.GameSceneName);
+            GameEntity levelEntity = gameContext.CreateEntity();
+            levelEntity.isLevel = true;
+            levelEntity.AddLevelIndex(0);
 
             foreach (GameEntity sceneEntity in activeSceneEntities)
             {
