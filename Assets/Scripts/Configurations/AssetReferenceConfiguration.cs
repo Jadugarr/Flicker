@@ -14,9 +14,17 @@ namespace SemoGames.Configurations
 
         #endregion
 
+        #region Levels
+
+        [SerializeField] private AssetReference[] levelAssetReferences;
+
+        #endregion
+
         #region Read-only Properties
 
         public AssetReference MainMenuReference => mainMenuReference;
+
+        public AssetReference[] LevelAssetReferences => levelAssetReferences;
 
         #endregion
     }

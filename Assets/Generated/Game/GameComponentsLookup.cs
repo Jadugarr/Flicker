@@ -12,17 +12,23 @@ public static class GameComponentsLookup {
     public const int Controller = 1;
     public const int Camera = 2;
     public const int ActiveSceneName = 3;
-    public const int MainMenuBehaviour = 4;
-    public const int MainMenu = 5;
-    public const int StaticLayer = 6;
+    public const int Level = 4;
+    public const int LevelIndex = 5;
+    public const int LevelView = 6;
+    public const int MainMenuBehaviour = 7;
+    public const int MainMenu = 8;
+    public const int StaticLayer = 9;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Id",
         "Controller",
         "Camera",
         "ActiveSceneName",
+        "Level",
+        "LevelIndex",
+        "LevelView",
         "MainMenuBehaviour",
         "MainMenu",
         "StaticLayer"
@@ -33,6 +39,9 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Controller.ControllerComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
+        typeof(SemoGames.Level.LevelComponent),
+        typeof(SemoGames.Level.LevelIndexComponent),
+        typeof(SemoGames.Level.LevelViewComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
         typeof(SemoGames.UI.StaticLayerComponent)
