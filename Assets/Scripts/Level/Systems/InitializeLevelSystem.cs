@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using SemoGames.Configurations;
+using SemoGames.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -17,11 +18,11 @@ namespace Level.Systems
                 AssetReference levelReference =
                     GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[levelEntity.levelIndex.Value];
 
-                Addressables.LoadAssetAsync<GameObject>(levelReference).Completed += handle =>
+                AssetLoaderUtils.LoadAssetAsync(levelReference, loadedObject =>
                 {
-                    GameObject levelView = GameObject.Instantiate(handle.Result);
+                    GameObject levelView = GameObject.Instantiate(loadedObject);
                     levelEntity.AddLevelView(levelView);
-                };
+                });
             }
         }
     }
