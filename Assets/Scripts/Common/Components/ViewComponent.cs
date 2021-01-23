@@ -1,10 +1,10 @@
 ﻿using Entitas;
 using UnityEngine;
 
-namespace SemoGames.Level
+namespace SemoGames.Common
 {
     [Game]
-    public class LevelViewComponent : IComponent
+    public class ViewComponent : IComponent
     {
         public GameObject Value;
     }

@@ -1,6 +1,7 @@
 ﻿using Entitas;
 using Level.Systems;
 using SemoGames.Controller;
+using SemoGames.Player;
 
 namespace SemoGames.Controller
 {
@@ -18,8 +19,12 @@ namespace SemoGames.Controller
 
         protected override Systems CreateUpdateSystems(IContext context)
         {
+            GameContext gameContext = (GameContext) context;
+            
             return new Systems()
-                .Add(new InitializeLevelSystem());
+                .Add(new InitializeLevelSystem())
+                .Add(new InitializePlayerSystem())
+                .Add(new SpawnPlayerSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
