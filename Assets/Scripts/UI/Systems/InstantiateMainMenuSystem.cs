@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using Entitas.Unity;
 using SemoGames.Configurations;
 using SemoGames.Utils;
 using UnityEngine;
@@ -40,6 +41,7 @@ namespace SemoGames.UI
                     GameObject mainMenuBehaviour = GameObject.Instantiate(loadedObject, Contexts.sharedInstance.game.staticLayer.Value.transform,
                         false);
                     gameEntity.AddMainMenuBehaviour(mainMenuBehaviour.GetComponent<MainMenuBehaviour>());
+                    mainMenuBehaviour.Link(gameEntity);
                 });
             }
         }

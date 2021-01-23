@@ -15,6 +15,7 @@ namespace SemoGames.UI
         {
             startGameButton.onClick.AddListener(OnStartGameClicked);
             quitGameButton.onClick.AddListener(OnQuitGameButtonClicked);
+            startGameButton.Select();
         }
 
         private void OnDestroy()
