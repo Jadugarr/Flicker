@@ -32,6 +32,8 @@ namespace SemoGames.Configurations
 
         public AssetReference[] LevelAssetReferences => levelAssetReferences;
 
+        public AssetReference PlayerAssetReference => playerAssetReference;
+
         #endregion
     }
 }
