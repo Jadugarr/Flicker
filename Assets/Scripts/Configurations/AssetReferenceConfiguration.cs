@@ -20,6 +20,12 @@ namespace SemoGames.Configurations
 
         #endregion
 
+        #region Characters
+
+        [SerializeField] private AssetReference playerAssetReference;
+
+        #endregion
+
         #region Read-only Properties
 
         public AssetReference MainMenuReference => mainMenuReference;
