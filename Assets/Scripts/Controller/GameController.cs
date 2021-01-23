@@ -26,7 +26,8 @@ namespace SemoGames.Controller
                 .Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
                 .Add(new SpawnPlayerSystem(gameContext))
-                .Add(new SetCameraConfinerSystem(gameContext));
+                .Add(new SetCameraConfinerSystem(gameContext))
+                .Add(new SetCameraFollowPlayerSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

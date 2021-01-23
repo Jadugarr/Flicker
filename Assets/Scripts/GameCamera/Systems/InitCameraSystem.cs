@@ -11,6 +11,7 @@ namespace SemoGames.GameCamera
             GameContext context = Contexts.sharedInstance.game;
             Camera gameCamera = Camera.main;
             context.ReplaceCameraConfiner(gameCamera.GetComponent<CinemachineConfiner>());
+            context.ReplaceVirtualCamera(gameCamera.GetComponent<CinemachineVirtualCamera>());
             context.ReplaceCamera(gameCamera);
         }
     }

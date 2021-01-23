@@ -15,16 +15,18 @@ public static class GameComponentsLookup {
     public const int Camera = 4;
     public const int CameraConfinerCollider = 5;
     public const int CameraConfiner = 6;
-    public const int ActiveSceneName = 7;
-    public const int Level = 8;
-    public const int LevelIndex = 9;
-    public const int PlayerSpawn = 10;
-    public const int Player = 11;
-    public const int MainMenuBehaviour = 12;
-    public const int MainMenu = 13;
-    public const int StaticLayer = 14;
+    public const int CameraFollow = 7;
+    public const int VirtualCamera = 8;
+    public const int ActiveSceneName = 9;
+    public const int Level = 10;
+    public const int LevelIndex = 11;
+    public const int PlayerSpawn = 12;
+    public const int Player = 13;
+    public const int MainMenuBehaviour = 14;
+    public const int MainMenu = 15;
+    public const int StaticLayer = 16;
 
-    public const int TotalComponents = 15;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -34,6 +36,8 @@ public static class GameComponentsLookup {
         "Camera",
         "CameraConfinerCollider",
         "CameraConfiner",
+        "CameraFollow",
+        "VirtualCamera",
         "ActiveSceneName",
         "Level",
         "LevelIndex",
@@ -52,6 +56,8 @@ public static class GameComponentsLookup {
         typeof(SemoGames.GameCamera.CameraComponent),
         typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),
         typeof(SemoGames.GameCamera.CameraConfinerComponent),
+        typeof(SemoGames.GameCamera.CameraFollowComponent),
+        typeof(SemoGames.GameCamera.VirtualCameraComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
         typeof(SemoGames.Level.LevelComponent),
         typeof(SemoGames.Level.LevelIndexComponent),
