@@ -13,16 +13,20 @@ public static class GameComponentsLookup {
     public const int View = 2;
     public const int Controller = 3;
     public const int Camera = 4;
-    public const int ActiveSceneName = 5;
-    public const int Level = 6;
-    public const int LevelIndex = 7;
-    public const int PlayerSpawn = 8;
-    public const int Player = 9;
-    public const int MainMenuBehaviour = 10;
-    public const int MainMenu = 11;
-    public const int StaticLayer = 12;
+    public const int CameraConfinerCollider = 5;
+    public const int CameraConfiner = 6;
+    public const int CameraFollow = 7;
+    public const int VirtualCamera = 8;
+    public const int ActiveSceneName = 9;
+    public const int Level = 10;
+    public const int LevelIndex = 11;
+    public const int PlayerSpawn = 12;
+    public const int Player = 13;
+    public const int MainMenuBehaviour = 14;
+    public const int MainMenu = 15;
+    public const int StaticLayer = 16;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 17;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -30,6 +34,10 @@ public static class GameComponentsLookup {
         "View",
         "Controller",
         "Camera",
+        "CameraConfinerCollider",
+        "CameraConfiner",
+        "CameraFollow",
+        "VirtualCamera",
         "ActiveSceneName",
         "Level",
         "LevelIndex",
@@ -46,6 +54,10 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
+        typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),
+        typeof(SemoGames.GameCamera.CameraConfinerComponent),
+        typeof(SemoGames.GameCamera.CameraFollowComponent),
+        typeof(SemoGames.GameCamera.VirtualCameraComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
         typeof(SemoGames.Level.LevelComponent),
         typeof(SemoGames.Level.LevelIndexComponent),

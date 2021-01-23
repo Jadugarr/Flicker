@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Cinemachine;
+using Entitas;
 using UnityEngine;
 
 namespace SemoGames.GameCamera
@@ -8,8 +9,10 @@ namespace SemoGames.GameCamera
         public void Initialize()
         {
             GameContext context = Contexts.sharedInstance.game;
-            
-            context.ReplaceCamera(Camera.main);
+            Camera gameCamera = Camera.main;
+            context.ReplaceCameraConfiner(gameCamera.GetComponent<CinemachineConfiner>());
+            context.ReplaceVirtualCamera(gameCamera.GetComponent<CinemachineVirtualCamera>());
+            context.ReplaceCamera(gameCamera);
         }
     }
 }

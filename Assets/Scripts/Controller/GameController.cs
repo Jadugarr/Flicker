@@ -1,6 +1,7 @@
 ﻿using Entitas;
 using Level.Systems;
 using SemoGames.Controller;
+using SemoGames.GameCamera;
 using SemoGames.Player;
 
 namespace SemoGames.Controller
@@ -24,7 +25,9 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
-                .Add(new SpawnPlayerSystem(gameContext));
+                .Add(new SpawnPlayerSystem(gameContext))
+                .Add(new SetCameraConfinerSystem(gameContext))
+                .Add(new SetCameraFollowPlayerSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

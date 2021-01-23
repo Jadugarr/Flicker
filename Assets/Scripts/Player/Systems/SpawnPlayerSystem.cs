@@ -45,6 +45,7 @@ namespace SemoGames.Player
                     GameObject playerObject =
                         GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform, false);
                     playerEntity.AddView(playerObject);
+                    playerEntity.isCameraFollow = true;
                     playerObject.Link(playerEntity);
                 });
         }
