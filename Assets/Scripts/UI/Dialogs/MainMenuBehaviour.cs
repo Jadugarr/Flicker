@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using Entitas.Unity;
 using SemoGames.Configurations;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,6 +44,10 @@ namespace SemoGames.UI
                 }
             }
             
+            GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
+            
+            gameObject.Unlink();
+            mainMenuEntity?.Destroy();
             Destroy(gameObject);
         }
 

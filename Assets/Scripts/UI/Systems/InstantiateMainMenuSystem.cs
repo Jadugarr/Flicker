@@ -36,11 +36,12 @@ namespace SemoGames.UI
                 // Create proper system to load/unload assets
                 AssetReference mainMenuReference = GameConfigurations.AssetReferenceConfiguration.MainMenuReference;
 
-                AssetLoaderUtils.LoadAssetAsync(mainMenuReference, loadedObject =>
+                AssetLoaderUtils.LoadAssetAsync(mainMenuReference, gameEntity, loadedObject =>
                 {
                     GameObject mainMenuBehaviour = GameObject.Instantiate(loadedObject, Contexts.sharedInstance.game.staticLayer.Value.transform,
                         false);
                     gameEntity.AddMainMenuBehaviour(mainMenuBehaviour.GetComponent<MainMenuBehaviour>());
+                    gameEntity.AddView(mainMenuBehaviour);
                     mainMenuBehaviour.Link(gameEntity);
                 });
             }
