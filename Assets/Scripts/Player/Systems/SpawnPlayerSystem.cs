@@ -43,8 +43,12 @@ namespace SemoGames.Player
                 loadedObject =>
                 {
                     GameObject playerObject =
-                        GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform, false);
+                        GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform.position, Quaternion.identity);
                     playerEntity.AddView(playerObject);
+                    playerEntity.AddPosition(playerObject.transform.position);
+                    Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
+                    playerEntity.AddRigidbody(playerRigidBody);
+                    playerEntity.AddVelocity(playerRigidBody.velocity);
                     playerEntity.isCameraFollow = true;
                     playerObject.Link(playerEntity);
                 });

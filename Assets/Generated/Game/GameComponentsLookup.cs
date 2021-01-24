@@ -10,27 +10,33 @@ public static class GameComponentsLookup {
 
     public const int AsyncOperationHandle = 0;
     public const int Id = 1;
-    public const int View = 2;
-    public const int Controller = 3;
-    public const int Camera = 4;
-    public const int CameraConfinerCollider = 5;
-    public const int CameraConfiner = 6;
-    public const int CameraFollow = 7;
-    public const int VirtualCamera = 8;
-    public const int ActiveSceneName = 9;
-    public const int Level = 10;
-    public const int LevelIndex = 11;
-    public const int PlayerSpawn = 12;
-    public const int Player = 13;
-    public const int MainMenuBehaviour = 14;
-    public const int MainMenu = 15;
-    public const int StaticLayer = 16;
+    public const int Position = 2;
+    public const int Rigidbody = 3;
+    public const int Velocity = 4;
+    public const int View = 5;
+    public const int Controller = 6;
+    public const int Camera = 7;
+    public const int CameraConfinerCollider = 8;
+    public const int CameraConfiner = 9;
+    public const int CameraFollow = 10;
+    public const int VirtualCamera = 11;
+    public const int ActiveSceneName = 12;
+    public const int Level = 13;
+    public const int LevelIndex = 14;
+    public const int PlayerSpawn = 15;
+    public const int Player = 16;
+    public const int MainMenuBehaviour = 17;
+    public const int MainMenu = 18;
+    public const int StaticLayer = 19;
 
-    public const int TotalComponents = 17;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
         "Id",
+        "Position",
+        "Rigidbody",
+        "Velocity",
         "View",
         "Controller",
         "Camera",
@@ -51,6 +57,9 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(SemoGames.Common.AsyncOperationHandleComponent),
         typeof(SemoGames.Common.IdComponent),
+        typeof(SemoGames.Common.PositionComponent),
+        typeof(SemoGames.Common.RigidbodyComponent),
+        typeof(SemoGames.Common.VelocityComponent),
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
