@@ -1,5 +1,4 @@
 ﻿using Entitas;
-using GameInput.Systems;
 using SemoGames.Controller;
 
 namespace Controller
@@ -38,8 +37,7 @@ namespace Controller
 
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
-            return new Systems()
-                .Add(new CleanupInputActionsSystem());
+            return new Systems();
         }
     }
 }

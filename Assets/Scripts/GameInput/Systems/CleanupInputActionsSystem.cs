@@ -1,10 +1,10 @@
 ﻿using Entitas;
 
-namespace GameInput.Systems
+namespace SemoGames.GameInput
 {
-    public class CleanupInputActionsSystem : ICleanupSystem
+    public class CleanupInputActionsSystem : IExecuteSystem
     {
-        public void Cleanup()
+        public void Execute()
         {
             IGroup<InputEntity> inputActionGroup = Contexts.sharedInstance.input.GetGroup(InputMatcher.InputAction);
 

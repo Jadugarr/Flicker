@@ -1,7 +1,8 @@
 ﻿using Entitas;
 using Level.Systems;
-using SemoGames.Controller;
+using SemoGames.Common;
 using SemoGames.GameCamera;
+using SemoGames.GameInput;
 using SemoGames.Player;
 
 namespace SemoGames.Controller
@@ -37,7 +38,17 @@ namespace SemoGames.Controller
 
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
-            return new Systems();
+            GameContext gameContext = (GameContext) context;
+            InputContext inputContext = Contexts.sharedInstance.input;
+
+            return new Systems()
+                .Add(new SyncVelocitySystem(gameContext))
+                .Add(new SyncPositionAndViewSystem(gameContext))
+                .Add(new InputAdapterSystem(inputContext))
+                .Add(new HandleTestVelocityInputSystem(inputContext))
+                .Add(new RenderVelocitySystem(gameContext))
+                .Add(new RenderPositionSystem(gameContext))
+                .Add(new CleanupInputActionsSystem());
         }
     }
 }
