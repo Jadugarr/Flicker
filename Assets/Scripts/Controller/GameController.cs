@@ -44,7 +44,6 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
                 .Add(new SyncPositionAndViewSystem(gameContext))
-                .Add(new InputAdapterSystem(inputContext))
                 .Add(new HandleTestVelocityInputSystem(inputContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))

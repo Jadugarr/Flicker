@@ -25,7 +25,6 @@ public static class InputComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(SemoGames.Common.IdComponent),
         typeof(SemoGames.GameInput.InputActionComponent),
-        typeof(SemoGames.GameInput.InputAdapterComponent),
         typeof(SemoGames.GameInput.PlayerInputComponent)
     };
 }

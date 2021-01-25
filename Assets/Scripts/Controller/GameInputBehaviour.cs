@@ -23,6 +23,8 @@ namespace SemoGames.GameInput
 
         private void OnInputActionTriggered(InputAction.CallbackContext inputAction)
         {
+            Debug.Log($"InputAction: {inputAction.action.name}; Phase: {inputAction.phase}");
+            
             _context.CreateEntity().AddInputAction(inputAction);
         }
 

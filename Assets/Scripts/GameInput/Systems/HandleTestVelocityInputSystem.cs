@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SemoGames.GameInput
 {
@@ -21,11 +22,17 @@ namespace SemoGames.GameInput
 
         protected override bool Filter(InputEntity entity)
         {
-            return entity.inputAction.Value.action.name == "TestVelocity";
+            InputAction.CallbackContext inputAction = entity.inputAction.Value;
+            return inputAction.action.name == "TestVelocity"; // && inputAction.phase == InputActionPhase.Performed;
         }
 
         protected override void Execute(List<InputEntity> entities)
         {
+            Debug.Log($"[TestVelocity] Entity count: {entities.Count}");
+            foreach (InputEntity inputEntity in entities)
+            {
+                Debug.Log($"[TestVelocity] Processed Input phase: {inputEntity.inputAction.Value.phase}; Entity Id: {inputEntity.id.Value}");
+            }
             Contexts.sharedInstance.game.GetGroup(GameMatcher.Player).GetSingleEntity().ReplaceVelocity(new Vector3(0f, 10f, 0f));
         }
     }
