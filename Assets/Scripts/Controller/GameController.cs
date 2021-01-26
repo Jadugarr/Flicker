@@ -39,12 +39,11 @@ namespace SemoGames.Controller
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
-            InputContext inputContext = Contexts.sharedInstance.input;
 
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
                 .Add(new SyncPositionAndViewSystem(gameContext))
-                .Add(new HandleTestVelocityInputSystem(inputContext))
+                .Add(new FlickSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))
                 .Add(new CleanupInputActionsSystem());

@@ -23,9 +23,12 @@ namespace SemoGames.GameInput
 
         private void OnInputActionTriggered(InputAction.CallbackContext inputAction)
         {
-            Debug.Log($"InputAction: {inputAction.action.name}; Phase: {inputAction.phase}");
-            
-            _context.CreateEntity().AddInputAction(inputAction);
+            switch (inputAction.action.name)
+            {
+                case "TestVelocity":
+                    HandleTestVelocityInput(inputAction);
+                    break;
+            }
         }
 
         private void OnDestroy()
@@ -33,6 +36,14 @@ namespace SemoGames.GameInput
             _playerInput.onActionTriggered -= OnInputActionTriggered;
 
             _context.RemovePlayerInput();
+        }
+
+        private void HandleTestVelocityInput(InputAction.CallbackContext inputAction)
+        {
+            if (inputAction.phase == InputActionPhase.Performed)
+            {
+                Contexts.sharedInstance.game.GetGroup(GameMatcher.Player).GetSingleEntity().isFlick = true;
+            }
         }
     }
 }
