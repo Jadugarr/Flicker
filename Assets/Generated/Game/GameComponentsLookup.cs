@@ -16,21 +16,22 @@ public static class GameComponentsLookup {
     public const int View = 5;
     public const int Controller = 6;
     public const int Flick = 7;
-    public const int Camera = 8;
-    public const int CameraConfinerCollider = 9;
-    public const int CameraConfiner = 10;
-    public const int CameraFollow = 11;
-    public const int VirtualCamera = 12;
-    public const int ActiveSceneName = 13;
-    public const int Level = 14;
-    public const int LevelIndex = 15;
-    public const int PlayerSpawn = 16;
-    public const int Player = 17;
-    public const int MainMenuBehaviour = 18;
-    public const int MainMenu = 19;
-    public const int StaticLayer = 20;
+    public const int StartFlick = 8;
+    public const int Camera = 9;
+    public const int CameraConfinerCollider = 10;
+    public const int CameraConfiner = 11;
+    public const int CameraFollow = 12;
+    public const int VirtualCamera = 13;
+    public const int ActiveSceneName = 14;
+    public const int Level = 15;
+    public const int LevelIndex = 16;
+    public const int PlayerSpawn = 17;
+    public const int Player = 18;
+    public const int MainMenuBehaviour = 19;
+    public const int MainMenu = 20;
+    public const int StaticLayer = 21;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 22;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -41,6 +42,7 @@ public static class GameComponentsLookup {
         "View",
         "Controller",
         "Flick",
+        "StartFlick",
         "Camera",
         "CameraConfinerCollider",
         "CameraConfiner",
@@ -65,6 +67,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
         typeof(SemoGames.Flick.FlickComponent),
+        typeof(SemoGames.Flick.StartFlickComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
         typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),
         typeof(SemoGames.GameCamera.CameraConfinerComponent),

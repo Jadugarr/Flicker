@@ -2,7 +2,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace SemoGames.GameInput
+namespace SemoGames.Flick
 {
     public class FlickSystem : ReactiveSystem<GameEntity>
     {
