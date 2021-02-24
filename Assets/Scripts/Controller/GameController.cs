@@ -30,7 +30,9 @@ namespace SemoGames.Controller
                 .Add(new SpawnPlayerSystem(gameContext))
                 .Add(new SetCameraConfinerSystem(gameContext))
                 .Add(new SetCameraFollowPlayerSystem(gameContext))
-                .Add(new StartFlickSystem(gameContext));
+                .Add(new CreateFlickLineSystem(gameContext))
+                .Add(new DrawFlickLineSystem(gameContext))
+                .Add(new DestroyFlickLineSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

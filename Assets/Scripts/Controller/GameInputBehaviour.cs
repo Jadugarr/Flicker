@@ -1,6 +1,4 @@
-﻿
-using Entitas.Unity;
-using JetBrains.Annotations;
+﻿using Entitas;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +7,9 @@ namespace SemoGames.GameInput
     public class GameInputBehaviour : MonoBehaviour
     {
         [SerializeField] private PlayerInput _playerInput;
-        [SerializeField] private Camera camera;
 
+        private IGroup<GameEntity> _playerGroup;
+        private IGroup<GameEntity> _cameraGroup;
         private InputContext _context;
 
         private void Awake()
@@ -23,6 +22,9 @@ namespace SemoGames.GameInput
             _context = Contexts.sharedInstance.input;
 
             _context.ReplacePlayerInput(_playerInput);
+
+            _playerGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Player);
+            _cameraGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Camera);
         }
 
         private void OnInputActionTriggered(InputAction.CallbackContext inputAction)
@@ -36,7 +38,7 @@ namespace SemoGames.GameInput
                     HandleFireInput(inputAction);
                     break;
                 case "MousePosition":
-                    //HandleMousePositionInput(inputAction);
+                    HandleMousePositionInput(inputAction);
                     break;
             }
         }
@@ -58,12 +60,15 @@ namespace SemoGames.GameInput
 
         private void HandleMousePositionInput(InputAction.CallbackContext inputAction)
         {
-            Ray ray = Camera.main.ScreenPointToRay(inputAction.ReadValue<Vector2>());
-            var hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit.collider != null && hit.collider.gameObject.CompareTag(Tags.Player))
+            GameEntity cameraEntity = _cameraGroup.GetSingleEntity();
+            if (cameraEntity != null)
             {
-                Contexts.sharedInstance.game.CreateEntity().isStartFlick = true;
+                Camera camera = cameraEntity.camera.Value;
+                Vector2 rawMousePosition = Mouse.current.position.ReadValue();
+                Vector3 mouseVector = new Vector3(rawMousePosition.x, rawMousePosition.y, camera.nearClipPlane);
+                Vector2 worldMousePosition = camera.ScreenToWorldPoint(mouseVector);
+                
+                Contexts.sharedInstance.game.ReplaceMousePosition(worldMousePosition);
             }
         }
 
@@ -71,17 +76,31 @@ namespace SemoGames.GameInput
         {
             if (inputAction.phase == InputActionPhase.Performed)
             {
-                Vector2 mousePosition = Mouse.current.position.ReadValue();
-                Vector3 mouseVector = new Vector3(mousePosition.x, mousePosition.y, camera.nearClipPlane);
-                Vector2 ray = camera.ScreenToWorldPoint(mouseVector);
-                var hit = Physics2D.Raycast(ray, Vector2.up);
-
-                if (hit.collider != null && hit.collider.gameObject.CompareTag(Tags.Player))
+                GameEntity cameraEntity = _cameraGroup.GetSingleEntity();
+                if (cameraEntity != null)
                 {
-                    if (hit.collider.gameObject.GetEntityLink().entity is GameEntity linkedEntity)
+                    Camera camera = cameraEntity.camera.Value;
+                    Vector2 mousePosition = Mouse.current.position.ReadValue();
+                    Vector3 mouseVector = new Vector3(mousePosition.x, mousePosition.y, camera.nearClipPlane);
+                    Vector2 ray = camera.ScreenToWorldPoint(mouseVector);
+                    var hit = Physics2D.Raycast(ray, Vector2.up);
+
+                    if (hit.collider != null && hit.collider.gameObject.CompareTag(Tags.Player))
                     {
-                        linkedEntity.isStartFlick = true;
+                        GameEntity playerEntity = _playerGroup.GetSingleEntity();
+                        if (playerEntity != null)
+                        {
+                            playerEntity.isStartFlick = true;
+                        }
                     }
+                }
+            }
+            else if (inputAction.phase == InputActionPhase.Canceled)
+            {
+                GameEntity playerEntity = _playerGroup.GetSingleEntity();
+                if (playerEntity != null && playerEntity.isStartFlick)
+                {
+                    playerEntity.isStartFlick = false;
                 }
             }
         }
