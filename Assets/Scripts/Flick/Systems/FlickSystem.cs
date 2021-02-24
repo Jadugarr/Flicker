@@ -28,7 +28,6 @@ namespace SemoGames.Flick
         {
             foreach (GameEntity gameEntity in entities)
             {
-                Debug.Log("[TestVelocity] Performing Action");
                 gameEntity.ReplaceVelocity(new Vector3(0f, 10f, 0f));
                 gameEntity.isFlick = false;
             }

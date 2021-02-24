@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿
+using Entitas.Unity;
+using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace SemoGames.GameInput
@@ -6,6 +9,7 @@ namespace SemoGames.GameInput
     public class GameInputBehaviour : MonoBehaviour
     {
         [SerializeField] private PlayerInput _playerInput;
+        [SerializeField] private Camera camera;
 
         private InputContext _context;
 
@@ -29,7 +33,6 @@ namespace SemoGames.GameInput
                     HandleTestVelocityInput(inputAction);
                     break;
                 case "Fire":
-                    Debug.Log($"[Fire] Phase: {inputAction.phase}");
                     HandleFireInput(inputAction);
                     break;
                 case "MousePosition":
@@ -68,17 +71,17 @@ namespace SemoGames.GameInput
         {
             if (inputAction.phase == InputActionPhase.Performed)
             {
-                Debug.Log($"[Fire] Trying to hit...");
                 Vector2 mousePosition = Mouse.current.position.ReadValue();
-                Debug.Log($"[Fire] Current Mouse position: {mousePosition}");
-                Vector2 ray = Camera.main.ScreenToWorldPoint(mousePosition);
-                Debug.Log($"[Fire] Position to check: {ray}");
-                var hit = Physics2D.Raycast(ray, Vector2.zero);
+                Vector3 mouseVector = new Vector3(mousePosition.x, mousePosition.y, camera.nearClipPlane);
+                Vector2 ray = camera.ScreenToWorldPoint(mouseVector);
+                var hit = Physics2D.Raycast(ray, Vector2.up);
 
                 if (hit.collider != null && hit.collider.gameObject.CompareTag(Tags.Player))
                 {
-                    Debug.Log($"[Fire] Hit!");
-                    Contexts.sharedInstance.game.CreateEntity().isStartFlick = true;
+                    if (hit.collider.gameObject.GetEntityLink().entity is GameEntity linkedEntity)
+                    {
+                        linkedEntity.isStartFlick = true;
+                    }
                 }
             }
         }

@@ -48,7 +48,6 @@ namespace SemoGames.Controller
             GameContext gameContext = (GameContext) context;
             
             return new Systems()
-                .Add(new InitCameraSystem())
                 .Add(new InitCurrentSceneSystem())
                 .Add(new LoadNewSceneSystem(gameContext))
                 .Add(new UnloadSceneSystem(gameContext));
