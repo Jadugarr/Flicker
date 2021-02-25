@@ -24,3 +24,7 @@ MonoBehaviour:
     m_AssetGUID: 3457426de275a254392d94ae3919b419
     m_SubObjectName: 
     m_SubObjectType: 
+  flickLineRendererReference:
+    m_AssetGUID: a309eeb82d9aed144ae0c0879f38f84d
+    m_SubObjectName: 
+    m_SubObjectType: 

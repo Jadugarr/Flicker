@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using SemoGames.Configurations;
+using SemoGames.Utils;
 using UnityEngine;
 
 namespace SemoGames.Flick
@@ -24,10 +26,15 @@ namespace SemoGames.Flick
         protected override void Execute(List<GameEntity> entities)
         {
             GameEntity lineEntity = Contexts.sharedInstance.game.CreateEntity();
-            LineRenderer lineRenderer = new GameObject("FlickLine").AddComponent<LineRenderer>();
-            lineRenderer.gameObject.Link(lineEntity);
-            lineEntity.AddFlickLine(lineRenderer);
-            lineEntity.AddView(lineRenderer.gameObject);
+            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.FlickLineRendererReference, lineEntity,
+                resultObject =>
+                {
+                    GameObject lineRendererObject = Object.Instantiate(resultObject);
+                    LineRenderer lineRenderer = lineRendererObject.GetComponent<LineRenderer>();
+                    lineRenderer.gameObject.Link(lineEntity);
+                    lineEntity.AddFlickLine(lineRenderer);
+                    lineEntity.AddView(lineRenderer.gameObject);
+                });
         }
     }
 }
