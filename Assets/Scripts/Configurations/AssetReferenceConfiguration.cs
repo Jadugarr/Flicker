@@ -25,6 +25,12 @@ namespace SemoGames.Configurations
         [SerializeField] private AssetReference playerAssetReference;
 
         #endregion
+        
+        #region Components
+
+        [SerializeField] private AssetReference flickLineRendererReference;
+        
+        #endregion
 
         #region Read-only Properties
 
@@ -33,6 +39,8 @@ namespace SemoGames.Configurations
         public AssetReference[] LevelAssetReferences => levelAssetReferences;
 
         public AssetReference PlayerAssetReference => playerAssetReference;
+
+        public AssetReference FlickLineRendererReference => flickLineRendererReference;
 
         #endregion
     }

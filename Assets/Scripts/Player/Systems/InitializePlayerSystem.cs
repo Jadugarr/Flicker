@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using SemoGames.Configurations;
 
 namespace SemoGames.Player
 {
@@ -6,7 +7,10 @@ namespace SemoGames.Player
     {
         public void Initialize()
         {
-            Contexts.sharedInstance.game.CreateEntity().isPlayer = true;
+            GameEntity playerEntity = Contexts.sharedInstance.game.CreateEntity(); 
+            playerEntity.isPlayer = true;
+            playerEntity.AddMaxFlickPower(GameConfigurations.GameConstantsConfiguration.MaxFlickPower);
+            playerEntity.AddCurrentFlickPower(0f);
         }
     }
 }
