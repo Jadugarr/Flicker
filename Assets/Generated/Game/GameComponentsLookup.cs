@@ -15,25 +15,30 @@ public static class GameComponentsLookup {
     public const int Velocity = 4;
     public const int View = 5;
     public const int Controller = 6;
-    public const int Flick = 7;
-    public const int FlickLine = 8;
-    public const int StartFlick = 9;
-    public const int Camera = 10;
-    public const int CameraConfinerCollider = 11;
-    public const int CameraConfiner = 12;
-    public const int CameraFollow = 13;
-    public const int VirtualCamera = 14;
-    public const int MousePosition = 15;
-    public const int ActiveSceneName = 16;
-    public const int Level = 17;
-    public const int LevelIndex = 18;
-    public const int PlayerSpawn = 19;
-    public const int Player = 20;
-    public const int MainMenuBehaviour = 21;
-    public const int MainMenu = 22;
-    public const int StaticLayer = 23;
+    public const int CurrentDragLength = 7;
+    public const int CurrentFlickPower = 8;
+    public const int FlickAngle = 9;
+    public const int Flick = 10;
+    public const int FlickLine = 11;
+    public const int MaxDragLength = 12;
+    public const int MaxFlickPower = 13;
+    public const int StartFlick = 14;
+    public const int Camera = 15;
+    public const int CameraConfinerCollider = 16;
+    public const int CameraConfiner = 17;
+    public const int CameraFollow = 18;
+    public const int VirtualCamera = 19;
+    public const int MousePosition = 20;
+    public const int ActiveSceneName = 21;
+    public const int Level = 22;
+    public const int LevelIndex = 23;
+    public const int PlayerSpawn = 24;
+    public const int Player = 25;
+    public const int MainMenuBehaviour = 26;
+    public const int MainMenu = 27;
+    public const int StaticLayer = 28;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -43,8 +48,13 @@ public static class GameComponentsLookup {
         "Velocity",
         "View",
         "Controller",
+        "CurrentDragLength",
+        "CurrentFlickPower",
+        "FlickAngle",
         "Flick",
         "FlickLine",
+        "MaxDragLength",
+        "MaxFlickPower",
         "StartFlick",
         "Camera",
         "CameraConfinerCollider",
@@ -70,8 +80,13 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Common.VelocityComponent),
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
+        typeof(SemoGames.Flick.CurrentDragLengthComponent),
+        typeof(SemoGames.Flick.CurrentFlickPowerComponent),
+        typeof(SemoGames.Flick.FlickAngleComponent),
         typeof(SemoGames.Flick.FlickComponent),
         typeof(SemoGames.Flick.FlickLineComponent),
+        typeof(SemoGames.Flick.MaxDragLengthComponent),
+        typeof(SemoGames.Flick.MaxFlickPowerComponent),
         typeof(SemoGames.Flick.StartFlickComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
         typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),

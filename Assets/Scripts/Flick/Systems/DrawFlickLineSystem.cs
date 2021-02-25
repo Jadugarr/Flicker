@@ -36,8 +36,22 @@ namespace SemoGames.Flick
 
             if (playerEntity != null && mousePositionEntity != null && flickLineEntity != null)
             {
+                Vector3 lineEndPosition;
+                float distance = Vector2.Distance(playerEntity.position.Value, mousePositionEntity.mousePosition.Value);
+                flickLineEntity.ReplaceCurrentDragLength(distance);
+                if (distance < flickLineEntity.maxDragLength.Value)
+                {
+                    lineEndPosition = mousePositionEntity.mousePosition.Value;
+                }
+                else
+                {
+                    Vector3 dir = ((Vector3) mousePositionEntity.mousePosition.Value - playerEntity.position.Value)
+                        .normalized;
+                    lineEndPosition = playerEntity.position.Value + dir * flickLineEntity.maxDragLength.Value;
+                }
+                
                 flickLineEntity.flickLine.Value.SetPositions(new[]
-                    {playerEntity.position.Value, (Vector3) mousePositionEntity.mousePosition.Value});
+                    {playerEntity.position.Value, lineEndPosition});
             }
         }
     }

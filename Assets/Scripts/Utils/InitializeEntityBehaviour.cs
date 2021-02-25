@@ -9,6 +9,7 @@ namespace SemoGames.Utils
         [SerializeField] private GameObject _staticLayer;
         [SerializeField] private AssetReferenceConfiguration _assetReferenceConfiguration;
         [SerializeField] private GameSceneConfiguration _gameSceneConfiguration;
+        [SerializeField] private GameConstantsConfiguration _gameConstantsConfiguration;
         [SerializeField] private Camera _gameCamera;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private CinemachineConfiner _confiner;
@@ -28,6 +29,7 @@ namespace SemoGames.Utils
 
             GameConfigurations.AssetReferenceConfiguration = _assetReferenceConfiguration;
             GameConfigurations.GameSceneConfiguration = _gameSceneConfiguration;
+            GameConfigurations.GameConstantsConfiguration = _gameConstantsConfiguration;
 
             #endregion
             

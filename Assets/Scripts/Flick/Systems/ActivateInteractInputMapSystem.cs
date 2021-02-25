@@ -1,16 +1,11 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 
 namespace SemoGames.Flick
 {
-    public class FlickSystem : ReactiveSystem<GameEntity>
+    public class ActivateInteractInputMapSystem : ReactiveSystem<GameEntity>
     {
-        public FlickSystem(IContext<GameEntity> context) : base(context)
-        {
-        }
-
-        public FlickSystem(ICollector<GameEntity> collector) : base(collector)
+        public ActivateInteractInputMapSystem(IContext<GameEntity> context) : base(context)
         {
         }
 
@@ -21,16 +16,12 @@ namespace SemoGames.Flick
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.isFlick && entity.hasVelocity;
+            return true;
         }
 
         protected override void Execute(List<GameEntity> entities)
         {
-            foreach (GameEntity gameEntity in entities)
-            {
-                gameEntity.ReplaceVelocity(new Vector3(0f, 10f, 0f));
-                gameEntity.isFlick = false;
-            }
+            Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Environment");
         }
     }
 }

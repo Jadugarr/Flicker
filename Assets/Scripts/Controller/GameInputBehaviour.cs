@@ -40,6 +40,9 @@ namespace SemoGames.GameInput
                 case "MousePosition":
                     HandleMousePositionInput(inputAction);
                     break;
+                case "Interact":
+                    HandleInteractInput(inputAction);
+                    break;
             }
         }
 
@@ -101,7 +104,16 @@ namespace SemoGames.GameInput
                 if (playerEntity != null && playerEntity.isStartFlick)
                 {
                     playerEntity.isStartFlick = false;
+                    playerEntity.isFlick = true;
                 }
+            }
+        }
+
+        private void HandleInteractInput(InputAction.CallbackContext inputAction)
+        {
+            if (inputAction.phase == InputActionPhase.Performed)
+            {
+                Debug.Log("Interact with shit!");
             }
         }
     }

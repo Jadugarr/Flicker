@@ -34,6 +34,8 @@ namespace SemoGames.Flick
                     lineRenderer.gameObject.Link(lineEntity);
                     lineEntity.AddFlickLine(lineRenderer);
                     lineEntity.AddView(lineRenderer.gameObject);
+                    lineEntity.AddMaxDragLength(GameConfigurations.GameConstantsConfiguration.MaxDragLength);
+                    lineEntity.AddCurrentDragLength(0f);
                 });
         }
     }

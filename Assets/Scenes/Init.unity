@@ -255,6 +255,8 @@ MonoBehaviour:
     type: 2}
   _gameSceneConfiguration: {fileID: 11400000, guid: 5de7ea6393527da40b5746b5c64796d4,
     type: 2}
+  _gameConstantsConfiguration: {fileID: 11400000, guid: e108ff8d3ab91774993065a51207a66f,
+    type: 2}
   _gameCamera: {fileID: 793999423}
   _virtualCamera: {fileID: 1336013763}
   _confiner: {fileID: 1336013765}

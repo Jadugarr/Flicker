@@ -32,7 +32,11 @@ namespace SemoGames.Controller
                 .Add(new SetCameraFollowPlayerSystem(gameContext))
                 .Add(new CreateFlickLineSystem(gameContext))
                 .Add(new DrawFlickLineSystem(gameContext))
-                .Add(new DestroyFlickLineSystem(gameContext));
+                .Add(new CalculateCurrentPowerSystem(gameContext))
+                .Add(new CalculateFlickAngleSystem(gameContext))
+                .Add(new DestroyFlickLineSystem(gameContext))
+                .Add(new ActivateInteractInputMapSystem(gameContext))
+                .Add(new ActivatePlayerInputMapSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -47,7 +51,8 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
                 .Add(new SyncPositionAndViewSystem(gameContext))
-                .Add(new FlickSystem(gameContext))
+                .Add(new ApplyPowerToCharacterSystem(gameContext))
+                .Add(new DetectStopMovingSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))
                 .Add(new CleanupInputActionsSystem());
