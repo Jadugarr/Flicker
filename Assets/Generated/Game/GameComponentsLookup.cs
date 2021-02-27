@@ -33,12 +33,13 @@ public static class GameComponentsLookup {
     public const int Level = 22;
     public const int LevelIndex = 23;
     public const int PlayerSpawn = 24;
-    public const int Player = 25;
-    public const int MainMenuBehaviour = 26;
-    public const int MainMenu = 27;
-    public const int StaticLayer = 28;
+    public const int IsInGoal = 25;
+    public const int Player = 26;
+    public const int MainMenuBehaviour = 27;
+    public const int MainMenu = 28;
+    public const int StaticLayer = 29;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 30;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -66,6 +67,7 @@ public static class GameComponentsLookup {
         "Level",
         "LevelIndex",
         "PlayerSpawn",
+        "IsInGoal",
         "Player",
         "MainMenuBehaviour",
         "MainMenu",
@@ -98,6 +100,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Level.LevelComponent),
         typeof(SemoGames.Level.LevelIndexComponent),
         typeof(SemoGames.Level.PlayerSpawnComponent),
+        typeof(SemoGames.Player.IsInGoalComponent),
         typeof(SemoGames.Player.PlayerComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
