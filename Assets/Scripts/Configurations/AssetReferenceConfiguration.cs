@@ -11,6 +11,7 @@ namespace SemoGames.Configurations
         #region Dialogs
 
         [SerializeField] private AssetReference mainMenuReference;
+        [SerializeField] private AssetReference finishLevelDialogReference;
 
         #endregion
 
@@ -41,6 +42,8 @@ namespace SemoGames.Configurations
         public AssetReference PlayerAssetReference => playerAssetReference;
 
         public AssetReference FlickLineRendererReference => flickLineRendererReference;
+
+        public AssetReference FinishLevelDialogReference => finishLevelDialogReference;
 
         #endregion
     }

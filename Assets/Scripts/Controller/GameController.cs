@@ -5,6 +5,7 @@ using SemoGames.Flick;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.Player;
+using SemoGames.UI;
 
 namespace SemoGames.Controller
 {
@@ -37,7 +38,8 @@ namespace SemoGames.Controller
                 .Add(new DestroyFlickLineSystem(gameContext))
                 .Add(new ActivateInteractInputMapSystem(gameContext))
                 .Add(new ActivatePlayerInputMapSystem(gameContext))
-                .Add(new ActivateUiInputMapOnReachedGoalSystem(gameContext));
+                .Add(new ActivateUiInputMapOnReachedGoalSystem(gameContext))
+                .Add(new ShowFinishLevelDialogOnReachedGoalSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
