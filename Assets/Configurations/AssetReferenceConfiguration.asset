@@ -16,6 +16,10 @@ MonoBehaviour:
     m_AssetGUID: a33ebe9f4081e434f938e21fc5938341
     m_SubObjectName: 
     m_SubObjectType: 
+  finishLevelDialogReference:
+    m_AssetGUID: d0a8e66ecf6bae542a15307acd688ad4
+    m_SubObjectName: 
+    m_SubObjectType: 
   levelAssetReferences:
   - m_AssetGUID: 2ea124d50a654ec4dbe3966657ba9b45
     m_SubObjectName: 

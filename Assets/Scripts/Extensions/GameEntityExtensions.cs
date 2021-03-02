@@ -1,5 +1,6 @@
 ﻿using Entitas.Unity;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SemoGames.Extensions
 {
@@ -7,7 +8,12 @@ namespace SemoGames.Extensions
     {
         public static void DestroyEntity(this GameEntity entity)
         {
-            if (entity.hasView)
+            if (entity.hasAsyncOperationHandle)
+            {
+                Addressables.Release(entity.asyncOperationHandle.Value);
+            }
+            
+            if (entity.hasView && entity.view.Value != null)
             {
                 entity.view.Value.Unlink();
                 GameObject.Destroy(entity.view.Value);

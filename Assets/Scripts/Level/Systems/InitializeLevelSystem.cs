@@ -14,7 +14,7 @@ namespace Level.Systems
             IGroup<GameEntity> levelGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
             GameEntity levelEntity = levelGroup.GetSingleEntity();
 
-            if (levelEntity != null)
+            if (levelEntity != null && !levelEntity.hasView)
             {
                 AssetReference levelReference =
                     GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[levelEntity.levelIndex.Value];

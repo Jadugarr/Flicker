@@ -17,7 +17,7 @@ namespace SemoGames.Flick
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.isFlick;
+            return entity.isFlick && !entity.isIsInGoal;
         }
 
         protected override void Execute(List<GameEntity> entities)
