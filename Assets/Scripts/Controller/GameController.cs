@@ -40,7 +40,8 @@ namespace SemoGames.Controller
                 .Add(new ActivatePlayerInputMapSystem(gameContext))
                 .Add(new ActivateUiInputMapOnReachedGoalSystem(gameContext))
                 .Add(new ShowFinishLevelDialogOnReachedGoalSystem(gameContext))
-                .Add(new TeardownPlayerSystem());
+                .Add(new TeardownPlayerSystem())
+                .Add(new LoadLevelSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
