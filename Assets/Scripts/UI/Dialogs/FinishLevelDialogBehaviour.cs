@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entitas.Unity;
+using SemoGames.Controller;
+using SemoGames.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,7 +55,9 @@ namespace SemoGames.UI
 
         private void OnRestartClicked()
         {
-            Debug.Log("Restart the level!");
+            Contexts.sharedInstance.game.CreateEntity().AddRestartController(GameControllerType.Game);
+            
+            ((GameEntity)gameObject.GetEntityLink().entity).DestroyEntity();
         }
     }
 }

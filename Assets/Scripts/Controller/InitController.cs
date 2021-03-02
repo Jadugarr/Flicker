@@ -1,8 +1,7 @@
-﻿using Entitas;
+﻿using Controller;
+using Entitas;
 using SemoGames.Configurations;
-using SemoGames.GameCamera;
 using SemoGames.GameScene;
-using UnityEngine.AddressableAssets;
 
 namespace SemoGames.Controller
 {
@@ -21,7 +20,6 @@ namespace SemoGames.Controller
         protected override void AfterAwake()
         {
             GetContext().OnEntityCreated += OnEntityCreated;
-            GetContext().OnEntityWillBeDestroyed += OnEntityWillBeDestroyed;
         }
 
         protected override void AfterStart()
@@ -34,15 +32,6 @@ namespace SemoGames.Controller
             (entity as GameEntity)?.AddId(entity.creationIndex);
         }
 
-        private void OnEntityWillBeDestroyed(IContext context, IEntity entity)
-        {
-            GameEntity gameEntity = (GameEntity) entity;
-            if (gameEntity != null && gameEntity.hasAsyncOperationHandle)
-            {
-                Addressables.Release(gameEntity.asyncOperationHandle.Value);
-            }
-        }
-
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
@@ -50,7 +39,8 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new InitCurrentSceneSystem())
                 .Add(new LoadNewSceneSystem(gameContext))
-                .Add(new UnloadSceneSystem(gameContext));
+                .Add(new UnloadSceneSystem(gameContext))
+                .Add(new RestartControllerSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
