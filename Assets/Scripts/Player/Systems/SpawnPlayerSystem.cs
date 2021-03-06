@@ -38,20 +38,29 @@ namespace SemoGames.Player
         {
             GameEntity playerEntity = playerGroup.GetSingleEntity();
             GameEntity spawnEntity = spawnPointGroup.GetSingleEntity();
-            
-            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.PlayerAssetReference, playerEntity,
-                loadedObject =>
-                {
-                    GameObject playerObject =
-                        GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform.position, Quaternion.identity);
-                    playerEntity.AddView(playerObject);
-                    playerEntity.AddPosition(playerObject.transform.position);
-                    Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
-                    playerEntity.AddRigidbody(playerRigidBody);
-                    playerEntity.AddVelocity(playerRigidBody.velocity);
-                    playerEntity.isCameraFollow = true;
-                    playerObject.Link(playerEntity);
-                });
+
+            if (playerEntity.hasView)
+            {
+                playerEntity.ReplacePosition(spawnEntity.view.Value.transform.position);
+                playerEntity.ReplaceVelocity(Vector3.zero);
+                playerEntity.isIsInGoal = false;
+            }
+            else
+            {
+                AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.PlayerAssetReference, playerEntity,
+                    loadedObject =>
+                    {
+                        GameObject playerObject =
+                            GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform.position, Quaternion.identity);
+                        playerEntity.AddView(playerObject);
+                        playerEntity.AddPosition(playerObject.transform.position);
+                        Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
+                        playerEntity.AddRigidbody(playerRigidBody);
+                        playerEntity.AddVelocity(playerRigidBody.velocity);
+                        playerEntity.isCameraFollow = true;
+                        playerObject.Link(playerEntity);
+                    });
+            }
         }
     }
 }
