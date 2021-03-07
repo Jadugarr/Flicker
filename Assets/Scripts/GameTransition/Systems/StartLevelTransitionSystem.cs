@@ -3,20 +3,20 @@ using DG.Tweening;
 using Entitas;
 using UnityEngine;
 
-namespace SemoGames.UI
+namespace SemoGames.GameTransition
 {
-    public class EndLevelTransitionSystem : ReactiveSystem<GameEntity>
+    public class StartLevelTransitionSystem : ReactiveSystem<GameEntity>
     {
         private IGroup<GameEntity> _levelTransitionOverlayGroup;
         
-        public EndLevelTransitionSystem(IContext<GameEntity> context) : base(context)
+        public StartLevelTransitionSystem(IContext<GameEntity> context) : base(context)
         {
             _levelTransitionOverlayGroup = context.GetGroup(GameMatcher.LevelTransitionOverlay);
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.EndLevelTransition,
+            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.StartLevelTransition,
                 GroupEvent.Added));
         }
 
@@ -28,10 +28,11 @@ namespace SemoGames.UI
         protected override void Execute(List<GameEntity> entities)
         {
             GameEntity overlayEntity = _levelTransitionOverlayGroup.GetSingleEntity();
-            overlayEntity.levelTransitionOverlay.Value.DOFade(0f, 1f).onComplete += () =>
+            overlayEntity.levelTransitionOverlay.Value.DOFade(1f, 1f).onComplete += () =>
             {
                 Debug.Log("Done!");
-                Contexts.sharedInstance.game.isEndLevelTransition = false;
+                Contexts.sharedInstance.game.isStartLevelTransition = false;
+                Contexts.sharedInstance.game.isEndLevelTransition = true;
             };
         }
     }

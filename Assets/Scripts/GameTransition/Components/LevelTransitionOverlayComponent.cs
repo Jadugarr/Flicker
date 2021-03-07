@@ -2,7 +2,7 @@
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine.UI;
 
-namespace SemoGames.UI
+namespace SemoGames.GameTransition
 {
     [Game, Unique]
     public class LevelTransitionOverlayComponent : IComponent

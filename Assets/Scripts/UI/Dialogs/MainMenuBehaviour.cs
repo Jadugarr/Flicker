@@ -29,6 +29,10 @@ namespace SemoGames.UI
         {
             GameContext gameContext = Contexts.sharedInstance.game;
             gameContext.isStartLevelTransition = true;
+            GameEntity transitionCommandsEntity = gameContext.CreateEntity();
+            transitionCommandsEntity.isTransitionCommands = true;
+            transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.GameSceneName);
+            transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
             /*IGroup<GameEntity> activeSceneEntities = gameContext.GetGroup(GameMatcher.ActiveSceneName);
             
             gameContext.CreateEntity().AddActiveSceneName(GameConfigurations.GameSceneConfiguration.GameSceneName);
@@ -43,13 +47,13 @@ namespace SemoGames.UI
                     sceneEntity.Destroy();
                     break;
                 }
-            }
+            }*/
             
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
             
             gameObject.Unlink();
             mainMenuEntity?.Destroy();
-            Destroy(gameObject);*/
+            Destroy(gameObject);
         }
 
         private void OnQuitGameButtonClicked()

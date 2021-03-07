@@ -9,12 +9,12 @@
 public partial class GameContext {
 
     public GameEntity levelTransitionOverlayEntity { get { return GetGroup(GameMatcher.LevelTransitionOverlay).GetSingleEntity(); } }
-    public SemoGames.UI.LevelTransitionOverlayComponent levelTransitionOverlay { get { return levelTransitionOverlayEntity.levelTransitionOverlay; } }
+    public SemoGames.GameTransition.LevelTransitionOverlayComponent levelTransitionOverlay { get { return levelTransitionOverlayEntity.levelTransitionOverlay; } }
     public bool hasLevelTransitionOverlay { get { return levelTransitionOverlayEntity != null; } }
 
     public GameEntity SetLevelTransitionOverlay(UnityEngine.UI.Image newValue) {
         if (hasLevelTransitionOverlay) {
-            throw new Entitas.EntitasException("Could not set LevelTransitionOverlay!\n" + this + " already has an entity with SemoGames.UI.LevelTransitionOverlayComponent!",
+            throw new Entitas.EntitasException("Could not set LevelTransitionOverlay!\n" + this + " already has an entity with SemoGames.GameTransition.LevelTransitionOverlayComponent!",
                 "You should check if the context already has a levelTransitionOverlayEntity before setting it or use context.ReplaceLevelTransitionOverlay().");
         }
         var entity = CreateEntity();
@@ -46,19 +46,19 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public SemoGames.UI.LevelTransitionOverlayComponent levelTransitionOverlay { get { return (SemoGames.UI.LevelTransitionOverlayComponent)GetComponent(GameComponentsLookup.LevelTransitionOverlay); } }
+    public SemoGames.GameTransition.LevelTransitionOverlayComponent levelTransitionOverlay { get { return (SemoGames.GameTransition.LevelTransitionOverlayComponent)GetComponent(GameComponentsLookup.LevelTransitionOverlay); } }
     public bool hasLevelTransitionOverlay { get { return HasComponent(GameComponentsLookup.LevelTransitionOverlay); } }
 
     public void AddLevelTransitionOverlay(UnityEngine.UI.Image newValue) {
         var index = GameComponentsLookup.LevelTransitionOverlay;
-        var component = (SemoGames.UI.LevelTransitionOverlayComponent)CreateComponent(index, typeof(SemoGames.UI.LevelTransitionOverlayComponent));
+        var component = (SemoGames.GameTransition.LevelTransitionOverlayComponent)CreateComponent(index, typeof(SemoGames.GameTransition.LevelTransitionOverlayComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceLevelTransitionOverlay(UnityEngine.UI.Image newValue) {
         var index = GameComponentsLookup.LevelTransitionOverlay;
-        var component = (SemoGames.UI.LevelTransitionOverlayComponent)CreateComponent(index, typeof(SemoGames.UI.LevelTransitionOverlayComponent));
+        var component = (SemoGames.GameTransition.LevelTransitionOverlayComponent)CreateComponent(index, typeof(SemoGames.GameTransition.LevelTransitionOverlayComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

@@ -35,7 +35,7 @@ public partial class GameContext {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly SemoGames.UI.StartLevelTransitionComponent startLevelTransitionComponent = new SemoGames.UI.StartLevelTransitionComponent();
+    static readonly SemoGames.GameTransition.StartLevelTransitionComponent startLevelTransitionComponent = new SemoGames.GameTransition.StartLevelTransitionComponent();
 
     public bool isStartLevelTransition {
         get { return HasComponent(GameComponentsLookup.StartLevelTransition); }
