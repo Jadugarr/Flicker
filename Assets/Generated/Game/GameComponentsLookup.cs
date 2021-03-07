@@ -32,22 +32,23 @@ public static class GameComponentsLookup {
     public const int MousePosition = 21;
     public const int ActiveSceneName = 22;
     public const int EndLevelTransition = 23;
-    public const int LevelTransitionOverlay = 24;
-    public const int SceneToAdd = 25;
-    public const int SceneToRemove = 26;
-    public const int StartLevelTransition = 27;
-    public const int TransitionCommands = 28;
-    public const int Level = 29;
-    public const int LevelIndex = 30;
-    public const int PlayerSpawn = 31;
-    public const int IsInGoal = 32;
-    public const int Player = 33;
-    public const int FinishLevelDialog = 34;
-    public const int MainMenuBehaviour = 35;
-    public const int MainMenu = 36;
-    public const int StaticLayer = 37;
+    public const int LevelIndexToLoadTransition = 24;
+    public const int LevelTransitionOverlay = 25;
+    public const int SceneToAdd = 26;
+    public const int SceneToRemove = 27;
+    public const int StartLevelTransition = 28;
+    public const int TransitionCommands = 29;
+    public const int Level = 30;
+    public const int LevelIndex = 31;
+    public const int PlayerSpawn = 32;
+    public const int IsInGoal = 33;
+    public const int Player = 34;
+    public const int FinishLevelDialog = 35;
+    public const int MainMenuBehaviour = 36;
+    public const int MainMenu = 37;
+    public const int StaticLayer = 38;
 
-    public const int TotalComponents = 38;
+    public const int TotalComponents = 39;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -74,6 +75,7 @@ public static class GameComponentsLookup {
         "MousePosition",
         "ActiveSceneName",
         "EndLevelTransition",
+        "LevelIndexToLoadTransition",
         "LevelTransitionOverlay",
         "SceneToAdd",
         "SceneToRemove",
@@ -115,6 +117,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.GameInput.MousePositionComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
         typeof(SemoGames.GameTransition.EndLevelTransitionComponent),
+        typeof(SemoGames.GameTransition.LevelIndexToLoadTransitionComponent),
         typeof(SemoGames.GameTransition.LevelTransitionOverlayComponent),
         typeof(SemoGames.GameTransition.SceneToAddComponent),
         typeof(SemoGames.GameTransition.SceneToRemoveComponent),

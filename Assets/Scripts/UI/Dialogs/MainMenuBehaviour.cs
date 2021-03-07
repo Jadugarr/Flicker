@@ -33,6 +33,7 @@ namespace SemoGames.UI
             transitionCommandsEntity.isTransitionCommands = true;
             transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.GameSceneName);
             transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
+            transitionCommandsEntity.AddLevelIndexToLoadTransition(0);
             /*IGroup<GameEntity> activeSceneEntities = gameContext.GetGroup(GameMatcher.ActiveSceneName);
             
             gameContext.CreateEntity().AddActiveSceneName(GameConfigurations.GameSceneConfiguration.GameSceneName);

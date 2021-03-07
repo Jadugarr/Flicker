@@ -32,7 +32,6 @@ namespace SemoGames.GameTransition
             {
                 Debug.Log("Done!");
                 Contexts.sharedInstance.game.isStartLevelTransition = false;
-                Contexts.sharedInstance.game.isEndLevelTransition = true;
             };
         }
     }
