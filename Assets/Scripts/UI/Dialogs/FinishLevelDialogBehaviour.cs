@@ -1,4 +1,5 @@
-﻿using Entitas.Unity;
+﻿using Entitas;
+using Entitas.Unity;
 using SemoGames.Controller;
 using SemoGames.Extensions;
 using UnityEngine;
@@ -45,7 +46,11 @@ namespace SemoGames.UI
 
         private void OnNextLevelClicked()
         {
-            Debug.Log("Next Level!");
+            IGroup<GameEntity> levelEntities = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
+            GameEntity levelEntity = levelEntities.GetSingleEntity();
+
+            levelEntity.ReplaceLevelIndex(1);
+            ((GameEntity)gameObject.GetEntityLink().entity).DestroyEntity();
         }
 
         private void OnMainMenuClicked()

@@ -24,6 +24,9 @@ MonoBehaviour:
   - m_AssetGUID: 2ea124d50a654ec4dbe3966657ba9b45
     m_SubObjectName: 
     m_SubObjectType: 
+  - m_AssetGUID: 2397189c4bc2d8544bf2e2967f2d1f11
+    m_SubObjectName: 
+    m_SubObjectType: 
   playerAssetReference:
     m_AssetGUID: 3457426de275a254392d94ae3919b419
     m_SubObjectName: 
