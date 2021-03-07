@@ -30,7 +30,6 @@ namespace SemoGames.GameTransition
             GameEntity overlayEntity = _levelTransitionOverlayGroup.GetSingleEntity();
             overlayEntity.levelTransitionOverlay.Value.DOFade(0f, 1f).onComplete += () =>
             {
-                Debug.Log("Done!");
                 Contexts.sharedInstance.game.isEndLevelTransition = false;
             };
         }
