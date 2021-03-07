@@ -28,7 +28,8 @@ namespace SemoGames.UI
         private void OnStartGameClicked()
         {
             GameContext gameContext = Contexts.sharedInstance.game;
-            IGroup<GameEntity> activeSceneEntities = gameContext.GetGroup(GameMatcher.ActiveSceneName);
+            gameContext.isStartLevelTransition = true;
+            /*IGroup<GameEntity> activeSceneEntities = gameContext.GetGroup(GameMatcher.ActiveSceneName);
             
             gameContext.CreateEntity().AddActiveSceneName(GameConfigurations.GameSceneConfiguration.GameSceneName);
             GameEntity levelEntity = gameContext.CreateEntity();
@@ -48,7 +49,7 @@ namespace SemoGames.UI
             
             gameObject.Unlink();
             mainMenuEntity?.Destroy();
-            Destroy(gameObject);
+            Destroy(gameObject);*/
         }
 
         private void OnQuitGameButtonClicked()

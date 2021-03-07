@@ -36,12 +36,15 @@ public static class GameComponentsLookup {
     public const int PlayerSpawn = 25;
     public const int IsInGoal = 26;
     public const int Player = 27;
-    public const int FinishLevelDialog = 28;
-    public const int MainMenuBehaviour = 29;
-    public const int MainMenu = 30;
-    public const int StaticLayer = 31;
+    public const int EndLevelTransition = 28;
+    public const int FinishLevelDialog = 29;
+    public const int LevelTransitionOverlay = 30;
+    public const int MainMenuBehaviour = 31;
+    public const int MainMenu = 32;
+    public const int StartLevelTransition = 33;
+    public const int StaticLayer = 34;
 
-    public const int TotalComponents = 32;
+    public const int TotalComponents = 35;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -72,9 +75,12 @@ public static class GameComponentsLookup {
         "PlayerSpawn",
         "IsInGoal",
         "Player",
+        "EndLevelTransition",
         "FinishLevelDialog",
+        "LevelTransitionOverlay",
         "MainMenuBehaviour",
         "MainMenu",
+        "StartLevelTransition",
         "StaticLayer"
     };
 
@@ -107,9 +113,12 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Level.PlayerSpawnComponent),
         typeof(SemoGames.Player.IsInGoalComponent),
         typeof(SemoGames.Player.PlayerComponent),
+        typeof(SemoGames.UI.EndLevelTransitionComponent),
         typeof(SemoGames.UI.FinishLevelDialogComponent),
+        typeof(SemoGames.UI.LevelTransitionOverlayComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
+        typeof(SemoGames.UI.StartLevelTransitionComponent),
         typeof(SemoGames.UI.StaticLayerComponent)
     };
 }
