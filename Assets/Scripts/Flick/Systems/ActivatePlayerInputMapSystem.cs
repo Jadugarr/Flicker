@@ -11,7 +11,9 @@ namespace SemoGames.Flick
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.AnyOf(GameMatcher.Flick, GameMatcher.IsInGoal), GroupEvent.Removed));
+            return context.CreateCollector(
+                new TriggerOnEvent<GameEntity>(GameMatcher.AnyOf(GameMatcher.Flick, GameMatcher.IsInGoal),
+                    GroupEvent.Removed), new TriggerOnEvent<GameEntity>(GameMatcher.Player, GroupEvent.Added));
         }
 
         protected override bool Filter(GameEntity entity)

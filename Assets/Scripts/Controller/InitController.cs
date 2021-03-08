@@ -2,6 +2,7 @@
 using Entitas;
 using SemoGames.Configurations;
 using SemoGames.GameScene;
+using SemoGames.GameTransition;
 
 namespace SemoGames.Controller
 {
@@ -40,7 +41,13 @@ namespace SemoGames.Controller
                 .Add(new InitCurrentSceneSystem())
                 .Add(new LoadNewSceneSystem(gameContext))
                 .Add(new UnloadSceneSystem(gameContext))
-                .Add(new RestartControllerSystem(gameContext));
+                .Add(new RestartControllerSystem(gameContext))
+                .Add(new StartLevelTransitionSystem(gameContext))
+                .Add(new EndLevelTransitionSystem(gameContext))
+                .Add(new ProcessSceneToAddTransitionSystem(gameContext))
+                .Add(new ProcessSceneToRemoveTransitionSystem(gameContext))
+                .Add(new ProcessLevelIndexToLoadTransitionSystem(gameContext))
+                .Add(new CheckIfTransitionIsFinishedSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

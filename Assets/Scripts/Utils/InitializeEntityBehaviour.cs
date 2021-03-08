@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using SemoGames.Configurations;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SemoGames.Utils
 {
@@ -13,6 +14,7 @@ namespace SemoGames.Utils
         [SerializeField] private Camera _gameCamera;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private CinemachineConfiner _confiner;
+        [SerializeField] private Image _levelTransitionOverlay;
 
         private void Start()
         {
@@ -23,6 +25,7 @@ namespace SemoGames.Utils
             gameContext.ReplaceCameraConfiner(_confiner);
             gameContext.ReplaceVirtualCamera(_virtualCamera);
             gameContext.ReplaceCamera(_gameCamera);
+            gameContext.ReplaceLevelTransitionOverlay(_levelTransitionOverlay);
             #endregion
 
             #region Add configurations
