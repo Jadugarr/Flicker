@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using SemoGames.Extensions;
+using UnityEngine.SceneManagement;
 
 namespace SemoGames.GameTransition
 {
@@ -34,10 +35,23 @@ namespace SemoGames.GameTransition
                 {
                     if (activeSceneEntity.activeSceneName.Value == gameEntity.sceneToRemove.Value)
                     {
+                        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+                        SceneManager.sceneUnloaded += OnSceneUnloaded;
                         activeSceneEntity.DestroyEntity();
                     }
                 }
-                gameEntity.RemoveSceneToRemove();
+            }
+        }
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+            foreach (GameEntity sceneToRemoveEntity in _sceneToRemoveGroup.GetEntities())
+            {
+                if (sceneToRemoveEntity.sceneToRemove.Value == scene.name)
+                {
+                    SceneManager.sceneUnloaded -= OnSceneUnloaded;
+                    sceneToRemoveEntity.RemoveSceneToRemove();
+                }
             }
         }
     }
