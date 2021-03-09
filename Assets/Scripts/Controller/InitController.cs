@@ -36,7 +36,7 @@ namespace SemoGames.Controller
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
-            
+
             return new Systems()
                 .Add(new InitCurrentSceneSystem())
                 .Add(new LoadNewSceneSystem(gameContext))
@@ -46,6 +46,7 @@ namespace SemoGames.Controller
                 .Add(new EndLevelTransitionSystem(gameContext))
                 .Add(new ProcessSceneToAddTransitionSystem(gameContext))
                 .Add(new ProcessSceneToRemoveTransitionSystem(gameContext))
+                .Add(new ProcessControllerToRestartTransitionSystem(gameContext))
                 .Add(new ProcessLevelIndexToLoadTransitionSystem(gameContext))
                 .Add(new CheckIfTransitionIsFinishedSystem(gameContext));
         }

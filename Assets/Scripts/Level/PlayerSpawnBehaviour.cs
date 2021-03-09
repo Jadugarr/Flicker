@@ -1,5 +1,4 @@
 ﻿using Entitas.Unity;
-using SemoGames.Extensions;
 using UnityEngine;
 
 namespace SemoGames.Level
@@ -12,12 +11,6 @@ namespace SemoGames.Level
             playerSpawnEntity.isPlayerSpawn = true;
             playerSpawnEntity.AddView(gameObject);
             gameObject.Link(playerSpawnEntity);
-        }
-
-        private void OnDestroy()
-        {
-            GameEntity linkedEntity = gameObject.GetEntityLink().entity as GameEntity;
-            linkedEntity.DestroyEntity();
         }
     }
 }

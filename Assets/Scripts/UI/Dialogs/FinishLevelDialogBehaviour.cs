@@ -72,7 +72,8 @@ namespace SemoGames.UI
 
         private void OnRestartClicked()
         {
-            Contexts.sharedInstance.game.CreateEntity().AddRestartController(GameControllerType.Game);
+            GameEntity transitionEntity = TransitionUtils.StartTransition();
+            transitionEntity.AddControllerToRestartTransition(GameControllerType.Game);
             
             ((GameEntity)gameObject.GetEntityLink().entity).DestroyEntity();
         }

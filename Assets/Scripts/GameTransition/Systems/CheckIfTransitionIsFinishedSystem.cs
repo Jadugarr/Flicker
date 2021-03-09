@@ -17,7 +17,7 @@ namespace SemoGames.GameTransition
         {
             return context.CreateCollector(new TriggerOnEvent<GameEntity>(
                 GameMatcher.AnyOf(GameMatcher.LevelIndexToLoadTransition, GameMatcher.SceneToAdd,
-                    GameMatcher.SceneToRemove), GroupEvent.Removed));
+                    GameMatcher.SceneToRemove, GameMatcher.ControllerToRestartTransition), GroupEvent.Removed));
         }
 
         protected override bool Filter(GameEntity entity)
