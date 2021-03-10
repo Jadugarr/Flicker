@@ -42,7 +42,8 @@ namespace SemoGames.Controller
                 .Add(new ShowFinishLevelDialogOnReachedGoalSystem(gameContext))
                 .Add(new TeardownPlayerSystem())
                 .Add(new LoadLevelSystem(gameContext))
-                .Add(new TeardownLevelSystem());
+                .Add(new TeardownLevelSystem())
+                .Add(new TeardownPlayerSpawnSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
