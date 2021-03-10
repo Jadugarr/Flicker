@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using SemoGames.Extensions;
 
 namespace SemoGames.GameTransition
 {
@@ -16,12 +15,12 @@ namespace SemoGames.GameTransition
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
             return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.StartLevelTransition,
-                GroupEvent.Removed));
+                GroupEvent.Removed), new TriggerOnEvent<GameEntity>(GameMatcher.ControllerToRestartTransition, GroupEvent.Added));
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return _controllerToRestartEntityGroup.count > 0;
+            return _controllerToRestartEntityGroup.count > 0 && !Contexts.sharedInstance.game.isStartLevelTransition;
         }
 
         protected override void Execute(List<GameEntity> entities)
@@ -44,7 +43,6 @@ namespace SemoGames.GameTransition
                 {
                     if (controllerToRestart.controllerToRestartTransition.Value == restartControllerEntity.restartController.Value)
                     {
-                        controllerToRestart.AddLevelIndexToLoadTransition(0);
                         controllerToRestart.RemoveControllerToRestartTransition();
                         ((GameContext) context).OnEntityWillBeDestroyed -= OnEntityWillBeDestroyed;
                         break;

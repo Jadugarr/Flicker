@@ -48,13 +48,22 @@ namespace SemoGames.UI
 
         private void OnNextLevelClicked()
         {
-            /*IGroup<GameEntity> levelEntities = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
-            GameEntity levelEntity = levelEntities.GetSingleEntity();
-
-            levelEntity.ReplaceLevelIndex(1);*/
-            GameEntity transitionEntity = TransitionUtils.StartTransition();
-            transitionEntity.AddLevelIndexToLoadTransition(1);
-            ((GameEntity)gameObject.GetEntityLink().entity).DestroyEntity();
+            
+            IGroup<GameEntity> levelEntityGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
+            TransitionUtils.StartTransitionSequence(
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.ControllerToRestartTransition,
+                    TransitionComponent = new ControllerToRestartTransitionComponent {Value = GameControllerType.Game}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
+                    TransitionComponent = new LevelIndexToLoadTransitionComponent
+                        {Value = levelEntityGroup.GetSingleEntity().levelIndex.Value+1}
+                }
+            );
+            ((GameEntity) gameObject.GetEntityLink().entity).DestroyEntity();
         }
 
         private void OnMainMenuClicked()
@@ -62,9 +71,9 @@ namespace SemoGames.UI
             GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
             transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
             transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.GameSceneName);
-            
+
             GameEntity dialogEntity = gameObject.GetEntityLink().entity as GameEntity;
-            
+
             gameObject.Unlink();
             dialogEntity?.Destroy();
             Destroy(gameObject);
@@ -72,10 +81,22 @@ namespace SemoGames.UI
 
         private void OnRestartClicked()
         {
-            GameEntity transitionEntity = TransitionUtils.StartTransition();
-            transitionEntity.AddControllerToRestartTransition(GameControllerType.Game);
-            
-            ((GameEntity)gameObject.GetEntityLink().entity).DestroyEntity();
+            IGroup<GameEntity> levelEntityGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
+            TransitionUtils.StartTransitionSequence(
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.ControllerToRestartTransition,
+                    TransitionComponent = new ControllerToRestartTransitionComponent {Value = GameControllerType.Game}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
+                    TransitionComponent = new LevelIndexToLoadTransitionComponent
+                        {Value = levelEntityGroup.GetSingleEntity().levelIndex.Value}
+                }
+            );
+
+            ((GameEntity) gameObject.GetEntityLink().entity).DestroyEntity();
         }
     }
 }

@@ -18,12 +18,12 @@ namespace SemoGames.GameTransition
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
             return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.StartLevelTransition,
-                GroupEvent.Removed));
+                GroupEvent.Removed), new TriggerOnEvent<GameEntity>(GameMatcher.SceneToAdd, GroupEvent.Added));
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return _sceneToAddGroup.count > 0;
+            return _sceneToAddGroup.count > 0 && !Contexts.sharedInstance.game.isStartLevelTransition;
         }
 
         protected override void Execute(List<GameEntity> entities)
