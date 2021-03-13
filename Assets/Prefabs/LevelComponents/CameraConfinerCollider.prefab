@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1545025125767620303}
   - component: {fileID: 8893184493149697750}
   - component: {fileID: 4575946332987902745}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CameraConfinerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
