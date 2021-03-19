@@ -26,32 +26,33 @@ public static class GameComponentsLookup {
     public const int StartFlick = 15;
     public const int Flipper = 16;
     public const int HingeJoint = 17;
-    public const int Camera = 18;
-    public const int CameraConfinerCollider = 19;
-    public const int CameraConfiner = 20;
-    public const int CameraFollow = 21;
-    public const int VirtualCamera = 22;
-    public const int MousePosition = 23;
-    public const int ActiveSceneName = 24;
-    public const int ControllerToRestartTransition = 25;
-    public const int EndLevelTransition = 26;
-    public const int LevelIndexToLoadTransition = 27;
-    public const int LevelTransitionOverlay = 28;
-    public const int SceneToAdd = 29;
-    public const int SceneToRemove = 30;
-    public const int StartLevelTransition = 31;
-    public const int TransitionCommands = 32;
-    public const int Level = 33;
-    public const int LevelIndex = 34;
-    public const int PlayerSpawn = 35;
-    public const int IsInGoal = 36;
-    public const int Player = 37;
-    public const int FinishLevelDialog = 38;
-    public const int MainMenuBehaviour = 39;
-    public const int MainMenu = 40;
-    public const int StaticLayer = 41;
+    public const int LeftFlipper = 18;
+    public const int Camera = 19;
+    public const int CameraConfinerCollider = 20;
+    public const int CameraConfiner = 21;
+    public const int CameraFollow = 22;
+    public const int VirtualCamera = 23;
+    public const int MousePosition = 24;
+    public const int ActiveSceneName = 25;
+    public const int ControllerToRestartTransition = 26;
+    public const int EndLevelTransition = 27;
+    public const int LevelIndexToLoadTransition = 28;
+    public const int LevelTransitionOverlay = 29;
+    public const int SceneToAdd = 30;
+    public const int SceneToRemove = 31;
+    public const int StartLevelTransition = 32;
+    public const int TransitionCommands = 33;
+    public const int Level = 34;
+    public const int LevelIndex = 35;
+    public const int PlayerSpawn = 36;
+    public const int IsInGoal = 37;
+    public const int Player = 38;
+    public const int FinishLevelDialog = 39;
+    public const int MainMenuBehaviour = 40;
+    public const int MainMenu = 41;
+    public const int StaticLayer = 42;
 
-    public const int TotalComponents = 42;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -72,6 +73,7 @@ public static class GameComponentsLookup {
         "StartFlick",
         "Flipper",
         "HingeJoint",
+        "LeftFlipper",
         "Camera",
         "CameraConfinerCollider",
         "CameraConfiner",
@@ -117,6 +119,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Flick.StartFlickComponent),
         typeof(SemoGames.Flipper.FlipperComponent),
         typeof(SemoGames.Flipper.HingeJointComponent),
+        typeof(SemoGames.Flipper.LeftFlipperComponent),
         typeof(SemoGames.GameCamera.CameraComponent),
         typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),
         typeof(SemoGames.GameCamera.CameraConfinerComponent),

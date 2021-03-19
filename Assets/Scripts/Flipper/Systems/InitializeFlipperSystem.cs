@@ -32,7 +32,15 @@ namespace SemoGames.Flipper
                 foreach (GameObject flipperObject in flipperObjects)
                 {
                     GameEntity flipperEntity = gameContext.CreateEntity();
-                    flipperEntity.isFlipper = true;
+                    if (flipperObject.CompareTag(Tags.RightFlipper))
+                    {
+                        flipperEntity.isFlipper = true;
+                    }
+
+                    if (flipperObject.CompareTag(Tags.LeftFlipper))
+                    {
+                        flipperEntity.isLeftFlipper = true;
+                    }
                     flipperObject.Link(flipperEntity);
                     flipperEntity.AddView(flipperObject);
                     flipperEntity.AddHingeJoint(flipperObject.GetComponent<HingeJoint2D>());
@@ -45,7 +53,7 @@ namespace SemoGames.Flipper
             for (int i = 0; i < parent.childCount; i++)
             {
                 Transform childTransform = parent.GetChild(i);
-                if (childTransform.CompareTag(Tags.Flipper))
+                if (childTransform.CompareTag(Tags.RightFlipper) || childTransform.CompareTag(Tags.LeftFlipper))
                 {
                     flipperObjectList.Add(childTransform.gameObject);
                 }

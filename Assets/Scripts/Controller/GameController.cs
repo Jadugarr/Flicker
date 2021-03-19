@@ -25,6 +25,7 @@ namespace SemoGames.Controller
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
+            InputContext inputContext = Contexts.sharedInstance.input;
             
             return new Systems()
                 .Add(new InitializeLevelSystem())
@@ -46,7 +47,9 @@ namespace SemoGames.Controller
                 .Add(new TeardownLevelSystem())
                 .Add(new TeardownPlayerSpawnSystem())
                 .Add(new InitializeFlipperSystem(gameContext))
-                .Add(new TeardownFlipperSystem());
+                .Add(new TeardownFlipperSystem())
+                .Add(new InteractWithFlipperSystem(inputContext))
+                .Add(new StopInteractingWithFlipperSystem(inputContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

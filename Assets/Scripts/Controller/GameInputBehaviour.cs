@@ -119,7 +119,7 @@ namespace SemoGames.GameInput
 
             if (inputAction.phase == InputActionPhase.Canceled)
             {
-                Contexts.sharedInstance.input.isInteracting = true;
+                Contexts.sharedInstance.input.isInteracting = false;
                 Debug.Log("Not interacting!");
             }
         }
