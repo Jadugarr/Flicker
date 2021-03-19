@@ -2,6 +2,7 @@
 using Level.Systems;
 using SemoGames.Common;
 using SemoGames.Flick;
+using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.Player;
@@ -43,7 +44,9 @@ namespace SemoGames.Controller
                 .Add(new TeardownPlayerSystem())
                 .Add(new LoadLevelSystem(gameContext))
                 .Add(new TeardownLevelSystem())
-                .Add(new TeardownPlayerSpawnSystem());
+                .Add(new TeardownPlayerSpawnSystem())
+                .Add(new InitializeFlipperSystem(gameContext))
+                .Add(new TeardownFlipperSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

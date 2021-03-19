@@ -2,6 +2,7 @@
 public abstract class Tags {
 	public const string EditorOnly = "EditorOnly";
 	public const string Finish = "Finish";
+	public const string Flipper = "Flipper";
 	public const string GameController = "GameController";
 	public const string Goal = "Goal";
 	public const string MainCamera = "MainCamera";

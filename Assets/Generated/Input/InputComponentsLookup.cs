@@ -9,19 +9,22 @@
 public static class InputComponentsLookup {
 
     public const int Id = 0;
-    public const int InputAction = 1;
-    public const int PlayerInput = 2;
+    public const int Interacting = 1;
+    public const int InputAction = 2;
+    public const int PlayerInput = 3;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
         "Id",
+        "Interacting",
         "InputAction",
         "PlayerInput"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(SemoGames.Common.IdComponent),
+        typeof(SemoGames.Flipper.InteractingComponent),
         typeof(SemoGames.GameInput.InputActionComponent),
         typeof(SemoGames.GameInput.PlayerInputComponent)
     };

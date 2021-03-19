@@ -113,7 +113,14 @@ namespace SemoGames.GameInput
         {
             if (inputAction.phase == InputActionPhase.Performed)
             {
-                Debug.Log("Interact with shit!");
+                Contexts.sharedInstance.input.isInteracting = true;
+                Debug.Log("Interacting!");
+            }
+
+            if (inputAction.phase == InputActionPhase.Canceled)
+            {
+                Contexts.sharedInstance.input.isInteracting = true;
+                Debug.Log("Not interacting!");
             }
         }
     }
