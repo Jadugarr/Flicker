@@ -49,8 +49,7 @@ namespace SemoGames.Controller
                 .Add(new InitializeFlipperSystem(gameContext))
                 .Add(new TeardownFlipperSystem())
                 .Add(new InteractWithFlipperSystem(inputContext))
-                .Add(new StopInteractingWithFlipperSystem(inputContext))
-                .Add(new CheckGroundStateSystem(gameContext));
+                .Add(new StopInteractingWithFlipperSystem(inputContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -65,6 +64,7 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
                 .Add(new SyncPositionAndViewSystem(gameContext))
+                .Add(new CheckGroundStateSystem(gameContext))
                 .Add(new ApplyPowerToCharacterSystem(gameContext))
                 .Add(new DetectStopMovingSystem(gameContext))
                 .Add(new KillVelocityOfPlayerWhenInGoal(gameContext))
