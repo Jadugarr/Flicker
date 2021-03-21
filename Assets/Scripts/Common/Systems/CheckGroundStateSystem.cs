@@ -19,7 +19,7 @@ namespace SemoGames.Common
             {
                 ContactFilter2D contactFilter = new ContactFilter2D {layerMask = LayerMask.GetMask(Layers.Ground)};
                 List<RaycastHit2D> results = new List<RaycastHit2D>();
-                gameEntity.circleCollider.Value.Cast(Vector2.down, contactFilter, results, 0.01f);
+                gameEntity.circleCollider.Value.Cast(Vector2.down, contactFilter, results, 0.02f);
 
                 if (results.Count > 0)
                 {

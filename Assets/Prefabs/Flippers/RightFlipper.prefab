@@ -94,7 +94,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 159400445644026401}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d423f7e9f91cf4644825c95a37402b83, type: 2}
+  m_Material: {fileID: 6200000, guid: 3cb3d1463e58f0446aab00e3f9f4af39, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -146,7 +146,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: d423f7e9f91cf4644825c95a37402b83, type: 2}
+  m_Material: {fileID: 6200000, guid: 3cb3d1463e58f0446aab00e3f9f4af39, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -166,7 +166,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -3.9, y: 0.03}
+  m_ConnectedAnchor: {x: -2.01, y: 0.03}
   m_UseMotor: 1
   m_Motor:
     m_MotorSpeed: -1000
