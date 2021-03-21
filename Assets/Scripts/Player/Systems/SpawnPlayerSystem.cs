@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using SemoGames.Common;
 using SemoGames.Configurations;
 using SemoGames.Utils;
 using UnityEngine;
@@ -55,9 +56,12 @@ namespace SemoGames.Player
                         playerEntity.AddView(playerObject);
                         playerEntity.AddPosition(playerObject.transform.position);
                         Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
+                        CircleCollider2D playerCircleCollider2D = playerObject.GetComponent<CircleCollider2D>();
                         playerEntity.AddRigidbody(playerRigidBody);
+                        playerEntity.AddCircleCollider(playerCircleCollider2D);
                         playerEntity.AddVelocity(playerRigidBody.velocity);
                         playerEntity.isCameraFollow = true;
+                        playerEntity.AddGroundState(GroundState.Ground);
                         playerObject.Link(playerEntity);
                     });
             }

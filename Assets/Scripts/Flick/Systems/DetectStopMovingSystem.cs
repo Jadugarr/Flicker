@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using SemoGames.Common;
 using UnityEngine;
 
 namespace SemoGames.Flick
@@ -17,7 +18,7 @@ namespace SemoGames.Flick
 
         protected override bool Filter(GameEntity entity)
         {
-            return entity.isFlick && !entity.isIsInGoal;
+            return entity.isFlick && !entity.isIsInGoal && entity.hasGroundState && entity.groundState.Value == GroundState.Ground;
         }
 
         protected override void Execute(List<GameEntity> entities)
