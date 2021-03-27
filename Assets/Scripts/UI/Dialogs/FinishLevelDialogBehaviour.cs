@@ -50,6 +50,8 @@ namespace SemoGames.UI
         {
             
             IGroup<GameEntity> levelEntityGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
+            int levelCount = GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences.Length;
+            int currentLevelIndex = levelEntityGroup.GetSingleEntity().levelIndex.Value;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -60,7 +62,7 @@ namespace SemoGames.UI
                 {
                     Index = GameComponentsLookup.LevelIndexToLoadTransition,
                     TransitionComponent = new LevelIndexToLoadTransitionComponent
-                        {Value = levelEntityGroup.GetSingleEntity().levelIndex.Value+1}
+                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 0}
                 }
             );
             ((GameEntity) gameObject.GetEntityLink().entity).DestroyEntity();
