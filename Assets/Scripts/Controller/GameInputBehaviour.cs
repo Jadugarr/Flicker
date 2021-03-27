@@ -12,10 +12,6 @@ namespace SemoGames.GameInput
         private IGroup<GameEntity> _cameraGroup;
         private InputContext _context;
 
-        private void Awake()
-        {
-        }
-
         private void Start()
         {
             _playerInput.onActionTriggered += OnInputActionTriggered;
@@ -114,13 +110,11 @@ namespace SemoGames.GameInput
             if (inputAction.phase == InputActionPhase.Performed)
             {
                 Contexts.sharedInstance.input.isInteracting = true;
-                Debug.Log("Interacting!");
             }
 
             if (inputAction.phase == InputActionPhase.Canceled)
             {
                 Contexts.sharedInstance.input.isInteracting = false;
-                Debug.Log("Not interacting!");
             }
         }
     }

@@ -49,7 +49,9 @@ namespace SemoGames.Controller
                 .Add(new InitializeFlipperSystem(gameContext))
                 .Add(new TeardownFlipperSystem())
                 .Add(new InteractWithFlipperSystem(inputContext))
-                .Add(new StopInteractingWithFlipperSystem(inputContext));
+                .Add(new StopInteractingWithFlipperSystem(inputContext))
+                .Add(new PlayerDiedSystem(gameContext))
+                .Add(new EntityDiedSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
