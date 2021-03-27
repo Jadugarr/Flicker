@@ -9,10 +9,12 @@ namespace SemoGames.Pause
     {
         private IGroup<GameEntity> _pauseOverlayGroup;
         private IGroup<GameEntity> _finishLevelDialogGroup;
+        private IGroup<GameEntity> _playerGroup;
         public UnpauseSystem(IContext<GameEntity> context) : base(context)
         {
             _pauseOverlayGroup = context.GetGroup(GameMatcher.PauseOverlay);
             _finishLevelDialogGroup = context.GetGroup(GameMatcher.FinishLevelDialog);
+            _playerGroup = context.GetGroup(GameMatcher.Player);
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -28,7 +30,16 @@ namespace SemoGames.Pause
         protected override void Execute(List<GameEntity> entities)
         {
             Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
-            Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Environment");
+            
+            if (_playerGroup.GetSingleEntity().isFlick)
+            {
+                Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Environment");
+            }
+            else
+            {
+                Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Player");
+            }
+            
             _pauseOverlayGroup.GetSingleEntity().pauseOverlay.Value.enabled = false;
 
             foreach (GameEntity gameEntity in _finishLevelDialogGroup.GetEntities())
