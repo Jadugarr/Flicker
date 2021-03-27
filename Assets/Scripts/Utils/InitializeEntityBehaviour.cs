@@ -8,6 +8,7 @@ namespace SemoGames.Utils
     public class InitializeEntityBehaviour : MonoBehaviour
     {
         [SerializeField] private GameObject _staticLayer;
+        [SerializeField] private GameObject _overlayLayer;
         [SerializeField] private AssetReferenceConfiguration _assetReferenceConfiguration;
         [SerializeField] private GameSceneConfiguration _gameSceneConfiguration;
         [SerializeField] private GameConstantsConfiguration _gameConstantsConfiguration;
@@ -23,6 +24,7 @@ namespace SemoGames.Utils
             GameContext gameContext = Contexts.sharedInstance.game;
             
             gameContext.ReplaceStaticLayer(_staticLayer);
+            gameContext.ReplaceOverlayLayer(_overlayLayer);
             gameContext.ReplaceCameraConfiner(_confiner);
             gameContext.ReplaceVirtualCamera(_virtualCamera);
             gameContext.ReplaceCamera(_gameCamera);

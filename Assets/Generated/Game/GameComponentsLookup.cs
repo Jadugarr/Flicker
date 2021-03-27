@@ -55,9 +55,10 @@ public static class GameComponentsLookup {
     public const int FinishLevelDialog = 44;
     public const int MainMenuBehaviour = 45;
     public const int MainMenu = 46;
-    public const int StaticLayer = 47;
+    public const int OverlayLayer = 47;
+    public const int StaticLayer = 48;
 
-    public const int TotalComponents = 48;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -107,6 +108,7 @@ public static class GameComponentsLookup {
         "FinishLevelDialog",
         "MainMenuBehaviour",
         "MainMenu",
+        "OverlayLayer",
         "StaticLayer"
     };
 
@@ -158,6 +160,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.UI.FinishLevelDialogComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
+        typeof(SemoGames.UI.OverlayLayerComponent),
         typeof(SemoGames.UI.StaticLayerComponent)
     };
 }

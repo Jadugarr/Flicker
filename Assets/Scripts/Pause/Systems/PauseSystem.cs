@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using Entitas.Unity;
+using SemoGames.Configurations;
+using SemoGames.Utils;
 using UnityEngine;
 
 namespace SemoGames.Pause
@@ -27,7 +30,18 @@ namespace SemoGames.Pause
         {
             Physics2D.simulationMode = SimulationMode2D.Script;
             Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("UI");
+            GameContext gameContext = Contexts.sharedInstance.game;
+            GameEntity finishLevelDialogEntity = gameContext.CreateEntity();
             _pauseOverlayGroup.GetSingleEntity().pauseOverlay.Value.enabled = true;
+            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference,
+                finishLevelDialogEntity,
+                loadedAsset =>
+                {
+                    GameObject finishLevelDialog = GameObject.Instantiate(loadedAsset, gameContext.overlayLayer.Value.transform, false);
+                    finishLevelDialogEntity.isFinishLevelDialog = true;
+                    finishLevelDialogEntity.AddView(finishLevelDialog);
+                    finishLevelDialog.Link(finishLevelDialogEntity);
+                });
         }
     }
 }

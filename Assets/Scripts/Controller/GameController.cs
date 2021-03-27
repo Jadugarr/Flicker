@@ -29,6 +29,7 @@ namespace SemoGames.Controller
             InputContext inputContext = Contexts.sharedInstance.input;
             
             return new Systems()
+                .Add(new InitializePauseSystem())
                 .Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
                 .Add(new SpawnPlayerSystem(gameContext))
