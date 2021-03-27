@@ -5,6 +5,7 @@ using SemoGames.Flick;
 using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
+using SemoGames.Pause;
 using SemoGames.Player;
 using SemoGames.UI;
 
@@ -51,7 +52,9 @@ namespace SemoGames.Controller
                 .Add(new InteractWithFlipperSystem(inputContext))
                 .Add(new StopInteractingWithFlipperSystem(inputContext))
                 .Add(new PlayerDiedSystem(gameContext))
-                .Add(new EntityDiedSystem(gameContext));
+                .Add(new EntityDiedSystem(gameContext))
+                .Add(new PauseSystem(gameContext))
+                .Add(new UnpauseSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

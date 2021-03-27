@@ -15,6 +15,7 @@ namespace SemoGames.Utils
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private CinemachineConfiner _confiner;
         [SerializeField] private Image _levelTransitionOverlay;
+        [SerializeField] private Image _pauseOverlay;
 
         private void Start()
         {
@@ -26,6 +27,7 @@ namespace SemoGames.Utils
             gameContext.ReplaceVirtualCamera(_virtualCamera);
             gameContext.ReplaceCamera(_gameCamera);
             gameContext.ReplaceLevelTransitionOverlay(_levelTransitionOverlay);
+            gameContext.ReplacePauseOverlay(_pauseOverlay);
             #endregion
 
             #region Add configurations
