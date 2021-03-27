@@ -39,6 +39,12 @@ namespace SemoGames.GameInput
                 case "Interact":
                     HandleInteractInput(inputAction);
                     break;
+                case "Pause":
+                    HandlePauseInput(inputAction);
+                    break;
+                case "Unpause":
+                    HandleUnpauseInput(inputAction);
+                    break;
             }
         }
 
@@ -47,6 +53,26 @@ namespace SemoGames.GameInput
             _playerInput.onActionTriggered -= OnInputActionTriggered;
 
             _context.RemovePlayerInput();
+        }
+
+        private void HandlePauseInput(InputAction.CallbackContext inputAction)
+        {
+            if (inputAction.phase != InputActionPhase.Performed)
+                return;
+
+            GameContext gameContext = Contexts.sharedInstance.game;
+            if (!gameContext.isPause)
+                gameContext.isPause = true;
+        }
+
+        private void HandleUnpauseInput(InputAction.CallbackContext inputAction)
+        {
+            if (inputAction.phase != InputActionPhase.Performed)
+                return;
+
+            GameContext gameContext = Contexts.sharedInstance.game;
+            if (gameContext.isPause)
+                gameContext.isPause = false;
         }
 
         private void HandleTestVelocityInput(InputAction.CallbackContext inputAction)

@@ -46,16 +46,19 @@ public static class GameComponentsLookup {
     public const int Level = 35;
     public const int LevelIndex = 36;
     public const int PlayerSpawn = 37;
-    public const int Dead = 38;
-    public const int GroundState = 39;
-    public const int IsInGoal = 40;
-    public const int Player = 41;
-    public const int FinishLevelDialog = 42;
-    public const int MainMenuBehaviour = 43;
-    public const int MainMenu = 44;
-    public const int StaticLayer = 45;
+    public const int Pause = 38;
+    public const int PauseOverlay = 39;
+    public const int Dead = 40;
+    public const int GroundState = 41;
+    public const int IsInGoal = 42;
+    public const int Player = 43;
+    public const int FinishLevelDialog = 44;
+    public const int MainMenuBehaviour = 45;
+    public const int MainMenu = 46;
+    public const int OverlayLayer = 47;
+    public const int StaticLayer = 48;
 
-    public const int TotalComponents = 46;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -96,6 +99,8 @@ public static class GameComponentsLookup {
         "Level",
         "LevelIndex",
         "PlayerSpawn",
+        "Pause",
+        "PauseOverlay",
         "Dead",
         "GroundState",
         "IsInGoal",
@@ -103,6 +108,7 @@ public static class GameComponentsLookup {
         "FinishLevelDialog",
         "MainMenuBehaviour",
         "MainMenu",
+        "OverlayLayer",
         "StaticLayer"
     };
 
@@ -145,6 +151,8 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Level.LevelComponent),
         typeof(SemoGames.Level.LevelIndexComponent),
         typeof(SemoGames.Level.PlayerSpawnComponent),
+        typeof(SemoGames.Pause.PauseComponent),
+        typeof(SemoGames.Pause.PauseOverlayComponent),
         typeof(SemoGames.Player.DeadComponent),
         typeof(SemoGames.Player.GroundStateComponent),
         typeof(SemoGames.Player.IsInGoalComponent),
@@ -152,6 +160,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.UI.FinishLevelDialogComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
+        typeof(SemoGames.UI.OverlayLayerComponent),
         typeof(SemoGames.UI.StaticLayerComponent)
     };
 }
