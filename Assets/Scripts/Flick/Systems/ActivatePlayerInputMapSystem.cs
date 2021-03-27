@@ -18,7 +18,7 @@ namespace SemoGames.Flick
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity != null && entity.isPlayer;
         }
 
         protected override void Execute(List<GameEntity> entities)
