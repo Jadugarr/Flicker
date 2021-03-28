@@ -5,6 +5,7 @@ using SemoGames.Flick;
 using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
+using SemoGames.GameState;
 using SemoGames.Pause;
 using SemoGames.Player;
 using SemoGames.UI;
@@ -32,6 +33,11 @@ namespace SemoGames.Controller
                 .Add(new InitializePauseSystem())
                 .Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
+                .Add(new InitializeGameStateSystem())
+                .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
+                .Add(new SwitchToPlayerInputMap(gameContext))
+                .Add(new SwitchToUiInputMapSystem(gameContext))
+                .Add(new SwitchToEnvironmentInputMapSystem(gameContext))
                 .Add(new SpawnPlayerSystem(gameContext))
                 .Add(new SetCameraConfinerSystem(gameContext))
                 .Add(new SetCameraFollowPlayerSystem(gameContext))
@@ -40,9 +46,6 @@ namespace SemoGames.Controller
                 .Add(new CalculateCurrentPowerSystem(gameContext))
                 .Add(new CalculateFlickAngleSystem(gameContext))
                 .Add(new DestroyFlickLineSystem(gameContext))
-                .Add(new ActivateInteractInputMapSystem(gameContext))
-                .Add(new ActivatePlayerInputMapSystem(gameContext))
-                .Add(new ActivateUiInputMapOnReachedGoalSystem(gameContext))
                 .Add(new ShowFinishLevelDialogOnReachedGoalSystem(gameContext))
                 .Add(new TeardownPlayerSystem())
                 .Add(new LoadLevelSystem(gameContext))

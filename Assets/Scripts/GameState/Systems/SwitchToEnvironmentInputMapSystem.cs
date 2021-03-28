@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace SemoGames.Flick
+namespace SemoGames.GameState
 {
-    public class ActivateInteractInputMapSystem : ReactiveSystem<GameEntity>
+    public class SwitchToEnvironmentInputMapSystem : ReactiveSystem<GameEntity>
     {
-        public ActivateInteractInputMapSystem(IContext<GameEntity> context) : base(context)
+        public SwitchToEnvironmentInputMapSystem(IContext<GameEntity> context) : base(context)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.Flick, GroupEvent.Added));
+            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.GameState, GroupEvent.Added));
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity.gameState.Value == GameStates.Flicking;
         }
 
         protected override void Execute(List<GameEntity> entities)

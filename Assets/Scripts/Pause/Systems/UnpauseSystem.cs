@@ -31,15 +31,6 @@ namespace SemoGames.Pause
         {
             Physics2D.simulationMode = SimulationMode2D.FixedUpdate;
             
-            if (_playerGroup.GetSingleEntity().isFlick)
-            {
-                Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Environment");
-            }
-            else
-            {
-                Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("Player");
-            }
-            
             _pauseOverlayGroup.GetSingleEntity().pauseOverlay.Value.enabled = false;
 
             foreach (GameEntity gameEntity in _finishLevelDialogGroup.GetEntities())

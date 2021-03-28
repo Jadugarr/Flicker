@@ -35,30 +35,31 @@ public static class GameComponentsLookup {
     public const int VirtualCamera = 24;
     public const int MousePosition = 25;
     public const int ActiveSceneName = 26;
-    public const int ControllerToRestartTransition = 27;
-    public const int EndLevelTransition = 28;
-    public const int LevelIndexToLoadTransition = 29;
-    public const int LevelTransitionOverlay = 30;
-    public const int SceneToAdd = 31;
-    public const int SceneToRemove = 32;
-    public const int StartLevelTransition = 33;
-    public const int TransitionCommands = 34;
-    public const int Level = 35;
-    public const int LevelIndex = 36;
-    public const int PlayerSpawn = 37;
-    public const int Pause = 38;
-    public const int PauseOverlay = 39;
-    public const int Dead = 40;
-    public const int GroundState = 41;
-    public const int IsInGoal = 42;
-    public const int Player = 43;
-    public const int FinishLevelDialog = 44;
-    public const int MainMenuBehaviour = 45;
-    public const int MainMenu = 46;
-    public const int OverlayLayer = 47;
-    public const int StaticLayer = 48;
+    public const int GameState = 27;
+    public const int ControllerToRestartTransition = 28;
+    public const int EndLevelTransition = 29;
+    public const int LevelIndexToLoadTransition = 30;
+    public const int LevelTransitionOverlay = 31;
+    public const int SceneToAdd = 32;
+    public const int SceneToRemove = 33;
+    public const int StartLevelTransition = 34;
+    public const int TransitionCommands = 35;
+    public const int Level = 36;
+    public const int LevelIndex = 37;
+    public const int PlayerSpawn = 38;
+    public const int Pause = 39;
+    public const int PauseOverlay = 40;
+    public const int Dead = 41;
+    public const int GroundState = 42;
+    public const int IsInGoal = 43;
+    public const int Player = 44;
+    public const int FinishLevelDialog = 45;
+    public const int MainMenuBehaviour = 46;
+    public const int MainMenu = 47;
+    public const int OverlayLayer = 48;
+    public const int StaticLayer = 49;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -88,6 +89,7 @@ public static class GameComponentsLookup {
         "VirtualCamera",
         "MousePosition",
         "ActiveSceneName",
+        "GameState",
         "ControllerToRestartTransition",
         "EndLevelTransition",
         "LevelIndexToLoadTransition",
@@ -140,6 +142,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.GameCamera.VirtualCameraComponent),
         typeof(SemoGames.GameInput.MousePositionComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
+        typeof(SemoGames.GameState.GameStateComponent),
         typeof(SemoGames.GameTransition.ControllerToRestartTransitionComponent),
         typeof(SemoGames.GameTransition.EndLevelTransitionComponent),
         typeof(SemoGames.GameTransition.LevelIndexToLoadTransitionComponent),
