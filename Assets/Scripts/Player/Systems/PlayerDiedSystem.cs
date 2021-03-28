@@ -36,7 +36,6 @@ namespace SemoGames.Player
                     finishLevelDialogEntity.AddView(finishLevelDialog);
                     finishLevelDialog.Link(finishLevelDialogEntity);
                 });
-            Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("UI");
         }
     }
 }

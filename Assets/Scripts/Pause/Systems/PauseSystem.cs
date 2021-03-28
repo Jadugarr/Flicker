@@ -29,7 +29,6 @@ namespace SemoGames.Pause
         protected override void Execute(List<GameEntity> entities)
         {
             Physics2D.simulationMode = SimulationMode2D.Script;
-            Contexts.sharedInstance.input.playerInput.Value.SwitchCurrentActionMap("UI");
             GameContext gameContext = Contexts.sharedInstance.game;
             GameEntity finishLevelDialogEntity = gameContext.CreateEntity();
             _pauseOverlayGroup.GetSingleEntity().pauseOverlay.Value.enabled = true;

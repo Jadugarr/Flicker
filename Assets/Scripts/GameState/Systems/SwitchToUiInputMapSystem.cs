@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace SemoGames.Player
+namespace SemoGames.GameState
 {
-    public class ActivateUiInputMapOnReachedGoalSystem : ReactiveSystem<GameEntity>
+    public class SwitchToUiInputMapSystem : ReactiveSystem<GameEntity>
     {
-        public ActivateUiInputMapOnReachedGoalSystem(IContext<GameEntity> context) : base(context)
+        public SwitchToUiInputMapSystem(IContext<GameEntity> context) : base(context)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.IsInGoal, GroupEvent.Added));
+            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.GameState, GroupEvent.Added));
         }
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return entity.gameState.Value == GameStates.UI;
         }
 
         protected override void Execute(List<GameEntity> entities)

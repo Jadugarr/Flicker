@@ -2,6 +2,7 @@
 using Entitas;
 using SemoGames.Configurations;
 using SemoGames.GameScene;
+using SemoGames.GameState;
 using SemoGames.GameTransition;
 
 namespace SemoGames.Controller
