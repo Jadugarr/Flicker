@@ -6,6 +6,7 @@ using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.GameState;
+using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
 using SemoGames.UI;
@@ -58,7 +59,8 @@ namespace SemoGames.Controller
                 .Add(new PlayerDiedSystem(gameContext))
                 .Add(new EntityDiedSystem(gameContext))
                 .Add(new PauseSystem(gameContext))
-                .Add(new UnpauseSystem(gameContext));
+                .Add(new UnpauseSystem(gameContext))
+                .Add(new TeardownObstaclesSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -77,6 +79,7 @@ namespace SemoGames.Controller
                 .Add(new ApplyPowerToCharacterSystem(gameContext))
                 .Add(new DetectStopMovingSystem(gameContext))
                 .Add(new KillVelocityOfPlayerWhenInGoal(gameContext))
+                .Add(new MoveObstaclesSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))
                 .Add(new CleanupInputActionsSystem());
