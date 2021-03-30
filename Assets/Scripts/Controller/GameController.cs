@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using FastForward.Systems;
 using Level.Systems;
 using SemoGames.Common;
 using SemoGames.Flick;
@@ -60,6 +61,8 @@ namespace SemoGames.Controller
                 .Add(new EntityDiedSystem(gameContext))
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
+                .Add(new FastForwardActivatedSystem(gameContext))
+                .Add(new FastForwardDeactivatedSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem());
         }
