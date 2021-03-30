@@ -60,7 +60,8 @@ namespace SemoGames.Controller
                 .Add(new EntityDiedSystem(gameContext))
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
-                .Add(new TeardownObstaclesSystem(gameContext));
+                .Add(new TeardownObstaclesSystem(gameContext))
+                .Add(new TeardownPauseSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
