@@ -45,6 +45,9 @@ namespace SemoGames.GameInput
                 case "Unpause":
                     HandleUnpauseInput(inputAction);
                     break;
+                case "FastForward":
+                    HandleFastForwardInput(inputAction);
+                    break;
             }
         }
 
@@ -53,6 +56,18 @@ namespace SemoGames.GameInput
             _playerInput.onActionTriggered -= OnInputActionTriggered;
 
             _context.RemovePlayerInput();
+        }
+
+        private void HandleFastForwardInput(InputAction.CallbackContext inputAction)
+        {
+            if (inputAction.phase == InputActionPhase.Performed)
+            {
+                Contexts.sharedInstance.game.isFastForward = true;
+            }
+            else
+            {
+                Contexts.sharedInstance.game.isFastForward = false;
+            }
         }
 
         private void HandlePauseInput(InputAction.CallbackContext inputAction)
