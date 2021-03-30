@@ -79,6 +79,7 @@ namespace SemoGames.Controller
                 .Add(new ApplyPowerToCharacterSystem(gameContext))
                 .Add(new DetectStopMovingSystem(gameContext))
                 .Add(new KillVelocityOfPlayerWhenInGoal(gameContext))
+                .Add(new AdjustObstacleMoveTimerSystem(gameContext))
                 .Add(new MoveObstaclesSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))

@@ -62,7 +62,10 @@ namespace SemoGames.GameInput
 
             GameContext gameContext = Contexts.sharedInstance.game;
             if (!gameContext.isPause)
+            {
                 gameContext.isPause = true;
+                gameContext.ReplacePauseTimeStarted(Time.time);
+            }
         }
 
         private void HandleUnpauseInput(InputAction.CallbackContext inputAction)
@@ -72,7 +75,10 @@ namespace SemoGames.GameInput
 
             GameContext gameContext = Contexts.sharedInstance.game;
             if (gameContext.isPause)
+            {
                 gameContext.isPause = false;
+                gameContext.ReplacePauseTimeEnded(Time.time);
+            }
         }
 
         private void HandleTestVelocityInput(InputAction.CallbackContext inputAction)

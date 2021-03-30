@@ -49,21 +49,25 @@ public static class GameComponentsLookup {
     public const int LevelIndex = 38;
     public const int PlayerSpawn = 39;
     public const int CurrentWaypointIndex = 40;
-    public const int Obstacle = 41;
-    public const int Waypoints = 42;
-    public const int Pause = 43;
-    public const int PauseOverlay = 44;
-    public const int Dead = 45;
-    public const int GroundState = 46;
-    public const int IsInGoal = 47;
-    public const int Player = 48;
-    public const int FinishLevelDialog = 49;
-    public const int MainMenuBehaviour = 50;
-    public const int MainMenu = 51;
-    public const int OverlayLayer = 52;
-    public const int StaticLayer = 53;
+    public const int NextWaypointIndex = 41;
+    public const int Obstacle = 42;
+    public const int TimeWhenMovementStarted = 43;
+    public const int Waypoints = 44;
+    public const int Pause = 45;
+    public const int PauseOverlay = 46;
+    public const int PauseTimeEnded = 47;
+    public const int PauseTimeStarted = 48;
+    public const int Dead = 49;
+    public const int GroundState = 50;
+    public const int IsInGoal = 51;
+    public const int Player = 52;
+    public const int FinishLevelDialog = 53;
+    public const int MainMenuBehaviour = 54;
+    public const int MainMenu = 55;
+    public const int OverlayLayer = 56;
+    public const int StaticLayer = 57;
 
-    public const int TotalComponents = 54;
+    public const int TotalComponents = 58;
 
     public static readonly string[] componentNames = {
         "AsyncOperationHandle",
@@ -107,10 +111,14 @@ public static class GameComponentsLookup {
         "LevelIndex",
         "PlayerSpawn",
         "CurrentWaypointIndex",
+        "NextWaypointIndex",
         "Obstacle",
+        "TimeWhenMovementStarted",
         "Waypoints",
         "Pause",
         "PauseOverlay",
+        "PauseTimeEnded",
+        "PauseTimeStarted",
         "Dead",
         "GroundState",
         "IsInGoal",
@@ -164,10 +172,14 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Level.LevelIndexComponent),
         typeof(SemoGames.Level.PlayerSpawnComponent),
         typeof(SemoGames.Obstacles.CurrentWaypointIndexComponent),
+        typeof(SemoGames.Obstacles.NextWaypointIndexComponent),
         typeof(SemoGames.Obstacles.ObstacleComponent),
+        typeof(SemoGames.Obstacles.TimeWhenMovementStartedComponent),
         typeof(SemoGames.Obstacles.WaypointsComponent),
         typeof(SemoGames.Pause.PauseComponent),
         typeof(SemoGames.Pause.PauseOverlayComponent),
+        typeof(SemoGames.Pause.PauseTimeEndedComponent),
+        typeof(SemoGames.Pause.PauseTimeStartedComponent),
         typeof(SemoGames.Player.DeadComponent),
         typeof(SemoGames.Player.GroundStateComponent),
         typeof(SemoGames.Player.IsInGoalComponent),

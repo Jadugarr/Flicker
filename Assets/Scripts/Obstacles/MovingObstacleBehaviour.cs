@@ -21,7 +21,9 @@ namespace SemoGames.Obstacles
             obstacleEntity.AddRigidbody(objectToMove.GetComponent<Rigidbody2D>());
             obstacleEntity.AddVelocity(Vector3.zero);
             obstacleEntity.AddCurrentWaypointIndex(0);
+            obstacleEntity.AddNextWaypointIndex(1);
             obstacleEntity.AddMovementSpeed(movementSpeed);
+            obstacleEntity.AddTimeWhenMovementStarted(Time.time);
             objectToMove.Link(obstacleEntity);
         }
     }

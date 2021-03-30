@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   objectToMove: {fileID: 399089928118608519}
-  movementSpeed: 5
+  movementSpeed: 2
 --- !u!1 &4733925883525487656
 GameObject:
   m_ObjectHideFlags: 0
