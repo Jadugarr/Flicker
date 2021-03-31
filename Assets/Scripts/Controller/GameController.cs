@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Bumpers.Systems;
+using Entitas;
 using FastForward.Systems;
 using Level.Systems;
 using SemoGames.Common;
@@ -64,7 +65,8 @@ namespace SemoGames.Controller
                 .Add(new FastForwardActivatedSystem(gameContext))
                 .Add(new FastForwardDeactivatedSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
-                .Add(new TeardownPauseSystem());
+                .Add(new TeardownPauseSystem())
+                .Add(new TeardownBumpersSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -79,6 +81,7 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
                 .Add(new SyncPositionAndViewSystem(gameContext))
+                .Add(new ProcessBumperCollisionSystem(gameContext))
                 .Add(new CheckGroundStateSystem(gameContext))
                 .Add(new ApplyPowerToCharacterSystem(gameContext))
                 .Add(new DetectStopMovingSystem(gameContext))
