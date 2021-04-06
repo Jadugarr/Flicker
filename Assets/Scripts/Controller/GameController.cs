@@ -2,6 +2,7 @@
 using Entitas;
 using FastForward.Systems;
 using Level.Systems;
+using SemoGames.Collectables.Systems;
 using SemoGames.Common;
 using SemoGames.Flick;
 using SemoGames.Flipper;
@@ -64,9 +65,11 @@ namespace SemoGames.Controller
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new FastForwardActivatedSystem(gameContext))
                 .Add(new FastForwardDeactivatedSystem(gameContext))
+                .Add(new CollectableCollectedSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
-                .Add(new TeardownBumpersSystem());
+                .Add(new TeardownBumpersSystem())
+                .Add(new TeardownCollectablesSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

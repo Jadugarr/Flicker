@@ -30,6 +30,7 @@ namespace SemoGames.Utils
             gameContext.ReplaceCamera(_gameCamera);
             gameContext.ReplaceLevelTransitionOverlay(_levelTransitionOverlay);
             gameContext.ReplacePauseOverlay(_pauseOverlay);
+            gameContext.ReplaceCollectedAmount(0);
             #endregion
 
             #region Add configurations

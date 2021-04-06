@@ -8,6 +8,7 @@ TagManager:
   - RightFlipper
   - LeftFlipper
   - DeathPlane
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Ground
   - Flipper
   - Obstacle
-  - 
+  - Collectable
   - 
   - 
   - 
