@@ -17,9 +17,12 @@ namespace SemoGames.Obstacles.Systems
         {
             foreach (GameEntity obstacleEntity in _movingObstacleGroup.GetEntities())
             {
-                GameObject parentObject = obstacleEntity.view.Value.transform.parent.gameObject;
-                obstacleEntity.DestroyEntity();
-                GameObject.Destroy(parentObject);
+                if (obstacleEntity.hasView && obstacleEntity.view.Value != null)
+                {
+                    GameObject parentObject = obstacleEntity.view.Value.transform.parent.gameObject;
+                    obstacleEntity.DestroyEntity();
+                    GameObject.Destroy(parentObject);
+                }
             }
         }
     }
