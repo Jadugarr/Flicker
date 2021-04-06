@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using SemoGames.Configurations;
 using UnityEngine;
 
 namespace FastForward.Systems
@@ -22,7 +23,7 @@ namespace FastForward.Systems
 
         protected override void Execute(List<GameEntity> entities)
         {
-            Time.timeScale = 5f;
+            Time.timeScale = GameConfigurations.GameConstantsConfiguration.SpeedUpFactor;
         }
     }
 }

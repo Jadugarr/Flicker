@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxFlickPower: 12
   maxDragLength: 3
+  bumperPower: 25
+  speedUpFactor: 5

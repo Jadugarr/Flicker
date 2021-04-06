@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Entitas.Unity;
+using SemoGames.Configurations;
 using UnityEngine;
 
 namespace Bumpers
@@ -34,7 +35,7 @@ namespace Bumpers
                 Vector3 normal = result.normal;
                 Vector3 reflectedVector = Vector3.Reflect(playerEntity.velocity.Value, normal).normalized;
                 
-                playerEntity.ReplaceBumperCollisionVelocity(reflectedVector * 25f);
+                playerEntity.ReplaceBumperCollisionVelocity(reflectedVector * GameConfigurations.GameConstantsConfiguration.BumperPower);
             }
         }
     }
