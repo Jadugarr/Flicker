@@ -1,5 +1,4 @@
 ﻿using Entitas.Unity;
-using UnityEditor.Animations;
 using UnityEngine;
 
 namespace SemoGames.Collectables

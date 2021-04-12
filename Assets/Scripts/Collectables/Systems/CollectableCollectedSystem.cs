@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entitas;
-using SemoGames.Extensions;
 using UnityEngine;
 
 namespace SemoGames.Collectables.Systems
