@@ -1,5 +1,5 @@
-﻿using System;
-using Entitas.Unity;
+﻿using Entitas.Unity;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace SemoGames.Collectables
@@ -12,6 +12,7 @@ namespace SemoGames.Collectables
             collectableEntity.isCollectable = true;
             collectableEntity.AddView(gameObject);
             collectableEntity.AddPosition(gameObject.transform.position);
+            collectableEntity.AddAnimator(GetComponentInChildren<Animator>());
             gameObject.Link(collectableEntity);
         }
 
@@ -21,6 +22,14 @@ namespace SemoGames.Collectables
             {
                 ((GameEntity) gameObject.GetEntityLink().entity).isCollected = true;
             }
+        }
+
+        private void OnCollectionFinished()
+        {
+            GameEntity linkedEntity = gameObject.GetEntityLink().entity as GameEntity;
+            if (linkedEntity == null) return;
+
+            linkedEntity.isGarbage = true;
         }
     }
 }
