@@ -17,13 +17,13 @@ namespace SemoGames.Common
         {
             foreach (GameEntity gameEntity in _entitiesToCheck.GetEntities())
             {
-                ContactFilter2D contactFilter = new ContactFilter2D {layerMask = LayerMask.GetMask(Layers.Ground)};
+                ContactFilter2D contactFilter = new ContactFilter2D {layerMask = LayerMask.GetMask(Layers.Ground, Layers.CheckpointWall)};
                 List<RaycastHit2D> results = new List<RaycastHit2D>();
                 gameEntity.circleCollider.Value.Cast(Vector2.down, contactFilter, results, 0.02f);
 
                 if (results.Count > 0)
                 {
-                    if (results[0].collider.gameObject.layer == LayerMask.NameToLayer(Layers.Ground))
+                    if (results[0].collider.gameObject.layer == LayerMask.NameToLayer(Layers.Ground) || results[0].collider.gameObject.layer == LayerMask.NameToLayer(Layers.CheckpointWall))
                     {
                         gameEntity.ReplaceGroundState(GroundState.Ground);
                     }

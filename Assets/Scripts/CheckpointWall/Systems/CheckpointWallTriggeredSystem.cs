@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using Entitas;
 using UnityEngine;
 
@@ -30,10 +31,18 @@ namespace SemoGames.CheckpointWall
                 Transform wallSpriteRendererTransform = wallSpriteRenderer.transform;
                 Vector3 currentWallSpriteRendererPosition = wallSpriteRendererTransform.localPosition;
 
-                wallSpriteRenderer.size = new Vector2(Mathf.Max(1f,Mathf.Abs(wallEndMarkerPosition.x)), Mathf.Max(1f,Mathf.Abs(wallEndMarkerPosition.y)));
-                wallSpriteRendererTransform.localPosition = new Vector3(
-                    currentWallSpriteRendererPosition.x + (wallEndMarkerPosition.x - currentWallSpriteRendererPosition.x) / 2f,
-                    currentWallSpriteRendererPosition.y + (wallEndMarkerPosition.y - currentWallSpriteRendererPosition.y) / 2f, 0f);
+                DOTween.To(() => wallSpriteRenderer.size, value => wallSpriteRenderer.size = value,
+                    new Vector2(Mathf.Max(1f, Mathf.Abs(wallEndMarkerPosition.x)),
+                        Mathf.Max(1f, Mathf.Abs(wallEndMarkerPosition.y))),
+                    1f);
+                DOTween.To(() => wallSpriteRendererTransform.localPosition,
+                    value => wallSpriteRendererTransform.localPosition = value, new Vector3(
+                        currentWallSpriteRendererPosition.x +
+                        (wallEndMarkerPosition.x - currentWallSpriteRendererPosition.x) / 2f,
+                        currentWallSpriteRendererPosition.y +
+                        (wallEndMarkerPosition.y - currentWallSpriteRendererPosition.y) / 2f, 0f), 1f);
+
+                wallEntity.checkpointTriggerObject.Value.SetActive(false);
             }
         }
     }
