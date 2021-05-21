@@ -2,6 +2,7 @@
 using Entitas;
 using FastForward.Systems;
 using Level.Systems;
+using SemoGames.CheckpointWall;
 using SemoGames.Collectables.Systems;
 using SemoGames.Common;
 using SemoGames.Flick;
@@ -65,12 +66,14 @@ namespace SemoGames.Controller
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new FastForwardActivatedSystem(gameContext))
                 .Add(new FastForwardDeactivatedSystem(gameContext))
+                .Add(new CheckpointWallTriggeredSystem(gameContext))
                 .Add(new CollectableCollectedSystem(gameContext))
                 .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
-                .Add(new TeardownCollectablesSystem());
+                .Add(new TeardownCollectablesSystem())
+                .Add(new TeardownCheckpointWallsSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
