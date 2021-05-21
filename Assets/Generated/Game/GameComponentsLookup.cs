@@ -10,87 +10,99 @@ public static class GameComponentsLookup {
 
     public const int BumperCollisionVelocity = 0;
     public const int Bumper = 1;
-    public const int Collectable = 2;
-    public const int CollectedAmount = 3;
-    public const int Collected = 4;
-    public const int Animator = 5;
-    public const int AsyncOperationHandle = 6;
-    public const int CircleCollider = 7;
-    public const int Garbage = 8;
-    public const int Id = 9;
-    public const int MovementSpeed = 10;
-    public const int Position = 11;
-    public const int Rigidbody = 12;
-    public const int Velocity = 13;
-    public const int View = 14;
-    public const int Controller = 15;
-    public const int RestartController = 16;
-    public const int FastForward = 17;
-    public const int CurrentDragLength = 18;
-    public const int CurrentFlickPower = 19;
-    public const int FlickAngle = 20;
-    public const int Flick = 21;
-    public const int FlickLine = 22;
-    public const int MaxDragLength = 23;
-    public const int MaxFlickPower = 24;
-    public const int StartFlick = 25;
-    public const int Flipper = 26;
-    public const int HingeJoint = 27;
-    public const int LeftFlipper = 28;
-    public const int Camera = 29;
-    public const int CameraConfinerCollider = 30;
-    public const int CameraConfiner = 31;
-    public const int CameraFollow = 32;
-    public const int VirtualCamera = 33;
-    public const int MousePosition = 34;
-    public const int ActiveSceneName = 35;
-    public const int GameState = 36;
-    public const int ControllerToRestartTransition = 37;
-    public const int EndLevelTransition = 38;
-    public const int LevelIndexToLoadTransition = 39;
-    public const int LevelTransitionOverlay = 40;
-    public const int SceneToAdd = 41;
-    public const int SceneToRemove = 42;
-    public const int StartLevelTransition = 43;
-    public const int TransitionCommands = 44;
-    public const int Level = 45;
-    public const int LevelIndex = 46;
-    public const int PlayerSpawn = 47;
-    public const int CurrentWaypointIndex = 48;
-    public const int NextWaypointIndex = 49;
-    public const int Obstacle = 50;
-    public const int TimeWhenMovementStarted = 51;
-    public const int Waypoints = 52;
-    public const int Pause = 53;
-    public const int PauseOverlay = 54;
-    public const int PauseTimeEnded = 55;
-    public const int PauseTimeStarted = 56;
-    public const int Dead = 57;
-    public const int GroundState = 58;
-    public const int IsInGoal = 59;
-    public const int Player = 60;
-    public const int FinishLevelDialog = 61;
-    public const int MainMenuBehaviour = 62;
-    public const int MainMenu = 63;
-    public const int OverlayLayer = 64;
-    public const int StaticLayer = 65;
+    public const int CheckpointEndMarker = 2;
+    public const int CheckpointTriggerObject = 3;
+    public const int CheckpointWall = 4;
+    public const int Collectable = 5;
+    public const int CollectedAmount = 6;
+    public const int Collected = 7;
+    public const int Animator = 8;
+    public const int AsyncOperationHandle = 9;
+    public const int BoxCollider = 10;
+    public const int CircleCollider = 11;
+    public const int Garbage = 12;
+    public const int Id = 13;
+    public const int MovementSpeed = 14;
+    public const int Position = 15;
+    public const int Rigidbody = 16;
+    public const int SpriteRenderer = 17;
+    public const int Triggered = 18;
+    public const int Velocity = 19;
+    public const int View = 20;
+    public const int Controller = 21;
+    public const int RestartController = 22;
+    public const int FastForward = 23;
+    public const int CurrentDragLength = 24;
+    public const int CurrentFlickPower = 25;
+    public const int FlickAngle = 26;
+    public const int Flick = 27;
+    public const int FlickLine = 28;
+    public const int MaxDragLength = 29;
+    public const int MaxFlickPower = 30;
+    public const int StartFlick = 31;
+    public const int Flipper = 32;
+    public const int HingeJoint = 33;
+    public const int LeftFlipper = 34;
+    public const int Camera = 35;
+    public const int CameraConfinerCollider = 36;
+    public const int CameraConfiner = 37;
+    public const int CameraFollow = 38;
+    public const int VirtualCamera = 39;
+    public const int MousePosition = 40;
+    public const int ActiveSceneName = 41;
+    public const int GameState = 42;
+    public const int ControllerToRestartTransition = 43;
+    public const int EndLevelTransition = 44;
+    public const int LevelIndexToLoadTransition = 45;
+    public const int LevelTransitionOverlay = 46;
+    public const int SceneToAdd = 47;
+    public const int SceneToRemove = 48;
+    public const int StartLevelTransition = 49;
+    public const int TransitionCommands = 50;
+    public const int Level = 51;
+    public const int LevelIndex = 52;
+    public const int PlayerSpawn = 53;
+    public const int CurrentWaypointIndex = 54;
+    public const int NextWaypointIndex = 55;
+    public const int Obstacle = 56;
+    public const int TimeWhenMovementStarted = 57;
+    public const int Waypoints = 58;
+    public const int Pause = 59;
+    public const int PauseOverlay = 60;
+    public const int PauseTimeEnded = 61;
+    public const int PauseTimeStarted = 62;
+    public const int Dead = 63;
+    public const int GroundState = 64;
+    public const int IsInGoal = 65;
+    public const int Player = 66;
+    public const int FinishLevelDialog = 67;
+    public const int MainMenuBehaviour = 68;
+    public const int MainMenu = 69;
+    public const int OverlayLayer = 70;
+    public const int StaticLayer = 71;
 
-    public const int TotalComponents = 66;
+    public const int TotalComponents = 72;
 
     public static readonly string[] componentNames = {
         "BumperCollisionVelocity",
         "Bumper",
+        "CheckpointEndMarker",
+        "CheckpointTriggerObject",
+        "CheckpointWall",
         "Collectable",
         "CollectedAmount",
         "Collected",
         "Animator",
         "AsyncOperationHandle",
+        "BoxCollider",
         "CircleCollider",
         "Garbage",
         "Id",
         "MovementSpeed",
         "Position",
         "Rigidbody",
+        "SpriteRenderer",
+        "Triggered",
         "Velocity",
         "View",
         "Controller",
@@ -149,17 +161,23 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(SemoGames.Bumpers.BumperCollisionVelocityComponent),
         typeof(SemoGames.Bumpers.BumperComponent),
+        typeof(SemoGames.CheckpointWall.CheckpointEndMarkerComponent),
+        typeof(SemoGames.CheckpointWall.CheckpointTriggerObjectComponent),
+        typeof(SemoGames.CheckpointWall.CheckpointWallComponent),
         typeof(SemoGames.Collectables.CollectableComponent),
         typeof(SemoGames.Collectables.CollectedAmountComponent),
         typeof(SemoGames.Collectables.CollectedComponent),
         typeof(SemoGames.Common.AnimatorComponent),
         typeof(SemoGames.Common.AsyncOperationHandleComponent),
+        typeof(SemoGames.Common.BoxColliderComponent),
         typeof(SemoGames.Common.CircleColliderComponent),
         typeof(SemoGames.Common.GarbageComponent),
         typeof(SemoGames.Common.IdComponent),
         typeof(SemoGames.Common.MovementSpeedComponent),
         typeof(SemoGames.Common.PositionComponent),
         typeof(SemoGames.Common.RigidbodyComponent),
+        typeof(SemoGames.Common.SpriteRendererComponent),
+        typeof(SemoGames.Common.TriggeredComponent),
         typeof(SemoGames.Common.VelocityComponent),
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
