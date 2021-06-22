@@ -75,13 +75,14 @@ public static class GameComponentsLookup {
     public const int GroundState = 64;
     public const int IsInGoal = 65;
     public const int Player = 66;
-    public const int FinishLevelDialog = 67;
-    public const int MainMenuBehaviour = 68;
-    public const int MainMenu = 69;
-    public const int OverlayLayer = 70;
-    public const int StaticLayer = 71;
+    public const int TrailRenderer = 67;
+    public const int FinishLevelDialog = 68;
+    public const int MainMenuBehaviour = 69;
+    public const int MainMenu = 70;
+    public const int OverlayLayer = 71;
+    public const int StaticLayer = 72;
 
-    public const int TotalComponents = 72;
+    public const int TotalComponents = 73;
 
     public static readonly string[] componentNames = {
         "BumperCollisionVelocity",
@@ -151,6 +152,7 @@ public static class GameComponentsLookup {
         "GroundState",
         "IsInGoal",
         "Player",
+        "TrailRenderer",
         "FinishLevelDialog",
         "MainMenuBehaviour",
         "MainMenu",
@@ -226,6 +228,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Player.GroundStateComponent),
         typeof(SemoGames.Player.IsInGoalComponent),
         typeof(SemoGames.Player.PlayerComponent),
+        typeof(SemoGames.Player.TrailRendererComponent),
         typeof(SemoGames.UI.FinishLevelDialogComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),
