@@ -68,6 +68,7 @@ namespace SemoGames.Controller
                 .Add(new FastForwardDeactivatedSystem(gameContext))
                 .Add(new CheckpointWallTriggeredSystem(gameContext))
                 .Add(new CollectableCollectedSystem(gameContext))
+                .Add(new HandleTrailRendererEmissionSystem(gameContext))
                 .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
