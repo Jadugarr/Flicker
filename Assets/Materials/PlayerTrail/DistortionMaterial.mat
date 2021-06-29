@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerTrailMaterial
+  m_Name: DistortionMaterial
   m_Shader: {fileID: -6465566751694194690, guid: 12f98fd7b59ae0c4fae6590783a3c4f3,
     type: 3}
   m_ShaderKeywords: 
@@ -28,6 +28,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - NormalMapTest:
+        m_Texture: {fileID: 2800000, guid: 7b68d1632dcdd1147adb88a9235ac17e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AlphaTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -41,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f9c37e6f72a5d4187af8f85c69a03557, type: 3}
+        m_Texture: {fileID: 2800000, guid: 64a523257ffd0d54685112a3ed3a2a16, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -67,13 +71,15 @@ Material:
     m_Ints: []
     m_Floats:
     - Alpha: 1
-    - NoiseSpeed: 10
+    - NoiseSpeed: 1
     - PixelSnap: 0
     - Thickness: 0.2
     - _EnableExternalAlpha: 0
     m_Colors:
+    - DistPosition: {r: 1, g: 1, b: 0, a: 0}
+    - Tiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Offset: {r: 0.1, g: 0, b: 0, a: 0}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
