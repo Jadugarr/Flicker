@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 853ba34d5c831c5469222d485b4b40e1
+guid: 629c9d73c2ecf814d865afe4aba17f2c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1025098624757503153
+    second: grassCenter_0
+  - first:
+      213: -1924231388277199421
+    second: SimpleSquare_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,14 +47,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -89,7 +95,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: SimpleSquare_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 11
+        width: 78
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35, y: -35}
+        - {x: -35, y: 35}
+        - {x: 35, y: 35}
+        - {x: 35, y: -35}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cda4145fb1cb45e0800000000000000
+      internalID: -1924231388277199421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
