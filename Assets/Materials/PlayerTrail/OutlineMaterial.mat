@@ -58,7 +58,7 @@ Material:
     - Thickness: 0.01
     - _EnableExternalAlpha: 0
     m_Colors:
-    - OutlineColor: {r: 1.8190669, g: 0, b: 4.237095, a: 1}
+    - OutlineColor: {r: 5.145098, g: 0, b: 11.984314, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
