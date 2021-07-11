@@ -9,6 +9,7 @@ TagManager:
   - LeftFlipper
   - DeathPlane
   - Collectable
+  - Ground
   layers:
   - Default
   - TransparentFX

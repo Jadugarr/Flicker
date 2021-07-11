@@ -13,6 +13,7 @@ namespace Bumpers
             bumperEntity.isBumper = true;
             bumperEntity.AddView(gameObject);
             bumperEntity.AddPosition(transform.position);
+            bumperEntity.AddAudioSource(gameObject.GetComponent<AudioSource>());
             gameObject.Link(bumperEntity);
         }
 
@@ -36,6 +37,9 @@ namespace Bumpers
                 Vector3 reflectedVector = Vector3.Reflect(playerEntity.velocity.Value, normal).normalized;
                 
                 playerEntity.ReplaceBumperCollisionVelocity(reflectedVector * GameConfigurations.GameConstantsConfiguration.BumperPower);
+                
+                GameEntity bumperEntity = gameObject.GetEntityLink().entity as GameEntity;
+                bumperEntity.isPlaySound = true;
             }
         }
     }

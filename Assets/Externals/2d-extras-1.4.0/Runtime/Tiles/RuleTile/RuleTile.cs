@@ -293,7 +293,6 @@ namespace UnityEngine
                     if (RuleMatches(rule, location, tilemap, ref transform))
                     {
                         transform = orientMatrix * transform;
-
                         // Converts the tile's translation, rotation, & scale matrix to values to be used by the instantiated Game Object
                         gameObjectTranslation = new Vector3(transform.m03, transform.m13, transform.m23);
                         gameObjectRotation = Quaternion.LookRotation(new Vector3(transform.m02, transform.m12, transform.m22), new Vector3(transform.m01, transform.m11, transform.m21));

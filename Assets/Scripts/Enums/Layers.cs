@@ -10,6 +10,7 @@ public abstract class Layers {
 	public const string Obstacle = "Obstacle";
 	public const string Collectable = "Collectable";
 	public const string CheckpointWall = "CheckpointWall";
+	public const string Effects = "Effects";
 
 	public const int DefaultMask = 1;
 	public const int TransparentFXMask = 1 << 1;
@@ -21,6 +22,7 @@ public abstract class Layers {
 	public const int ObstacleMask = 1 << 10;
 	public const int CollectableMask = 1 << 11;
 	public const int CheckpointWallMask = 1 << 12;
+	public const int EffectsMask = 1 << 13;
 
 	public const int DefaultNumber = 0;
 	public const int TransparentFXNumber = 1;
@@ -32,4 +34,5 @@ public abstract class Layers {
 	public const int ObstacleNumber = 10;
 	public const int CollectableNumber = 11;
 	public const int CheckpointWallNumber = 12;
+	public const int EffectsNumber = 13;
 }

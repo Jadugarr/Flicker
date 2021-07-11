@@ -2,6 +2,7 @@
 using Entitas;
 using FastForward.Systems;
 using Level.Systems;
+using SemoGames.Audio;
 using SemoGames.CheckpointWall;
 using SemoGames.Collectables.Systems;
 using SemoGames.Common;
@@ -10,6 +11,7 @@ using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.GameState;
+using SemoGames.Goal.Systems;
 using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
@@ -70,11 +72,13 @@ namespace SemoGames.Controller
                 .Add(new CollectableCollectedSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
                 .Add(new GarbageCollectionSystem(gameContext))
+                .Add(new PlaySoundSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownCollectablesSystem())
-                .Add(new TeardownCheckpointWallsSystem());
+                .Add(new TeardownCheckpointWallsSystem())
+                .Add(new TeardownGoalSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
