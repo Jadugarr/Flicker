@@ -5,12 +5,12 @@ namespace SemoGames.Player
 {
     public class PlayerBehaviour : MonoBehaviour
     {
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.CompareTag(Tags.Goal))
+            if (other.collider.CompareTag(Tags.Ground))
             {
                 GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
-                playerEntity.isIsInGoal = true;
+                playerEntity.isPlaySound = true;
             }
         }
     }

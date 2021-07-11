@@ -63,6 +63,7 @@ namespace SemoGames.Player
                         playerEntity.isCameraFollow = true;
                         playerEntity.AddGroundState(GroundState.Ground);
                         playerEntity.AddTrailRenderer(playerObject.GetComponentInChildren<TrailRenderer>());
+                        playerEntity.AddAudioSource(playerObject.GetComponent<AudioSource>());
                         playerObject.Link(playerEntity);
                     });
             }
