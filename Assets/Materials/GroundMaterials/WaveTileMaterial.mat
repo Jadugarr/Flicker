@@ -44,5 +44,5 @@ Material:
     - Center: {r: -14.03, g: 6.6, b: 0, a: 0}
     - Scale: {r: 1, g: 1, b: 0, a: 0}
     - _Center: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 0.3584906, g: 0, b: 0.30996248, a: 0}
+    - _TintColor: {r: 1.4980392, g: 0, b: 1.3019608, a: 0}
   m_BuildTextureStacks: []

@@ -4,7 +4,7 @@
     {
         [NoScaleOffset]_MainTex("MainTex", 2D) = "white" {}
         WaveSpeed("WaveSpeed", Float) = 1
-        _TintColor("TintColor", Color) = (0, 0, 0, 0)
+        [HDR]_TintColor("TintColor", Color) = (0, 0, 0, 0)
         _Offset("Offset", Float) = 0
         [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
@@ -308,7 +308,7 @@
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_G_5 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.g;
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_B_6 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.b;
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_A_7 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.a;
-            float4 _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0 = _TintColor;
+            float4 _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0 = IsGammaSpace() ? LinearToSRGB(_TintColor) : _TintColor;
             float4 _Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2;
             Unity_Multiply_float(_SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0, _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0, _Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2);
             surface.BaseColor = (_Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2.xyz);
@@ -648,7 +648,7 @@
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_G_5 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.g;
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_B_6 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.b;
             float _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_A_7 = _SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0.a;
-            float4 _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0 = _TintColor;
+            float4 _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0 = IsGammaSpace() ? LinearToSRGB(_TintColor) : _TintColor;
             float4 _Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2;
             Unity_Multiply_float(_SampleTexture2D_d94d54abf8cd4308b1dbd9ab31ab9131_RGBA_0, _Property_800209e6b7fe4ef8b6fba5d06e7a04c7_Out_0, _Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2);
             surface.BaseColor = (_Multiply_04ef26bcb8be4135ab35550d01afc734_Out_2.xyz);
