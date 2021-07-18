@@ -267,9 +267,9 @@
             float _Sine_4ecb96c44395490e8f77794b3c39b444_Out_1;
             Unity_Sine_float(_Add_d10dbf00043c4cdd8d8dee72969e6e73_Out_2, _Sine_4ecb96c44395490e8f77794b3c39b444_Out_1);
             float _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2;
-            Unity_Divide_float(_Sine_4ecb96c44395490e8f77794b3c39b444_Out_1, 8, _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2);
+            Unity_Divide_float(_Sine_4ecb96c44395490e8f77794b3c39b444_Out_1, 20, _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2);
             float _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2;
-            Unity_Subtract_float(_Divide_dfdee99591ce4688ad855bccef9fb791_Out_2, 0.125, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2);
+            Unity_Subtract_float(_Divide_dfdee99591ce4688ad855bccef9fb791_Out_2, 0.05, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2);
             float _Multiply_bf271ffd21a54fe298306391f33e5c5b_Out_2;
             Unity_Multiply_float(_Divide_2e44b69dbd46472f8712b6488ba55fbf_Out_2, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2, _Multiply_bf271ffd21a54fe298306391f33e5c5b_Out_2);
             float _Add_f88f224b2dc14611a6cc9a69be1465b4_Out_2;
@@ -607,9 +607,9 @@
             float _Sine_4ecb96c44395490e8f77794b3c39b444_Out_1;
             Unity_Sine_float(_Add_d10dbf00043c4cdd8d8dee72969e6e73_Out_2, _Sine_4ecb96c44395490e8f77794b3c39b444_Out_1);
             float _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2;
-            Unity_Divide_float(_Sine_4ecb96c44395490e8f77794b3c39b444_Out_1, 8, _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2);
+            Unity_Divide_float(_Sine_4ecb96c44395490e8f77794b3c39b444_Out_1, 20, _Divide_dfdee99591ce4688ad855bccef9fb791_Out_2);
             float _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2;
-            Unity_Subtract_float(_Divide_dfdee99591ce4688ad855bccef9fb791_Out_2, 0.125, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2);
+            Unity_Subtract_float(_Divide_dfdee99591ce4688ad855bccef9fb791_Out_2, 0.05, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2);
             float _Multiply_bf271ffd21a54fe298306391f33e5c5b_Out_2;
             Unity_Multiply_float(_Divide_2e44b69dbd46472f8712b6488ba55fbf_Out_2, _Subtract_f18e02d31e0e47c6be32c1a1918dbe8d_Out_2, _Multiply_bf271ffd21a54fe298306391f33e5c5b_Out_2);
             float _Add_f88f224b2dc14611a6cc9a69be1465b4_Out_2;
