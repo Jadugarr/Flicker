@@ -6,6 +6,7 @@ using SemoGames.Audio;
 using SemoGames.CheckpointWall;
 using SemoGames.Collectables.Systems;
 using SemoGames.Common;
+using SemoGames.Effects;
 using SemoGames.Flick;
 using SemoGames.Flipper;
 using SemoGames.GameCamera;
@@ -78,7 +79,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownCollectablesSystem())
                 .Add(new TeardownCheckpointWallsSystem())
-                .Add(new TeardownGoalSystem());
+                .Add(new TeardownGoalSystem())
+                .Add(new TeardownImpactStarsSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

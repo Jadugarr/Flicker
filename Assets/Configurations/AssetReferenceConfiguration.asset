@@ -38,3 +38,7 @@ MonoBehaviour:
     m_AssetGUID: a309eeb82d9aed144ae0c0879f38f84d
     m_SubObjectName: 
     m_SubObjectType: 
+  impactStarReference:
+    m_AssetGUID: fb44cd7278ece7c41bc0395d76a16824
+    m_SubObjectName: 
+    m_SubObjectType: 
