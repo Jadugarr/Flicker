@@ -25,7 +25,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
-      "version": "2.7.4",
+      "version": "2.7.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -113,7 +113,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.5.5",
+      "version": "1.5.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
