@@ -1,8 +1,10 @@
-﻿using Cinemachine.Utility;
+﻿using System;
+using Cinemachine.Utility;
 using Entitas.Unity;
 using SemoGames.Configurations;
 using SemoGames.Utils;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace SemoGames.Player
 {
@@ -14,12 +16,26 @@ namespace SemoGames.Player
             {
                 GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
                 ContactPoint2D contactPoint = other.GetContact(0);
-                float angle = Vector2.Angle(playerEntity.velocity.Value.normalized.Abs(), contactPoint.normal.normalized.Abs());
+                
+                HandleSound(contactPoint, playerEntity);
+                HandleImpactStars(contactPoint, playerEntity);
+            }
+        }
+
+        private void HandleSound(ContactPoint2D contactPoint, GameEntity playerEntity)
+        {
+            //float angle = Vector2.Angle(playerEntity.velocity.Value.normalized.Abs(), contactPoint.normal.normalized.Abs());
+            
+            playerEntity.audioSource.Value.volume = Math.Min(playerEntity.velocity.Value.magnitude, 10f) / 10f;
+            //playerEntity.audioSource.Value.pitch = Random.Range(0.95f, 1.05f);
+            playerEntity.isPlaySound = true;
+        }
+
+        private void HandleImpactStars(ContactPoint2D contactPoint, GameEntity playerEntity)
+        {
+            float angle = Vector2.Angle(playerEntity.velocity.Value.normalized.Abs(), contactPoint.normal.normalized.Abs());
                 if (playerEntity.velocity.Value.magnitude >= 2f && angle <= 45f)
                 {
-                    playerEntity.isPlaySound = true;
-                    
-                    
                     GameEntity impactStarEntity = Contexts.sharedInstance.game.CreateEntity();
                     impactStarEntity.isImpactStar = true;
                     AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity,
@@ -46,7 +62,6 @@ namespace SemoGames.Player
                             impactStarEntity2.AddView(impactStarObject);
                         });
                 }
-            }
         }
     }
 }
