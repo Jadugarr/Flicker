@@ -16,6 +16,11 @@ namespace SemoGames.Configurations
 
         [SerializeField] private float speedUpFactor;
 
+        [Header("Audio")] [SerializeField] private float impactSoundFullVolumeVelocityThreshold;
+
+        [Header("Effects")] [SerializeField] private float impactStarEffectVelocityThreshold;
+        [SerializeField] private float impatStarCollisionAngleThreshold;
+
         #region Read-only properties
 
         public float MaxFlickPower => maxFlickPower;
@@ -25,6 +30,12 @@ namespace SemoGames.Configurations
         public float BumperPower => bumperPower;
 
         public float SpeedUpFactor => speedUpFactor;
+
+        public float ImpactSoundFullVolumeVelocityThreshold => impactSoundFullVolumeVelocityThreshold;
+
+        public float ImpactStarEffectVelocityThreshold => impactStarEffectVelocityThreshold;
+
+        public float ImpatStarCollisionAngleThreshold => impatStarCollisionAngleThreshold;
 
         #endregion
     }
