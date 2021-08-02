@@ -16,3 +16,6 @@ MonoBehaviour:
   maxDragLength: 3
   bumperPower: 25
   speedUpFactor: 5
+  impactSoundFullVolumeVelocityThreshold: 10
+  impactStarEffectVelocityThreshold: 2
+  impatStarCollisionAngleThreshold: 45
