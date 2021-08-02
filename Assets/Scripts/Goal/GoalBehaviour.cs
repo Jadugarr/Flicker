@@ -20,10 +20,13 @@ namespace SemoGames.Goal
             if (other.CompareTag(Tags.Player))
             {
                 GameEntity playerEntity = (GameEntity) other.gameObject.GetEntityLink().entity;
-                playerEntity.isIsInGoal = true;
+                if (playerEntity.isIsInGoal == false)
+                {
+                    playerEntity.isIsInGoal = true;
                 
-                GameEntity goalEntity = (GameEntity) gameObject.GetEntityLink().entity;
-                goalEntity.isPlaySound = true;
+                    GameEntity goalEntity = (GameEntity) gameObject.GetEntityLink().entity;
+                    goalEntity.isPlaySound = true;
+                }
             }
         }
     }
