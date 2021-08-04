@@ -75,6 +75,7 @@ namespace SemoGames.Controller
                 .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new PlaySoundSystem(gameContext))
                 .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
+                .Add(new PlaySpaceBarAnimationSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
@@ -82,7 +83,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownCheckpointWallsSystem())
                 .Add(new TeardownGoalSystem())
                 .Add(new TeardownImpactStarsSystem())
-                .Add(new TeardownFlipperAnimationSystem());
+                .Add(new TeardownFlipperAnimationSystem())
+                .Add(new TeardownSpaceBarAnimationSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
