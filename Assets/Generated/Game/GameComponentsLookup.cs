@@ -34,60 +34,61 @@ public static class GameComponentsLookup {
     public const int View = 23;
     public const int Controller = 24;
     public const int RestartController = 25;
-    public const int ImpactStar = 26;
-    public const int FastForward = 27;
-    public const int CurrentDragLength = 28;
-    public const int CurrentFlickPower = 29;
-    public const int FlickAngle = 30;
-    public const int Flick = 31;
-    public const int FlickLine = 32;
-    public const int MaxDragLength = 33;
-    public const int MaxFlickPower = 34;
-    public const int StartFlick = 35;
-    public const int Flipper = 36;
-    public const int HingeJoint = 37;
-    public const int LeftFlipper = 38;
-    public const int Camera = 39;
-    public const int CameraConfinerCollider = 40;
-    public const int CameraConfiner = 41;
-    public const int CameraFollow = 42;
-    public const int VirtualCamera = 43;
-    public const int MousePosition = 44;
-    public const int ActiveSceneName = 45;
-    public const int GameState = 46;
-    public const int ControllerToRestartTransition = 47;
-    public const int EndLevelTransition = 48;
-    public const int LevelIndexToLoadTransition = 49;
-    public const int LevelTransitionOverlay = 50;
-    public const int SceneToAdd = 51;
-    public const int SceneToRemove = 52;
-    public const int StartLevelTransition = 53;
-    public const int TransitionCommands = 54;
-    public const int Goal = 55;
-    public const int Level = 56;
-    public const int LevelIndex = 57;
-    public const int PlayerSpawn = 58;
-    public const int CurrentWaypointIndex = 59;
-    public const int NextWaypointIndex = 60;
-    public const int Obstacle = 61;
-    public const int TimeWhenMovementStarted = 62;
-    public const int Waypoints = 63;
-    public const int Pause = 64;
-    public const int PauseOverlay = 65;
-    public const int PauseTimeEnded = 66;
-    public const int PauseTimeStarted = 67;
-    public const int Dead = 68;
-    public const int GroundState = 69;
-    public const int IsInGoal = 70;
-    public const int Player = 71;
-    public const int TrailRenderer = 72;
-    public const int FinishLevelDialog = 73;
-    public const int MainMenuBehaviour = 74;
-    public const int MainMenu = 75;
-    public const int OverlayLayer = 76;
-    public const int StaticLayer = 77;
+    public const int FlipperAnimation = 26;
+    public const int ImpactStar = 27;
+    public const int FastForward = 28;
+    public const int CurrentDragLength = 29;
+    public const int CurrentFlickPower = 30;
+    public const int FlickAngle = 31;
+    public const int Flick = 32;
+    public const int FlickLine = 33;
+    public const int MaxDragLength = 34;
+    public const int MaxFlickPower = 35;
+    public const int StartFlick = 36;
+    public const int Flipper = 37;
+    public const int HingeJoint = 38;
+    public const int LeftFlipper = 39;
+    public const int Camera = 40;
+    public const int CameraConfinerCollider = 41;
+    public const int CameraConfiner = 42;
+    public const int CameraFollow = 43;
+    public const int VirtualCamera = 44;
+    public const int MousePosition = 45;
+    public const int ActiveSceneName = 46;
+    public const int GameState = 47;
+    public const int ControllerToRestartTransition = 48;
+    public const int EndLevelTransition = 49;
+    public const int LevelIndexToLoadTransition = 50;
+    public const int LevelTransitionOverlay = 51;
+    public const int SceneToAdd = 52;
+    public const int SceneToRemove = 53;
+    public const int StartLevelTransition = 54;
+    public const int TransitionCommands = 55;
+    public const int Goal = 56;
+    public const int Level = 57;
+    public const int LevelIndex = 58;
+    public const int PlayerSpawn = 59;
+    public const int CurrentWaypointIndex = 60;
+    public const int NextWaypointIndex = 61;
+    public const int Obstacle = 62;
+    public const int TimeWhenMovementStarted = 63;
+    public const int Waypoints = 64;
+    public const int Pause = 65;
+    public const int PauseOverlay = 66;
+    public const int PauseTimeEnded = 67;
+    public const int PauseTimeStarted = 68;
+    public const int Dead = 69;
+    public const int GroundState = 70;
+    public const int IsInGoal = 71;
+    public const int Player = 72;
+    public const int TrailRenderer = 73;
+    public const int FinishLevelDialog = 74;
+    public const int MainMenuBehaviour = 75;
+    public const int MainMenu = 76;
+    public const int OverlayLayer = 77;
+    public const int StaticLayer = 78;
 
-    public const int TotalComponents = 78;
+    public const int TotalComponents = 79;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -116,6 +117,7 @@ public static class GameComponentsLookup {
         "View",
         "Controller",
         "RestartController",
+        "FlipperAnimation",
         "ImpactStar",
         "FastForward",
         "CurrentDragLength",
@@ -197,6 +199,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Common.ViewComponent),
         typeof(SemoGames.Controller.ControllerComponent),
         typeof(SemoGames.Controller.RestartControllerComponent),
+        typeof(SemoGames.Effects.FlipperAnimationComponent),
         typeof(SemoGames.Effects.ImpactStar),
         typeof(SemoGames.FastForward.FastForwardComponent),
         typeof(SemoGames.Flick.CurrentDragLengthComponent),

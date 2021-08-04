@@ -74,13 +74,15 @@ namespace SemoGames.Controller
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
                 .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new PlaySoundSystem(gameContext))
+                .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownCollectablesSystem())
                 .Add(new TeardownCheckpointWallsSystem())
                 .Add(new TeardownGoalSystem())
-                .Add(new TeardownImpactStarsSystem());
+                .Add(new TeardownImpactStarsSystem())
+                .Add(new TeardownFlipperAnimationSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
