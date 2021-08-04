@@ -10,8 +10,11 @@ namespace SemoGames.Utils
         {
             Addressables.LoadAssetAsync<GameObject>(assetReference).Completed += handle =>
             {
-                entityToAttach.AddAsyncOperationHandle(handle);
-                resultCallback(handle.Result);
+                if (entityToAttach != null && entityToAttach.isEnabled)
+                {
+                    entityToAttach.AddAsyncOperationHandle(handle);
+                    resultCallback(handle.Result);
+                }
             };
         }
     }

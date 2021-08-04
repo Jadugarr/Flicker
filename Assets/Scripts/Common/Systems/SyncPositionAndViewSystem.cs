@@ -19,6 +19,9 @@ namespace SemoGames.Common
             for (var i = 0; i < entities.Length; i++)
             {
                 GameEntity gameEntity = entities[i];
+                if (gameEntity.hasView && gameEntity.view.Value == null) continue;
+                
+                
                 Vector3 viewPosition = gameEntity.view.Value.transform.position;
                 Vector3 entityPosition = gameEntity.position.Value;
 

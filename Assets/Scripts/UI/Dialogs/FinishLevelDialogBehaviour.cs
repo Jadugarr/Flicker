@@ -62,7 +62,7 @@ namespace SemoGames.UI
                 {
                     Index = GameComponentsLookup.LevelIndexToLoadTransition,
                     TransitionComponent = new LevelIndexToLoadTransitionComponent
-                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 0}
+                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 1}
                 }
             );
             ((GameEntity) gameObject.GetEntityLink().entity).DestroyEntity();

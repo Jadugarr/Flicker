@@ -1,6 +1,7 @@
 ﻿using Entitas;
 using Entitas.Unity;
 using SemoGames.Configurations;
+using SemoGames.Controller;
 using SemoGames.GameTransition;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,9 +30,10 @@ namespace SemoGames.UI
         private void OnStartGameClicked()
         {
             GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
+            transitionCommandsEntity.AddControllerToTeardownTransition(GameControllerType.MainMenu);
             transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.GameSceneName);
             transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
-            transitionCommandsEntity.AddLevelIndexToLoadTransition(0);
+            transitionCommandsEntity.AddLevelIndexToLoadTransition(1);
             
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
             
