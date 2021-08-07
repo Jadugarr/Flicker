@@ -28,7 +28,7 @@ namespace SemoGames.Flick
         {
             GameEntity playerEntity = _playerGroup.GetSingleEntity();
 
-            if (playerEntity != null)
+            if (playerEntity != null && playerEntity.hasCurrentFlickPower && playerEntity.hasFlickAngle)
             {
                 Vector2 forceToApply =
                     (Vector2.right * playerEntity.currentFlickPower.Value).Rotate(playerEntity.flickAngle.Value);

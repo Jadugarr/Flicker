@@ -56,21 +56,7 @@ namespace SemoGames.Controller
 
         private void OnDestroy()
         {
-            updateSystems.ClearReactiveSystems();
-            updateSystems.DeactivateReactiveSystems();
-            updateSystems.Cleanup();
-            updateSystems.TearDown();
-
-            fixedUpdateSystems.ClearReactiveSystems();
-            fixedUpdateSystems.DeactivateReactiveSystems();
-            fixedUpdateSystems.Cleanup();
-            fixedUpdateSystems.TearDown();
-
-            lateUpdateSystems.ClearReactiveSystems();
-            lateUpdateSystems.DeactivateReactiveSystems();
-            lateUpdateSystems.Cleanup();
-            lateUpdateSystems.TearDown();
-
+            //Teardown();
             controllerEntity.Destroy();
         }
 
@@ -91,6 +77,24 @@ namespace SemoGames.Controller
             updateSystems.Initialize();
             fixedUpdateSystems.Initialize();
             lateUpdateSystems.Initialize();
+        }
+
+        public void Teardown()
+        {
+            updateSystems.ClearReactiveSystems();
+            updateSystems.DeactivateReactiveSystems();
+            updateSystems.Cleanup();
+            updateSystems.TearDown();
+
+            fixedUpdateSystems.ClearReactiveSystems();
+            fixedUpdateSystems.DeactivateReactiveSystems();
+            fixedUpdateSystems.Cleanup();
+            fixedUpdateSystems.TearDown();
+
+            lateUpdateSystems.ClearReactiveSystems();
+            lateUpdateSystems.DeactivateReactiveSystems();
+            lateUpdateSystems.Cleanup();
+            lateUpdateSystems.TearDown();
         }
 
         protected abstract IContext GetContext();

@@ -40,6 +40,7 @@ namespace SemoGames.Controller
 
             return new Systems()
                 .Add(new InitCurrentSceneSystem())
+                .Add(new TeardownControllerSystem(gameContext))
                 .Add(new LoadNewSceneSystem(gameContext))
                 .Add(new UnloadSceneSystem(gameContext))
                 .Add(new RestartControllerSystem(gameContext))
@@ -48,6 +49,7 @@ namespace SemoGames.Controller
                 .Add(new ProcessSceneToAddTransitionSystem(gameContext))
                 .Add(new ProcessSceneToRemoveTransitionSystem(gameContext))
                 .Add(new ProcessControllerToRestartTransitionSystem(gameContext))
+                .Add(new ProcessControllerToTeardownTransitionSystem(gameContext))
                 .Add(new ProcessLevelIndexToLoadTransitionSystem(gameContext))
                 .Add(new CheckIfTransitionIsFinishedSystem(gameContext));
         }

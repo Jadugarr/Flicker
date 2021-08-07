@@ -62,7 +62,7 @@ namespace SemoGames.UI
                 {
                     Index = GameComponentsLookup.LevelIndexToLoadTransition,
                     TransitionComponent = new LevelIndexToLoadTransitionComponent
-                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 0}
+                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 1}
                 }
             );
             ((GameEntity) gameObject.GetEntityLink().entity).DestroyEntity();
@@ -70,9 +70,35 @@ namespace SemoGames.UI
 
         private void OnMainMenuClicked()
         {
-            GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
+            /*GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
             transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
-            transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.GameSceneName);
+            transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.GameSceneName);*/
+            
+            TransitionUtils.StartTransitionSequence(
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.ControllerToTeardownTransition,
+                    TransitionComponent = new ControllerToTeardownTransitionComponent
+                        {Value = GameControllerType.Game}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.SceneToRemove,
+                    TransitionComponent = new SceneToRemoveComponent
+                        {Value = GameConfigurations.GameSceneConfiguration.GameSceneName}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.SceneToAdd,
+                    TransitionComponent = new SceneToAddComponent
+                        {Value = GameConfigurations.GameSceneConfiguration.MainMenuSceneName}
+                }
+                /*new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
+                    TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = 0}
+                }*/
+            );
 
             GameEntity dialogEntity = gameObject.GetEntityLink().entity as GameEntity;
 

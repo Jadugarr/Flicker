@@ -1,6 +1,8 @@
-﻿using Entitas;
+﻿using System.Threading;
+using Entitas;
 using Entitas.Unity;
 using SemoGames.Configurations;
+using SemoGames.Controller;
 using SemoGames.GameTransition;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,13 +30,38 @@ namespace SemoGames.UI
 
         private void OnStartGameClicked()
         {
-            GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
+            TransitionUtils.StartTransitionSequence(
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.ControllerToTeardownTransition,
+                    TransitionComponent = new ControllerToTeardownTransitionComponent
+                        {Value = GameControllerType.MainMenu}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.SceneToRemove,
+                    TransitionComponent = new SceneToRemoveComponent
+                        {Value = GameConfigurations.GameSceneConfiguration.MainMenuSceneName}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.SceneToAdd,
+                    TransitionComponent = new SceneToAddComponent
+                        {Value = GameConfigurations.GameSceneConfiguration.GameSceneName}
+                },
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
+                    TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = 1}
+                }
+            );
+            /*transitionCommandsEntity.AddControllerToTeardownTransition(GameControllerType.MainMenu);
             transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.GameSceneName);
             transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
-            transitionCommandsEntity.AddLevelIndexToLoadTransition(0);
-            
+            transitionCommandsEntity.AddLevelIndexToLoadTransition(1);*/
+
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
-            
+
             gameObject.Unlink();
             mainMenuEntity?.Destroy();
             Destroy(gameObject);

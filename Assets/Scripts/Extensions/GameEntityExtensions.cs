@@ -8,6 +8,7 @@ namespace SemoGames.Extensions
     {
         public static void DestroyEntity(this GameEntity entity)
         {
+            if (entity == null || !entity.isEnabled) return;
             if (entity.hasAsyncOperationHandle)
             {
                 Addressables.Release(entity.asyncOperationHandle.Value);
