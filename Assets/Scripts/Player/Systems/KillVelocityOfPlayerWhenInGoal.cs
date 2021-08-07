@@ -28,6 +28,11 @@ namespace SemoGames.Player
                 {
                     gameEntity.ReplaceVelocity(Vector3.zero);
                 }
+
+                if (gameEntity.hasRigidbody)
+                {
+                    gameEntity.rigidbody.Value.simulated = false;
+                }
             }
         }
     }

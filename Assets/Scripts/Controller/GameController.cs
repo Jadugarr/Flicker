@@ -76,6 +76,7 @@ namespace SemoGames.Controller
                 .Add(new PlaySoundSystem(gameContext))
                 .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))
+                .Add(new DissolvePlayerAndTrailSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
