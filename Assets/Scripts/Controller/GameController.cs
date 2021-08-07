@@ -84,7 +84,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownGoalSystem())
                 .Add(new TeardownImpactStarsSystem())
                 .Add(new TeardownFlipperAnimationSystem())
-                .Add(new TeardownSpaceBarAnimationSystem());
+                .Add(new TeardownSpaceBarAnimationSystem())
+                .Add(new TeardownFlickLineSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

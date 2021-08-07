@@ -61,6 +61,7 @@ namespace SemoGames.Controller
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownImpactStarsSystem())
+                .Add(new TeardownFlickLineSystem())
                 .Add(new TeardownLevelSystem());
         }
 
