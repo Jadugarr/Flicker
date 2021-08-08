@@ -48,3 +48,7 @@ MonoBehaviour:
     m_AssetGUID: fb44cd7278ece7c41bc0395d76a16824
     m_SubObjectName: 
     m_SubObjectType: 
+  collectableReference:
+    m_AssetGUID: 4800ea4bb0e13514ea23342b4fe9101e
+    m_SubObjectName: 
+    m_SubObjectType: 

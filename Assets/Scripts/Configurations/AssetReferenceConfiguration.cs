@@ -31,6 +31,7 @@ namespace SemoGames.Configurations
 
         [SerializeField] private AssetReference flickLineRendererReference;
         [SerializeField] private AssetReference impactStarReference;
+        [SerializeField] private AssetReference collectableReference;
         
         #endregion
 
@@ -47,6 +48,8 @@ namespace SemoGames.Configurations
         public AssetReference FinishLevelDialogReference => finishLevelDialogReference;
 
         public AssetReference ImpactStarReference => impactStarReference;
+
+        public AssetReference CollectableReference => collectableReference;
 
         #endregion
     }

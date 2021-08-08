@@ -2,8 +2,8 @@
 
 namespace SemoGames.Collectables
 {
-    [Game, SaveData]
-    public class CollectableComponent : IComponent
+    [Game]
+    public class CollectableSpawnComponent : IComponent
     {
         
     }

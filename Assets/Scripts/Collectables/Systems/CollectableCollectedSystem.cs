@@ -26,10 +26,13 @@ namespace SemoGames.Collectables.Systems
 
         protected override void Execute(List<GameEntity> entities)
         {
-            _context.ReplaceCollectedAmount(_context.collectedAmount.Value + entities.Count);
-
             foreach (GameEntity gameEntity in entities)
             {
+                SaveDataEntity savedCollectable = Contexts.sharedInstance.saveData.CreateEntity();
+                savedCollectable.isCollectable = true;
+                savedCollectable.AddCollectableId(gameEntity.collectableId.Value);
+                
+                
                 gameEntity.animator.Value.SetTrigger(Collected);
             }
         }

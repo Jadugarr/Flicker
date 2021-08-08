@@ -7,12 +7,7 @@ namespace SemoGames.Collectables
     {
         private void Start()
         {
-            GameEntity collectableEntity = Contexts.sharedInstance.game.CreateEntity();
-            collectableEntity.isCollectable = true;
-            collectableEntity.AddView(gameObject);
-            collectableEntity.AddPosition(gameObject.transform.position);
-            collectableEntity.AddAnimator(GetComponentInChildren<Animator>());
-            gameObject.Link(collectableEntity);
+            
         }
 
         private void OnTriggerEnter2D(Collider2D other)

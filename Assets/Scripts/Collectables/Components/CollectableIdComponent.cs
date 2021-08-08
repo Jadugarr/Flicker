@@ -3,8 +3,8 @@
 namespace SemoGames.Collectables
 {
     [Game, SaveData]
-    public class CollectableComponent : IComponent
+    public class CollectableIdComponent : IComponent
     {
-        
+        public int Value;
     }
 }
