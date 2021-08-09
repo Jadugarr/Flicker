@@ -23,6 +23,7 @@ namespace SemoGames.Goal
                 if (playerEntity.isIsInGoal == false)
                 {
                     playerEntity.isIsInGoal = true;
+                    Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
                 
                     GameEntity goalEntity = (GameEntity) gameObject.GetEntityLink().entity;
                     goalEntity.isPlaySound = true;

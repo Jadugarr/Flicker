@@ -2,6 +2,7 @@
 using Entitas;
 using FastForward.Systems;
 using Level.Systems;
+using SaveData.Systems;
 using SemoGames.Audio;
 using SemoGames.CheckpointWall;
 using SemoGames.Collectables.Systems;
@@ -36,6 +37,7 @@ namespace SemoGames.Controller
         {
             GameContext gameContext = (GameContext) context;
             InputContext inputContext = Contexts.sharedInstance.input;
+            SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
             
             return new Systems()
                 .Add(new InitializePauseSystem())
@@ -78,6 +80,7 @@ namespace SemoGames.Controller
                 .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))
                 .Add(new DissolvePlayerAndTrailSystem(gameContext))
+                .Add(new SaveGameSystem(saveDataContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
