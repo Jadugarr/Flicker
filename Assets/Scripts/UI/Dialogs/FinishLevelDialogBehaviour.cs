@@ -52,6 +52,7 @@ namespace SemoGames.UI
             IGroup<GameEntity> levelEntityGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
             int levelCount = GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences.Length;
             int currentLevelIndex = levelEntityGroup.GetSingleEntity().levelIndex.Value;
+            Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -70,10 +71,7 @@ namespace SemoGames.UI
 
         private void OnMainMenuClicked()
         {
-            /*GameEntity transitionCommandsEntity = TransitionUtils.StartTransition();
-            transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
-            transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.GameSceneName);*/
-            
+            Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -110,6 +108,7 @@ namespace SemoGames.UI
         private void OnRestartClicked()
         {
             IGroup<GameEntity> levelEntityGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
+            Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {

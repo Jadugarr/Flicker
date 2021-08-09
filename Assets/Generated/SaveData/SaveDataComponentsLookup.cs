@@ -10,16 +10,22 @@ public static class SaveDataComponentsLookup {
 
     public const int Collectable = 0;
     public const int CollectableId = 1;
+    public const int LoadGameTrigger = 2;
+    public const int SaveGameTrigger = 3;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
         "Collectable",
-        "CollectableId"
+        "CollectableId",
+        "LoadGameTrigger",
+        "SaveGameTrigger"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(SemoGames.Collectables.CollectableComponent),
-        typeof(SemoGames.Collectables.CollectableIdComponent)
+        typeof(SemoGames.Collectables.CollectableIdComponent),
+        typeof(SemoGames.SaveData.LoadGameTriggerComponent),
+        typeof(SemoGames.SaveData.SaveGameTriggerComponent)
     };
 }

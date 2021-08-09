@@ -20,5 +20,10 @@ namespace SemoGames.GameTransition
 
             //return test;
         }
+
+        public static void StartEntitySequence(IEntity observerEntity, params TransitionComponentData[] components)
+        {
+            TransitionSequence transitionSequence = new TransitionSequence(components, observerEntity);
+        }
     }
 }

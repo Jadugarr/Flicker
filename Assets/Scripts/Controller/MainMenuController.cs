@@ -1,14 +1,17 @@
 ﻿using Bumpers.Systems;
 using Entitas;
 using Level.Systems;
+using SaveData.Systems;
 using SemoGames.Common;
 using SemoGames.Effects;
 using SemoGames.Flick;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
+using SemoGames.GameTransition;
 using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
+using SemoGames.SaveData;
 using SemoGames.UI;
 
 namespace SemoGames.Controller
@@ -20,6 +23,8 @@ namespace SemoGames.Controller
             GameEntity levelEntity = Contexts.sharedInstance.game.CreateEntity();
             levelEntity.isLevel = true;
             levelEntity.AddLevelIndex(0);
+            
+            Contexts.sharedInstance.saveData.isLoadGameTrigger = true;
         }
 
         public override GameControllerType GetGameControllerType()
@@ -35,6 +40,7 @@ namespace SemoGames.Controller
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
+            SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
             
             return new Systems()
                 .Add(new InitializeMainMenuSceneSystem())
@@ -58,6 +64,7 @@ namespace SemoGames.Controller
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
                 .Add(new GarbageCollectionSystem(gameContext))
+                .Add(new LoadGameSystem(saveDataContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownImpactStarsSystem())

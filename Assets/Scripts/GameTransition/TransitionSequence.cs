@@ -10,9 +10,9 @@ namespace SemoGames.GameTransition
         private int _currentComponentIndex;
         private int _currentSequenceIndex;
         private TransitionComponentData[] _transitionComponents;
-        private GameEntity _transitionEntity;
+        private IEntity _transitionEntity;
 
-        public TransitionSequence(TransitionComponentData[] transitionComponents, GameEntity transitionEntity)
+        public TransitionSequence(TransitionComponentData[] transitionComponents, IEntity transitionEntity)
         {
             _transitionComponents = transitionComponents;
             _transitionEntity = transitionEntity;
