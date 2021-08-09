@@ -55,10 +55,6 @@ namespace SemoGames.UI
                     TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = 1}
                 }
             );
-            /*transitionCommandsEntity.AddControllerToTeardownTransition(GameControllerType.MainMenu);
-            transitionCommandsEntity.AddSceneToAdd(GameConfigurations.GameSceneConfiguration.GameSceneName);
-            transitionCommandsEntity.AddSceneToRemove(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
-            transitionCommandsEntity.AddLevelIndexToLoadTransition(1);*/
 
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
 

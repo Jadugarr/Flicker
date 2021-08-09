@@ -3,7 +3,6 @@ using System.IO;
 using Entitas;
 using Newtonsoft.Json;
 using SemoGames.SaveData;
-using UnityEngine;
 
 namespace SaveData.Systems
 {
