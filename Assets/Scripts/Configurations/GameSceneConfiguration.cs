@@ -13,6 +13,7 @@ namespace SemoGames.Configurations
         [SerializeField] private string initSceneName;
         [SerializeField] private string mainMenuSceneName;
         [SerializeField] private string gameSceneName;
+        [SerializeField] private string levelSelectionSceneName;
 
         #endregion
 
@@ -23,6 +24,8 @@ namespace SemoGames.Configurations
         public string MainMenuSceneName => mainMenuSceneName;
 
         public string GameSceneName => gameSceneName;
+
+        public string LevelSelectionSceneName => levelSelectionSceneName;
 
         #endregion
     }
