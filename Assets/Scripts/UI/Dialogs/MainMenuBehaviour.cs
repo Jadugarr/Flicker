@@ -47,13 +47,13 @@ namespace SemoGames.UI
                 {
                     Index = GameComponentsLookup.SceneToAdd,
                     TransitionComponent = new SceneToAddComponent
-                        {Value = GameConfigurations.GameSceneConfiguration.LevelSelectionSceneName}
-                }
-                /*new TransitionComponentData
+                        {Value = GameConfigurations.GameSceneConfiguration.GameSceneName}
+                },
+                new TransitionComponentData
                 {
                     Index = GameComponentsLookup.LevelIndexToLoadTransition,
                     TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = 1}
-                }*/
+                }
             );
 
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;

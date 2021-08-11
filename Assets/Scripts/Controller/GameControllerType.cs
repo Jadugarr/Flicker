@@ -6,6 +6,7 @@ namespace SemoGames.Controller
         Init,
         Input,
         Game,
-        MainMenu
+        MainMenu,
+        LevelSelection
     }
 }

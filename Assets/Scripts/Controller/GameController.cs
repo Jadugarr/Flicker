@@ -50,7 +50,6 @@ namespace SemoGames.Controller
                 .Add(new SwitchToEnvironmentInputMapSystem(gameContext))
                 .Add(new SpawnPlayerSystem(gameContext))
                 .Add(new SpawnCollectableSystem(gameContext))
-                .Add(new SetCameraConfinerSystem(gameContext))
                 .Add(new SetCameraFollowPlayerSystem(gameContext))
                 .Add(new CreateFlickLineSystem(gameContext))
                 .Add(new DrawFlickLineSystem(gameContext))
