@@ -21,9 +21,6 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
   levelAssetReferences:
-  - m_AssetGUID: d6895f045b753994e906a0410905416a
-    m_SubObjectName: 
-    m_SubObjectType: 
   - m_AssetGUID: 6eb433d937965094c8a6482f10a0945f
     m_SubObjectName: 
     m_SubObjectType: 
@@ -54,5 +51,9 @@ MonoBehaviour:
     m_SubObjectType: 
   levelSelectionItemReference:
     m_AssetGUID: 32c91d4670b108a48ade8d6e89aee1c4
+    m_SubObjectName: 
+    m_SubObjectType: 
+  mainMenuLevelReference:
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entitas;
+using Entitas.Unity;
 using UnityEngine;
 
 namespace SemoGames.LevelSelection
 {
     public class LevelSelectionGridBehaviour : MonoBehaviour
     {
-        [SerializeField] private List<Transform> _items;
-
         [SerializeField] private Transform _startPoint;
 
         [SerializeField] private int _spacing;
@@ -17,13 +16,19 @@ namespace SemoGames.LevelSelection
         private int _maxPerRow = 3;
         private IGroup<GameEntity> _levelSelectionGroup;
 
-        
-
-        public void ArrangeItemsOnGrid()
+        private void Start()
         {
-            for (int i = 0; i < _items.Count; i++)
+            GameEntity gridEntity = Contexts.sharedInstance.game.CreateEntity();
+            gridEntity.AddLevelSelectionGridBehaviour(this);
+            gridEntity.AddView(gameObject);
+            gameObject.Link(gridEntity);
+        }
+
+        public void ArrangeItemsOnGrid(List<Transform> items)
+        {
+            for (int i = 0; i < items.Count; i++)
             {
-                var currentItem = _items[i];
+                var currentItem = items[i];
 
                 var startPosition = _startPoint.position;
                 Vector2 newPosition = new Vector2(
@@ -35,7 +40,7 @@ namespace SemoGames.LevelSelection
 
                 if (i > 0)
                 {
-                    DrawNewLine(_items[i-1].position, newPosition);
+                    DrawNewLine(items[i-1].position, newPosition);
                 }
             }
         }

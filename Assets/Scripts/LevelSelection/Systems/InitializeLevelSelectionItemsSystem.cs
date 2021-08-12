@@ -10,7 +10,7 @@ namespace SemoGames.LevelSelection
         public async void Initialize()
         {
             GameContext context = Contexts.sharedInstance.game;
-            for (int i = 0; i < GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences.Length; i++)
+            for (int i = 1; i < GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences.Length; i++)
             {
                 GameEntity levelSelectionItemEntity = context.CreateEntity();
                 await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.LevelSelectionItemReference, levelSelectionItemEntity, Vector3.zero, Quaternion.identity);

@@ -21,7 +21,10 @@ namespace SemoGames.Controller
             GameContext gameContext = (GameContext) context;
             
             return new Systems()
-                .Add(new InitializeLevelSelectionItemsSystem());
+                .Add(new InitializeLevelSelectionItemsSystem())
+                .Add(new ArrangeLevelItemsOnGridSystem(gameContext))
+                .Add(new TeardownLevelGridsSystem())
+                .Add(new TeardownLevelSelectionItemsSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
