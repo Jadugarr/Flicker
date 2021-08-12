@@ -9,7 +9,7 @@ namespace Level.Systems
 {
     public class InitializeLevelSystem : IInitializeSystem
     {
-        public void Initialize()
+        public async void Initialize()
         {
             IGroup<GameEntity> levelGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.Level);
             GameEntity levelEntity = levelGroup.GetSingleEntity();
@@ -19,12 +19,7 @@ namespace Level.Systems
                 AssetReference levelReference =
                     GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[levelEntity.levelIndex.Value];
 
-                AssetLoaderUtils.LoadAssetAsync(levelReference, levelEntity, loadedObject =>
-                {
-                    GameObject levelView = GameObject.Instantiate(loadedObject);
-                    levelEntity.AddView(levelView);
-                    levelView.Link(levelEntity);
-                });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(levelReference, levelEntity, Vector3.zero, Quaternion.identity);
             }
         }
     }

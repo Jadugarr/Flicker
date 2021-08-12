@@ -29,21 +29,14 @@ namespace SemoGames.UI
             return true;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
-            foreach (GameEntity gameEntity in entities)
+            GameEntity[] tempList = entities.ToArray();
+            AssetReference mainMenuReference = GameConfigurations.AssetReferenceConfiguration.MainMenuReference;
+            foreach (GameEntity gameEntity in tempList)
             {
-                // Create proper system to load/unload assets
-                AssetReference mainMenuReference = GameConfigurations.AssetReferenceConfiguration.MainMenuReference;
-
-                AssetLoaderUtils.LoadAssetAsync(mainMenuReference, gameEntity, loadedObject =>
-                {
-                    GameObject mainMenuBehaviour = GameObject.Instantiate(loadedObject, Contexts.sharedInstance.game.staticLayer.Value.transform,
-                        false);
-                    gameEntity.AddMainMenuBehaviour(mainMenuBehaviour.GetComponent<MainMenuBehaviour>());
-                    gameEntity.AddView(mainMenuBehaviour);
-                    mainMenuBehaviour.Link(gameEntity);
-                });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(mainMenuReference, gameEntity, Contexts.sharedInstance.game.staticLayer.Value.transform);
+                gameEntity.AddMainMenuBehaviour(gameEntity.view.Value.GetComponent<MainMenuBehaviour>());
             }
         }
     }

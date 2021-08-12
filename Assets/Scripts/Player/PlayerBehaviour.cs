@@ -30,7 +30,7 @@ namespace SemoGames.Player
             playerEntity.isPlaySound = true;
         }
 
-        private void HandleImpactStars(ContactPoint2D contactPoint, GameEntity playerEntity)
+        private async void HandleImpactStars(ContactPoint2D contactPoint, GameEntity playerEntity)
         {
             float angle = Vector2.Angle(playerEntity.velocity.Value.normalized.Abs(),
                 contactPoint.normal.normalized.Abs());
@@ -40,34 +40,20 @@ namespace SemoGames.Player
             {
                 GameEntity impactStarEntity = Contexts.sharedInstance.game.CreateEntity();
                 impactStarEntity.isImpactStar = true;
-                AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference,
-                    impactStarEntity,
-                    resultObject =>
-                    {
-                        GameObject impactStarObject =
-                            Instantiate(resultObject, contactPoint.point, Quaternion.identity);
-                        impactStarObject.transform.Rotate(0, 0, Vector2.SignedAngle(Vector2.up, contactPoint.normal));
-                        Animation impactAnimation = impactStarObject.GetComponentInChildren<Animation>();
-                        impactStarObject.gameObject.Link(impactStarEntity);
-                        impactStarEntity.AddAnimation(impactAnimation);
-                        impactStarEntity.AddView(impactStarObject);
-                    });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity, contactPoint.point, Quaternion.identity);
+                GameObject impactStarObject = impactStarEntity.view.Value;
+                impactStarObject.transform.Rotate(0, 0, Vector2.SignedAngle(Vector2.up, contactPoint.normal));
+                Animation impactAnimation = impactStarObject.GetComponentInChildren<Animation>();
+                impactStarEntity.AddAnimation(impactAnimation);
 
                 GameEntity impactStarEntity2 = Contexts.sharedInstance.game.CreateEntity();
                 impactStarEntity2.isImpactStar = true;
-                AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference,
-                    impactStarEntity2,
-                    resultObject =>
-                    {
-                        GameObject impactStarObject =
-                            Instantiate(resultObject, contactPoint.point, Quaternion.identity);
-                        impactStarObject.transform.Rotate(180 * contactPoint.normal.x, 180 * contactPoint.normal.y,
-                            Vector2.SignedAngle(Vector2.up, contactPoint.normal));
-                        Animation impactAnimation = impactStarObject.GetComponentInChildren<Animation>();
-                        impactStarObject.gameObject.Link(impactStarEntity2);
-                        impactStarEntity2.AddAnimation(impactAnimation);
-                        impactStarEntity2.AddView(impactStarObject);
-                    });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity2, contactPoint.point, Quaternion.identity);
+                GameObject impactStarObject2 = impactStarEntity2.view.Value;
+                impactStarObject2.transform.Rotate(180 * contactPoint.normal.x, 180 * contactPoint.normal.y,
+                    Vector2.SignedAngle(Vector2.up, contactPoint.normal));
+                Animation impactAnimation2 = impactStarObject2.GetComponentInChildren<Animation>();
+                impactStarEntity2.AddAnimation(impactAnimation2);
             }
         }
     }

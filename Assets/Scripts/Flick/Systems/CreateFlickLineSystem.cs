@@ -23,20 +23,14 @@ namespace SemoGames.Flick
             return true;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
             GameEntity lineEntity = Contexts.sharedInstance.game.CreateEntity();
-            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.FlickLineRendererReference, lineEntity,
-                resultObject =>
-                {
-                    GameObject lineRendererObject = Object.Instantiate(resultObject);
-                    LineRenderer lineRenderer = lineRendererObject.GetComponent<LineRenderer>();
-                    lineRenderer.gameObject.Link(lineEntity);
-                    lineEntity.AddFlickLine(lineRenderer);
-                    lineEntity.AddView(lineRenderer.gameObject);
-                    lineEntity.AddMaxDragLength(GameConfigurations.GameConstantsConfiguration.MaxDragLength);
-                    lineEntity.AddCurrentDragLength(0f);
-                });
+            await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.FlickLineRendererReference, lineEntity, Vector3.zero, Quaternion.identity);
+            LineRenderer lineRenderer = lineEntity.view.Value.GetComponent<LineRenderer>();
+            lineEntity.AddFlickLine(lineRenderer);
+            lineEntity.AddMaxDragLength(GameConfigurations.GameConstantsConfiguration.MaxDragLength);
+            lineEntity.AddCurrentDragLength(0f);
         }
     }
 }

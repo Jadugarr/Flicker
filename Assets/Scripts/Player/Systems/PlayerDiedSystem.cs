@@ -23,19 +23,12 @@ namespace SemoGames.Player
             return entity.isPlayer && entity.isDead;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
             GameContext gameContext = Contexts.sharedInstance.game;
             GameEntity finishLevelDialogEntity = gameContext.CreateEntity();
-            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference,
-                finishLevelDialogEntity,
-                loadedAsset =>
-                {
-                    GameObject finishLevelDialog = GameObject.Instantiate(loadedAsset, gameContext.staticLayer.Value.transform, false);
-                    finishLevelDialogEntity.isFinishLevelDialog = true;
-                    finishLevelDialogEntity.AddView(finishLevelDialog);
-                    finishLevelDialog.Link(finishLevelDialogEntity);
-                });
+            await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference, finishLevelDialogEntity, gameContext.staticLayer.Value.transform);
+            finishLevelDialogEntity.isFinishLevelDialog = true;
         }
     }
 }

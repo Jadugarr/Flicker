@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entitas;
-using Entitas.Unity;
 using SemoGames.Configurations;
 using SemoGames.Utils;
 using UnityEngine;
@@ -40,7 +38,7 @@ namespace SemoGames.Collectables.Systems
             SpawnCollectableOnSpawns(_spawnEntities.GetEntities());
         }
 
-        private void SpawnCollectableOnSpawns(GameEntity[] listOfSpawnEntities)
+        private async void SpawnCollectableOnSpawns(GameEntity[] listOfSpawnEntities)
         {
             foreach (GameEntity spawnEntity in listOfSpawnEntities)
             {
@@ -59,43 +57,8 @@ namespace SemoGames.Collectables.Systems
                 GameEntity collectableEntity = Contexts.sharedInstance.game.CreateEntity();
                 collectableEntity.isCollectable = true;
                 collectableEntity.AddCollectableId(spawnEntity.collectableId.Value);
-                
-                new CollectableSpawner(collectableEntity, spawnEntity).Spawn();
-            }
-        }
-
-        private class CollectableSpawner : IDisposable
-        {
-            private GameEntity _entityToLinkTo;
-            private GameEntity _spawnEntity;
-
-            public CollectableSpawner(GameEntity entityToLinkTo, GameEntity spawnEntity)
-            {
-                _entityToLinkTo = entityToLinkTo;
-                _spawnEntity = spawnEntity;
-            }
-
-            public void Spawn()
-            {
-                AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.CollectableReference,
-                    _entityToLinkTo,
-                    loadedObject =>
-                    {
-                        GameObject collectableObject =
-                            GameObject.Instantiate(loadedObject, _spawnEntity.view.Value.transform.position,
-                                Quaternion.identity);
-                        _entityToLinkTo.AddView(collectableObject);
-                        _entityToLinkTo.AddPosition(collectableObject.transform.position);
-                        _entityToLinkTo.AddAnimator(collectableObject.GetComponentInChildren<Animator>());
-                        collectableObject.Link(_entityToLinkTo);
-
-                        Dispose();
-                    });
-            }
-
-            public void Dispose()
-            {
-                
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.CollectableReference, collectableEntity, spawnEntity.view.Value.transform.position, Quaternion.identity);
+                collectableEntity.AddAnimator(collectableEntity.view.Value.GetComponentInChildren<Animator>());
             }
         }
     }

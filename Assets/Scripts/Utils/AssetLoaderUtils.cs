@@ -9,27 +9,29 @@ namespace SemoGames.Utils
 {
     public static class AssetLoaderUtils
     {
-        public static void LoadAssetAsync(AssetReference assetReference, GameEntity entityToAttach, Action<GameObject> resultCallback)
+        public static async Task InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Vector3 position, Quaternion rotation)
         {
-            Addressables.LoadAssetAsync<GameObject>(assetReference).Completed += handle =>
-            {
-                if (entityToAttach != null && entityToAttach.isEnabled)
-                {
-                    entityToAttach.AddAsyncOperationHandle(handle);
-                    resultCallback(handle.Result);
-                }
-            };
+            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(assetReference, position, rotation);
+            await AddAdditionalInfo(entityToAttach, handle);
         }
-        public static async Task InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach)
+        
+        
+        public static async Task InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Transform parent, bool worldPositionStays = false)
         {
-            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(assetReference);
+            AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(assetReference, parent, worldPositionStays);
+            await AddAdditionalInfo(entityToAttach, handle);
+        }
+
+        private static async Task AddAdditionalInfo(GameEntity entity, AsyncOperationHandle<GameObject> handle)
+        {
             GameObject resultObject = await handle.Task;
             
-            if (entityToAttach != null && entityToAttach.isEnabled)
+            if (entity != null && entity.isEnabled)
             {
-                entityToAttach.AddAsyncOperationHandle(handle);
-                entityToAttach.AddView(resultObject);
-                resultObject.Link(entityToAttach);
+                entity.AddAsyncOperationHandle(handle);
+                entity.AddView(resultObject);
+                entity.AddPosition(resultObject.transform.position);
+                resultObject.Link(entity);
             }
         }
     }
