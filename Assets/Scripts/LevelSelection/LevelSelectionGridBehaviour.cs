@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entitas;
 using UnityEngine;
 
 namespace SemoGames.LevelSelection
@@ -14,13 +15,11 @@ namespace SemoGames.LevelSelection
         [SerializeField] private GameObject _templateLine;
 
         private int _maxPerRow = 3;
+        private IGroup<GameEntity> _levelSelectionGroup;
 
-        private void Awake()
-        {
-            ArrangeItemsOnGrid();
-        }
+        
 
-        private void ArrangeItemsOnGrid()
+        public void ArrangeItemsOnGrid()
         {
             for (int i = 0; i < _items.Count; i++)
             {

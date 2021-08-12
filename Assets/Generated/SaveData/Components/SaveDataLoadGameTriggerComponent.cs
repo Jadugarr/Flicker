@@ -35,7 +35,7 @@ public partial class SaveDataContext {
 //------------------------------------------------------------------------------
 public partial class SaveDataEntity {
 
-    static readonly SemoGames.SaveData.LoadGameTriggerComponent LoadGameTriggerComponentComponent = new SemoGames.SaveData.LoadGameTriggerComponent();
+    static readonly SemoGames.SaveData.LoadGameTriggerComponent loadGameTriggerComponent = new SemoGames.SaveData.LoadGameTriggerComponent();
 
     public bool isLoadGameTrigger {
         get { return HasComponent(SaveDataComponentsLookup.LoadGameTrigger); }
@@ -46,7 +46,7 @@ public partial class SaveDataEntity {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : LoadGameTriggerComponentComponent;
+                            : loadGameTriggerComponent;
 
                     AddComponent(index, component);
                 } else {

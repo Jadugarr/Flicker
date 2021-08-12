@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using SemoGames.GameCamera;
+using SemoGames.LevelSelection;
 
 namespace SemoGames.Controller
 {
@@ -20,7 +21,7 @@ namespace SemoGames.Controller
             GameContext gameContext = (GameContext) context;
             
             return new Systems()
-                .Add(new SetCameraConfinerSystem(gameContext));
+                .Add(new InitializeLevelSelectionItemsSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

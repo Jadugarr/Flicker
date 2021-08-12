@@ -52,3 +52,7 @@ MonoBehaviour:
     m_AssetGUID: 4800ea4bb0e13514ea23342b4fe9101e
     m_SubObjectName: 
     m_SubObjectType: 
+  levelSelectionItemReference:
+    m_AssetGUID: 32c91d4670b108a48ade8d6e89aee1c4
+    m_SubObjectName: 
+    m_SubObjectType: 

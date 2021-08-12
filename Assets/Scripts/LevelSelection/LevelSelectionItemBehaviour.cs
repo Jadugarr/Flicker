@@ -11,6 +11,8 @@ namespace SemoGames.LevelSelection
 
         private static readonly int IsOutlineActive = Shader.PropertyToID("_IsOutlineActive");
 
+        public int LevelIndex;
+
         private void OnMouseEnter()
         {
             Debug.Log("Hi");
