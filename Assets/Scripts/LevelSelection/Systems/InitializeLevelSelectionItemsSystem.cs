@@ -16,6 +16,7 @@ namespace SemoGames.LevelSelection
                 await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.LevelSelectionItemReference, levelSelectionItemEntity, Vector3.zero, Quaternion.identity);
                 var behaviour = levelSelectionItemEntity.view.Value.GetComponent<LevelSelectionItemBehaviour>();
                 behaviour.LevelIndex = i;
+                levelSelectionItemEntity.AddSpriteRenderer(levelSelectionItemEntity.view.Value.GetComponent<SpriteRenderer>());
                 levelSelectionItemEntity.AddLevelSelectionItemBehaviour(behaviour);
             }
         }

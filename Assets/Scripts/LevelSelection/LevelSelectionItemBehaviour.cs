@@ -1,4 +1,5 @@
-﻿using SemoGames.Configurations;
+﻿using Entitas.Unity;
+using SemoGames.Configurations;
 using SemoGames.Controller;
 using SemoGames.GameTransition;
 using TMPro;
@@ -14,8 +15,6 @@ namespace SemoGames.LevelSelection
 
         [SerializeField] private TMP_Text _levelIndexText;
 
-        private static readonly int IsOutlineActive = Shader.PropertyToID("_IsOutlineActive");
-
         private int _levelIndex;
         
         public int LevelIndex
@@ -30,45 +29,25 @@ namespace SemoGames.LevelSelection
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (TransitionUtils.IsTransitionRunning()) return;
-            
-            _spriteRenderer.material.SetInt(IsOutlineActive, 1);
+            EntityLink entityLink = gameObject.GetEntityLink();
+            if (entityLink != null)
+            {
+                ((GameEntity) entityLink.entity).isSelected = true;
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (TransitionUtils.IsTransitionRunning()) return;
-            _spriteRenderer.material.SetInt(IsOutlineActive, 0);
+            EntityLink entityLink = gameObject.GetEntityLink();
+            if (entityLink != null)
+            {
+                ((GameEntity) entityLink.entity).isSelected = false;
+            }
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (TransitionUtils.IsTransitionRunning()) return;
-            TransitionUtils.StartTransitionSequence(
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.ControllerToTeardownTransition,
-                    TransitionComponent = new ControllerToTeardownTransitionComponent
-                        {Value = GameControllerType.LevelSelection}
-                },
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.SceneToRemove,
-                    TransitionComponent = new SceneToRemoveComponent
-                        {Value = GameConfigurations.GameSceneConfiguration.LevelSelectionSceneName}
-                },
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.SceneToAdd,
-                    TransitionComponent = new SceneToAddComponent
-                        {Value = GameConfigurations.GameSceneConfiguration.GameSceneName,}
-                },
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
-                    TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = LevelIndex}
-                }
-            );
+            Contexts.sharedInstance.game.CreateEntity().AddLevelSelected(_levelIndex);
         }
     }
 }
