@@ -1,6 +1,7 @@
 ﻿using SemoGames.Configurations;
 using SemoGames.Controller;
 using SemoGames.GameTransition;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,9 +12,21 @@ namespace SemoGames.LevelSelection
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
 
+        [SerializeField] private TMP_Text _levelIndexText;
+
         private static readonly int IsOutlineActive = Shader.PropertyToID("_IsOutlineActive");
 
-        public int LevelIndex;
+        private int _levelIndex;
+        
+        public int LevelIndex
+        {
+            get => _levelIndex;
+            set
+            {
+                _levelIndex = value;
+                _levelIndexText.text = _levelIndex.ToString();
+            }
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
