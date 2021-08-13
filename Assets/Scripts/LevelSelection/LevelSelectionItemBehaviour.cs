@@ -30,16 +30,20 @@ namespace SemoGames.LevelSelection
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (TransitionUtils.IsTransitionRunning()) return;
+            
             _spriteRenderer.material.SetInt(IsOutlineActive, 1);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (TransitionUtils.IsTransitionRunning()) return;
             _spriteRenderer.material.SetInt(IsOutlineActive, 0);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (TransitionUtils.IsTransitionRunning()) return;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
