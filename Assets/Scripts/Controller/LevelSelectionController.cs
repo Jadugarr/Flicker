@@ -24,7 +24,8 @@ namespace SemoGames.Controller
                 .Add(new InitializeLevelSelectionItemsSystem())
                 .Add(new ArrangeLevelItemsOnGridSystem(gameContext))
                 .Add(new TeardownLevelGridsSystem())
-                .Add(new TeardownLevelSelectionItemsSystem());
+                .Add(new TeardownLevelSelectionItemsSystem())
+                .Add(new TeardownLevelItemConnectorsSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

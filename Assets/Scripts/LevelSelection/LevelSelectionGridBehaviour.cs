@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Entitas;
 using Entitas.Unity;
+using SemoGames.Configurations;
+using SemoGames.Utils;
 using UnityEngine;
 
 namespace SemoGames.LevelSelection
@@ -11,7 +12,6 @@ namespace SemoGames.LevelSelection
         [SerializeField] private Transform _startPoint;
 
         [SerializeField] private int _spacing;
-        [SerializeField] private GameObject _templateLine;
 
         private int _maxPerRow = 3;
         private IGroup<GameEntity> _levelSelectionGroup;
@@ -45,9 +45,14 @@ namespace SemoGames.LevelSelection
             }
         }
 
-        private void DrawNewLine(Vector3 point1, Vector3 point2)
+        private async void DrawNewLine(Vector3 point1, Vector3 point2)
         {
-            var lineRenderer = Instantiate(_templateLine).GetComponent<LineRenderer>();
+            GameEntity itemConnector = Contexts.sharedInstance.game.CreateEntity();
+            itemConnector.isLevelSelectionItemConnector = true;
+            await AssetLoaderUtils.InstantiateAssetAsyncTask(
+                GameConfigurations.AssetReferenceConfiguration.LevelSelectionConnectorReference, itemConnector,
+                Vector3.zero, Quaternion.identity);
+            var lineRenderer = itemConnector.view.Value.GetComponent<LineRenderer>();
             lineRenderer.SetPositions(new []{point1, point2});
         }
     }
