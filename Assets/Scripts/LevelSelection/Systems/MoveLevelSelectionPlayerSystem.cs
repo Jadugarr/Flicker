@@ -76,9 +76,9 @@ namespace SemoGames.LevelSelection
         private void CreateNewTween(Vector3 startPoint, Vector3 endPoint)
         {
             _p0 = startPoint;
-            _p1 = new Vector3(_p0.x, _p0.y + 3f, _p0.z);
+            _p1 = new Vector3(_p0.x, _p0.y + 1f, _p0.z);
             _p3 = endPoint;
-            _p2 = new Vector3(_p3.x, _p3.y + 3f, _p3.z);
+            _p2 = new Vector3(_p3.x, _p3.y + 1f, _p3.z);
 
             if (_currentTween != null)
             {
@@ -89,7 +89,7 @@ namespace SemoGames.LevelSelection
             {
                 _currentT = value;
                 TweenHelper(value);
-            }, 1f, 2f);
+            }, 1f, 0.5f);
         }
 
         private void TweenHelper(float tParam)
