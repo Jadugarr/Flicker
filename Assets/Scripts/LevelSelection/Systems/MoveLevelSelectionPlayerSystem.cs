@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using Entitas;
 using UnityEngine;
 
 namespace SemoGames.LevelSelection
 {
-    public class MoveLevelSelectionPlayerSystem : ReactiveSystem<GameEntity>, IInitializeSystem
+    public class MoveLevelSelectionPlayerSystem : ReactiveSystem<GameEntity>, IInitializeSystem, ITearDownSystem
     {
         private IGroup<GameEntity> _levelSelectionPlayerGroup;
         private IGroup<GameEntity> _levelSelectionItemGroup;
         private IGroup<GameEntity> _selectedLevelItemGroup;
+        
+        private float _currentT = 0f;
+        private Vector3 _p0;
+        private Vector3 _p1;
+        private Vector3 _p2;
+        private Vector3 _p3;
+        private GameEntity _playerEntity;
+        private TweenerCore<float, float, FloatOptions> _currentTween;
         
         public MoveLevelSelectionPlayerSystem(IContext<GameEntity> context) : base(context)
         {
@@ -46,7 +58,7 @@ namespace SemoGames.LevelSelection
         private void AdjustPlayerPosition()
         {
             Vector3 firstLevelItemPosition = _levelSelectionItemGroup.GetEntities()[0].position.Value;
-            GameEntity playerEntity = _levelSelectionPlayerGroup.GetSingleEntity();
+            _playerEntity = _levelSelectionPlayerGroup.GetSingleEntity();
             Vector3 newPosition = new Vector3(firstLevelItemPosition.x,
                 firstLevelItemPosition.y + 1f, firstLevelItemPosition.z);
             
@@ -56,8 +68,42 @@ namespace SemoGames.LevelSelection
                 newPosition.y = levelItemEntity.position.Value.y + 1;
                 newPosition.z = levelItemEntity.position.Value.z;
             }
+
+            _currentT = 0f;
+            CreateNewTween(_playerEntity.position.Value, newPosition);
+        }
+
+        private void CreateNewTween(Vector3 startPoint, Vector3 endPoint)
+        {
+            _p0 = startPoint;
+            _p1 = new Vector3(_p0.x, _p0.y + 3f, _p0.z);
+            _p3 = endPoint;
+            _p2 = new Vector3(_p3.x, _p3.y + 3f, _p3.z);
+
+            if (_currentTween != null)
+            {
+                _currentTween.Kill();
+            }
             
-            playerEntity.ReplacePosition(newPosition);
+            _currentTween = DOTween.To(() => _currentT, value =>
+            {
+                _currentT = value;
+                TweenHelper(value);
+            }, 1f, 2f);
+        }
+
+        private void TweenHelper(float tParam)
+        {
+            Vector3 objectPosition = Mathf.Pow(1 - tParam, 3) * _p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * _p1 + 3 * (1 - tParam) * Mathf.Pow(tParam, 2) * _p2 + Mathf.Pow(tParam, 3) * _p3;
+            _playerEntity.view.Value.transform.position = objectPosition;
+        }
+
+        public void TearDown()
+        {
+            if (_currentTween != null)
+            {
+                _currentTween.Kill();
+            }
         }
     }
 }
