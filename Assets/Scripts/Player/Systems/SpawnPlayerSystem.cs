@@ -35,7 +35,7 @@ namespace SemoGames.Player
             return spawnPointGroup.count > 0 && playerGroup.count > 0;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
             GameEntity playerEntity = playerGroup.GetSingleEntity();
             GameEntity spawnEntity = spawnPointGroup.GetSingleEntity();
@@ -48,25 +48,19 @@ namespace SemoGames.Player
             }
             else
             {
-                AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.PlayerAssetReference, playerEntity,
-                    loadedObject =>
-                    {
-                        GameObject playerObject =
-                            GameObject.Instantiate(loadedObject, spawnEntity.view.Value.transform.position, Quaternion.identity);
-                        playerEntity.AddView(playerObject);
-                        playerEntity.AddPosition(playerObject.transform.position);
-                        Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
-                        CircleCollider2D playerCircleCollider2D = playerObject.GetComponent<CircleCollider2D>();
-                        playerEntity.AddRigidbody(playerRigidBody);
-                        playerEntity.AddCircleCollider(playerCircleCollider2D);
-                        playerEntity.AddVelocity(playerRigidBody.velocity);
-                        playerEntity.isCameraFollow = true;
-                        playerEntity.AddGroundState(GroundState.Ground);
-                        playerEntity.AddTrailRenderer(playerObject.GetComponentInChildren<TrailRenderer>());
-                        playerEntity.AddAudioSource(playerObject.GetComponent<AudioSource>());
-                        playerEntity.AddSpriteRenderer(playerObject.GetComponent<SpriteRenderer>());
-                        playerObject.Link(playerEntity);
-                    });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.PlayerAssetReference, playerEntity, spawnEntity.view.Value.transform.position, Quaternion.identity);
+                GameObject playerObject = playerEntity.view.Value;
+                playerObject.transform.position = spawnEntity.view.Value.transform.position;
+                Rigidbody2D playerRigidBody = playerObject.GetComponent<Rigidbody2D>();
+                CircleCollider2D playerCircleCollider2D = playerObject.GetComponent<CircleCollider2D>();
+                playerEntity.AddRigidbody(playerRigidBody);
+                playerEntity.AddCircleCollider(playerCircleCollider2D);
+                playerEntity.AddVelocity(playerRigidBody.velocity);
+                playerEntity.isCameraFollow = true;
+                playerEntity.AddGroundState(GroundState.Ground);
+                playerEntity.AddTrailRenderer(playerObject.GetComponentInChildren<TrailRenderer>());
+                playerEntity.AddAudioSource(playerObject.GetComponent<AudioSource>());
+                playerEntity.AddSpriteRenderer(playerObject.GetComponent<SpriteRenderer>());
             }
         }
     }

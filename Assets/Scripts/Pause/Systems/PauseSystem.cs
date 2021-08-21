@@ -26,21 +26,14 @@ namespace SemoGames.Pause
             return true;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
             Physics2D.simulationMode = SimulationMode2D.Script;
             GameContext gameContext = Contexts.sharedInstance.game;
             GameEntity finishLevelDialogEntity = gameContext.CreateEntity();
             _pauseOverlayGroup.GetSingleEntity().pauseOverlay.Value.enabled = true;
-            AssetLoaderUtils.LoadAssetAsync(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference,
-                finishLevelDialogEntity,
-                loadedAsset =>
-                {
-                    GameObject finishLevelDialog = GameObject.Instantiate(loadedAsset, gameContext.overlayLayer.Value.transform, false);
-                    finishLevelDialogEntity.isFinishLevelDialog = true;
-                    finishLevelDialogEntity.AddView(finishLevelDialog);
-                    finishLevelDialog.Link(finishLevelDialogEntity);
-                });
+           await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference, finishLevelDialogEntity, gameContext.overlayLayer.Value.transform);
+           finishLevelDialogEntity.isFinishLevelDialog = true;
         }
     }
 }

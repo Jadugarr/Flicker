@@ -24,7 +24,7 @@ namespace Level.Systems
             return true;
         }
 
-        protected override void Execute(List<GameEntity> entities)
+        protected override async void Execute(List<GameEntity> entities)
         {
             foreach (GameEntity levelEntity in entities)
             {
@@ -40,16 +40,15 @@ namespace Level.Systems
                     GameObject.Destroy(levelEntity.view.Value);
                     levelEntity.RemoveView();
                 }
-                
+            }
+
+            GameEntity[] tempList = entities.ToArray();
+            foreach (GameEntity levelEntity in tempList)
+            {
                 AssetReference levelReference =
                     GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[levelEntity.levelIndex.Value];
 
-                AssetLoaderUtils.LoadAssetAsync(levelReference, levelEntity, loadedObject =>
-                {
-                    GameObject levelView = GameObject.Instantiate(loadedObject);
-                    levelEntity.AddView(levelView);
-                    levelView.Link(levelEntity);
-                });
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(levelReference, levelEntity, Vector3.zero, Quaternion.identity);
             }
         }
     }

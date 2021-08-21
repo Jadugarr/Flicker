@@ -4,6 +4,14 @@ namespace SemoGames.GameTransition
 {
     public static class TransitionUtils
     {
+        private static IGroup<GameEntity> _transitionEntityGroup =
+            Contexts.sharedInstance.game.GetGroup(GameMatcher.TransitionCommands);
+        
+        public static bool IsTransitionRunning()
+        {
+            return _transitionEntityGroup.count > 0;
+        }
+        
         public static GameEntity StartTransition()
         {
             GameEntity transitionCommandsEntity = Contexts.sharedInstance.game.CreateEntity();
@@ -19,11 +27,6 @@ namespace SemoGames.GameTransition
             TransitionSequence transitionSequence = new TransitionSequence(components, test);
 
             //return test;
-        }
-
-        public static void StartEntitySequence(IEntity observerEntity, params TransitionComponentData[] components)
-        {
-            TransitionSequence transitionSequence = new TransitionSequence(components, observerEntity);
         }
     }
 }

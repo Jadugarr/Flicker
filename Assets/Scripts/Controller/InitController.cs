@@ -1,8 +1,8 @@
 ﻿using Controller;
 using Entitas;
 using SemoGames.Configurations;
+using SemoGames.GameCamera;
 using SemoGames.GameScene;
-using SemoGames.GameState;
 using SemoGames.GameTransition;
 
 namespace SemoGames.Controller
@@ -44,6 +44,7 @@ namespace SemoGames.Controller
                 .Add(new LoadNewSceneSystem(gameContext))
                 .Add(new UnloadSceneSystem(gameContext))
                 .Add(new RestartControllerSystem(gameContext))
+                .Add(new SetCameraConfinerSystem(gameContext))
                 .Add(new StartLevelTransitionSystem(gameContext))
                 .Add(new EndLevelTransitionSystem(gameContext))
                 .Add(new ProcessSceneToAddTransitionSystem(gameContext))
