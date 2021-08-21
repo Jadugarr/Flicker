@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using SemoGames.Common;
 using SemoGames.GameCamera;
 using SemoGames.LevelSelection;
 
@@ -22,13 +23,13 @@ namespace SemoGames.Controller
             
             return new Systems()
                 .Add(new InitializeLevelSelectionItemsSystem())
-                .Add(new ArrangeLevelItemsOnGridSystem(gameContext))
                 .Add(new LevelItemSelectionStatusChangedSystem(gameContext))
                 .Add(new LevelSelectedSystem(gameContext))
                 .Add(new TeardownLevelGridsSystem())
                 .Add(new TeardownLevelSelectionItemsSystem())
                 .Add(new TeardownLevelItemConnectorsSystem())
-                .Add(new TeardownLevelSelectedSystem());
+                .Add(new TeardownLevelSelectedSystem())
+                .Add(new TeardownLevelSelectionPlayersSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -38,7 +39,15 @@ namespace SemoGames.Controller
 
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
-            return new Systems();
+            GameContext gameContext = (GameContext) context;
+            
+            return new Systems()
+                .Add(new SyncVelocitySystem(gameContext))
+                .Add(new SyncPositionAndViewSystem(gameContext))
+                .Add(new ArrangeLevelItemsOnGridSystem(gameContext))
+                .Add(new MoveLevelSelectionPlayerSystem(gameContext))
+                .Add(new RenderVelocitySystem(gameContext))
+                .Add(new RenderPositionSystem(gameContext));
         }
     }
 }

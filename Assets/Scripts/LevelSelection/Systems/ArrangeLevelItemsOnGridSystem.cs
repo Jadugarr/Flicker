@@ -42,12 +42,12 @@ namespace SemoGames.LevelSelection
 
         private void ArrangeItemsOnGrid()
         {
-            List<Transform> itemList = new List<Transform>(_levelSelectionItemGroup.count);
+            List<GameEntity> itemList = new List<GameEntity>(_levelSelectionItemGroup.count);
             foreach (GameEntity levelItemEntity in _levelSelectionItemGroup.GetEntities())
             {
                 if (levelItemEntity.hasView && levelItemEntity.view.Value != null)
                 {
-                    itemList.Add(levelItemEntity.view.Value.transform);
+                    itemList.Add(levelItemEntity);
                 }
             }
             

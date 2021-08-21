@@ -24,23 +24,28 @@ namespace SemoGames.LevelSelection
             gameObject.Link(gridEntity);
         }
 
-        public void ArrangeItemsOnGrid(List<Transform> items)
+        public void ArrangeItemsOnGrid(List<GameEntity> items)
         {
             for (int i = 0; i < items.Count; i++)
             {
                 var currentItem = items[i];
 
+                if (!currentItem.hasPosition)
+                {
+                    continue;
+                }
+                
                 var startPosition = _startPoint.position;
                 Vector2 newPosition = new Vector2(
                     (i / _maxPerRow) % 2 == 0
                         ? startPosition.x + _spacing * (i % _maxPerRow)
                         : startPosition.x + _spacing * ((_maxPerRow - 1) - i % _maxPerRow),
                     startPosition.y - _spacing * (i / _maxPerRow));
-                currentItem.position = newPosition;
+                currentItem.ReplacePosition(newPosition);
 
                 if (i > 0)
                 {
-                    DrawNewLine(items[i-1].position, newPosition);
+                    DrawNewLine(items[i-1].position.Value, newPosition);
                 }
             }
         }

@@ -77,27 +77,28 @@ public static class GameComponentsLookup {
     public const int LevelSelectionGridBehaviour = 66;
     public const int LevelSelectionItemBehaviour = 67;
     public const int LevelSelectionItemConnector = 68;
-    public const int CurrentWaypointIndex = 69;
-    public const int NextWaypointIndex = 70;
-    public const int Obstacle = 71;
-    public const int TimeWhenMovementStarted = 72;
-    public const int Waypoints = 73;
-    public const int Pause = 74;
-    public const int PauseOverlay = 75;
-    public const int PauseTimeEnded = 76;
-    public const int PauseTimeStarted = 77;
-    public const int Dead = 78;
-    public const int GroundState = 79;
-    public const int IsInGoal = 80;
-    public const int Player = 81;
-    public const int TrailRenderer = 82;
-    public const int FinishLevelDialog = 83;
-    public const int MainMenuBehaviour = 84;
-    public const int MainMenu = 85;
-    public const int OverlayLayer = 86;
-    public const int StaticLayer = 87;
+    public const int LevelSelectionPlayer = 69;
+    public const int CurrentWaypointIndex = 70;
+    public const int NextWaypointIndex = 71;
+    public const int Obstacle = 72;
+    public const int TimeWhenMovementStarted = 73;
+    public const int Waypoints = 74;
+    public const int Pause = 75;
+    public const int PauseOverlay = 76;
+    public const int PauseTimeEnded = 77;
+    public const int PauseTimeStarted = 78;
+    public const int Dead = 79;
+    public const int GroundState = 80;
+    public const int IsInGoal = 81;
+    public const int Player = 82;
+    public const int TrailRenderer = 83;
+    public const int FinishLevelDialog = 84;
+    public const int MainMenuBehaviour = 85;
+    public const int MainMenu = 86;
+    public const int OverlayLayer = 87;
+    public const int StaticLayer = 88;
 
-    public const int TotalComponents = 88;
+    public const int TotalComponents = 89;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -169,6 +170,7 @@ public static class GameComponentsLookup {
         "LevelSelectionGridBehaviour",
         "LevelSelectionItemBehaviour",
         "LevelSelectionItemConnector",
+        "LevelSelectionPlayer",
         "CurrentWaypointIndex",
         "NextWaypointIndex",
         "Obstacle",
@@ -260,6 +262,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.LevelSelection.LevelSelectionGridBehaviourComponent),
         typeof(SemoGames.LevelSelection.LevelSelectionItemBehaviourComponent),
         typeof(SemoGames.LevelSelection.LevelSelectionItemConnectorComponent),
+        typeof(SemoGames.LevelSelection.LevelSelectionPlayerComponent),
         typeof(SemoGames.Obstacles.CurrentWaypointIndexComponent),
         typeof(SemoGames.Obstacles.NextWaypointIndexComponent),
         typeof(SemoGames.Obstacles.ObstacleComponent),
