@@ -2,7 +2,7 @@
 
 namespace SemoGames.Level
 {
-    [Game]
+    [Game, SaveData]
     public class LevelComponent : IComponent
     {
         

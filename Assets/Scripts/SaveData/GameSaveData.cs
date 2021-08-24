@@ -3,8 +3,9 @@
 namespace SemoGames.SaveData
 {
     [Serializable]
-    public struct CollectableSaveData
+    public struct GameSaveData
     {
         public int[] CollectedIds;
+        public int[] BeatenLevelIndices;
     }
 }

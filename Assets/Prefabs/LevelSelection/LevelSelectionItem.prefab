@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 266092566071186211}
   _levelIndexText: {fileID: 2054583772154066658}
+  _beatenLevelColor: {r: 0, g: 1, b: 0.15980244, a: 1}
 --- !u!1 &1941265093569027010
 GameObject:
   m_ObjectHideFlags: 0

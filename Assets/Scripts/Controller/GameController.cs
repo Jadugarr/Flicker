@@ -80,6 +80,7 @@ namespace SemoGames.Controller
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))
                 .Add(new DissolvePlayerAndTrailSystem(gameContext))
                 .Add(new SaveGameSystem(saveDataContext))
+                .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())

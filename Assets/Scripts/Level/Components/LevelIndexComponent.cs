@@ -2,7 +2,7 @@
 
 namespace SemoGames.Level
 {
-    [Game]
+    [Game, SaveData]
     public class LevelIndexComponent : IComponent
     {
         public int Value;
