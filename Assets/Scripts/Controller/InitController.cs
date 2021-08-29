@@ -45,6 +45,7 @@ namespace SemoGames.Controller
                 .Add(new UnloadSceneSystem(gameContext))
                 .Add(new RestartControllerSystem(gameContext))
                 .Add(new SetCameraConfinerSystem(gameContext))
+                .Add(new SetCameraSizeSystem(gameContext))
                 .Add(new StartLevelTransitionSystem(gameContext))
                 .Add(new EndLevelTransitionSystem(gameContext))
                 .Add(new ProcessSceneToAddTransitionSystem(gameContext))

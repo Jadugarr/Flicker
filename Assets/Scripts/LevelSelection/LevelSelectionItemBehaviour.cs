@@ -1,7 +1,5 @@
-﻿using Entitas.Unity;
-using SemoGames.Configurations;
-using SemoGames.Controller;
-using SemoGames.GameTransition;
+﻿using Entitas;
+using Entitas.Unity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,8 +13,12 @@ namespace SemoGames.LevelSelection
 
         [SerializeField] private TMP_Text _levelIndexText;
 
+        [SerializeField] private Color _beatenLevelColor;
+
+        [SerializeField] private Color _notBeatenLevelColor;
+
         private int _levelIndex;
-        
+
         public int LevelIndex
         {
             get => _levelIndex;
@@ -24,6 +26,20 @@ namespace SemoGames.LevelSelection
             {
                 _levelIndex = value;
                 _levelIndexText.text = _levelIndex.ToString();
+
+                IGroup<SaveDataEntity> savedLevelEntities =
+                    Contexts.sharedInstance.saveData.GetGroup(SaveDataMatcher.AllOf(SaveDataMatcher.Level, SaveDataMatcher.LevelIndex));
+
+                foreach (SaveDataEntity saveDataEntity in savedLevelEntities.GetEntities())
+                {
+                    if (saveDataEntity.levelIndex.Value == _levelIndex)
+                    {
+                        _spriteRenderer.color = _beatenLevelColor;
+                        return;
+                    }
+                }
+                
+                _spriteRenderer.color = _notBeatenLevelColor;
             }
         }
 

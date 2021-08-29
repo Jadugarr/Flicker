@@ -31,13 +31,20 @@ namespace SaveData.Systems
             if (!File.Exists(saveFilePath)) return;
 
             string saveJson = File.ReadAllText(saveFilePath);
-            CollectableSaveData collectableSaveData = JsonConvert.DeserializeObject<CollectableSaveData>(saveJson);
+            GameSaveData gameSaveData = JsonConvert.DeserializeObject<GameSaveData>(saveJson);
 
-            foreach (int collectedId in collectableSaveData.CollectedIds)
+            foreach (int collectedId in gameSaveData.CollectedIds)
             {
                 SaveDataEntity savedCollectable = Contexts.sharedInstance.saveData.CreateEntity();
                 savedCollectable.isCollectable = true;
                 savedCollectable.AddCollectableId(collectedId);
+            }
+
+            foreach (int beatenLevelIndex in gameSaveData.BeatenLevelIndices)
+            {
+                SaveDataEntity beatenLevel = Contexts.sharedInstance.saveData.CreateEntity();
+                beatenLevel.isLevel = true;
+                beatenLevel.AddLevelIndex(beatenLevelIndex);
             }
         }
     }

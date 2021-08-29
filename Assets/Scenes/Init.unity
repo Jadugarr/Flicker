@@ -264,6 +264,7 @@ MonoBehaviour:
   _confiner: {fileID: 1336013765}
   _levelTransitionOverlay: {fileID: 6750273262798172035}
   _pauseOverlay: {fileID: 3429642667947070113}
+  _startingCameraSize: 10
 --- !u!4 &587571922
 Transform:
   m_ObjectHideFlags: 0

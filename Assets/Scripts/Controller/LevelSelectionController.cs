@@ -17,6 +17,11 @@ namespace SemoGames.Controller
             return Contexts.sharedInstance.game;
         }
 
+        protected override void AfterAwake()
+        {
+            Contexts.sharedInstance.game.ReplaceCameraOrthographicSize(4f);
+        }
+
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
