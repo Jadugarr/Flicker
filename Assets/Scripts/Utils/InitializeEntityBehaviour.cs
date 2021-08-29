@@ -17,6 +17,7 @@ namespace SemoGames.Utils
         [SerializeField] private CinemachineConfiner _confiner;
         [SerializeField] private Image _levelTransitionOverlay;
         [SerializeField] private Image _pauseOverlay;
+        [SerializeField] private float _startingCameraSize;
 
         private void Start()
         {
@@ -30,6 +31,7 @@ namespace SemoGames.Utils
             gameContext.ReplaceCamera(_gameCamera);
             gameContext.ReplaceLevelTransitionOverlay(_levelTransitionOverlay);
             gameContext.ReplacePauseOverlay(_pauseOverlay);
+            gameContext.ReplaceCameraOrthographicSize(_startingCameraSize);
             #endregion
 
             #region Add configurations

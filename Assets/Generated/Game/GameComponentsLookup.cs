@@ -56,49 +56,50 @@ public static class GameComponentsLookup {
     public const int CameraConfinerCollider = 45;
     public const int CameraConfiner = 46;
     public const int CameraFollow = 47;
-    public const int VirtualCamera = 48;
-    public const int MousePosition = 49;
-    public const int ActiveSceneName = 50;
-    public const int GameState = 51;
-    public const int ControllerToRestartTransition = 52;
-    public const int ControllerToTeardownTransition = 53;
-    public const int EndLevelTransition = 54;
-    public const int LevelIndexToLoadTransition = 55;
-    public const int LevelTransitionOverlay = 56;
-    public const int SceneToAdd = 57;
-    public const int SceneToRemove = 58;
-    public const int StartLevelTransition = 59;
-    public const int TransitionCommands = 60;
-    public const int Goal = 61;
-    public const int Level = 62;
-    public const int LevelIndex = 63;
-    public const int PlayerSpawn = 64;
-    public const int LevelSelected = 65;
-    public const int LevelSelectionGridBehaviour = 66;
-    public const int LevelSelectionItemBehaviour = 67;
-    public const int LevelSelectionItemConnector = 68;
-    public const int LevelSelectionPlayer = 69;
-    public const int CurrentWaypointIndex = 70;
-    public const int NextWaypointIndex = 71;
-    public const int Obstacle = 72;
-    public const int TimeWhenMovementStarted = 73;
-    public const int Waypoints = 74;
-    public const int Pause = 75;
-    public const int PauseOverlay = 76;
-    public const int PauseTimeEnded = 77;
-    public const int PauseTimeStarted = 78;
-    public const int Dead = 79;
-    public const int GroundState = 80;
-    public const int IsInGoal = 81;
-    public const int Player = 82;
-    public const int TrailRenderer = 83;
-    public const int FinishLevelDialog = 84;
-    public const int MainMenuBehaviour = 85;
-    public const int MainMenu = 86;
-    public const int OverlayLayer = 87;
-    public const int StaticLayer = 88;
+    public const int CameraOrthographicSize = 48;
+    public const int VirtualCamera = 49;
+    public const int MousePosition = 50;
+    public const int ActiveSceneName = 51;
+    public const int GameState = 52;
+    public const int ControllerToRestartTransition = 53;
+    public const int ControllerToTeardownTransition = 54;
+    public const int EndLevelTransition = 55;
+    public const int LevelIndexToLoadTransition = 56;
+    public const int LevelTransitionOverlay = 57;
+    public const int SceneToAdd = 58;
+    public const int SceneToRemove = 59;
+    public const int StartLevelTransition = 60;
+    public const int TransitionCommands = 61;
+    public const int Goal = 62;
+    public const int Level = 63;
+    public const int LevelIndex = 64;
+    public const int PlayerSpawn = 65;
+    public const int LevelSelected = 66;
+    public const int LevelSelectionGridBehaviour = 67;
+    public const int LevelSelectionItemBehaviour = 68;
+    public const int LevelSelectionItemConnector = 69;
+    public const int LevelSelectionPlayer = 70;
+    public const int CurrentWaypointIndex = 71;
+    public const int NextWaypointIndex = 72;
+    public const int Obstacle = 73;
+    public const int TimeWhenMovementStarted = 74;
+    public const int Waypoints = 75;
+    public const int Pause = 76;
+    public const int PauseOverlay = 77;
+    public const int PauseTimeEnded = 78;
+    public const int PauseTimeStarted = 79;
+    public const int Dead = 80;
+    public const int GroundState = 81;
+    public const int IsInGoal = 82;
+    public const int Player = 83;
+    public const int TrailRenderer = 84;
+    public const int FinishLevelDialog = 85;
+    public const int MainMenuBehaviour = 86;
+    public const int MainMenu = 87;
+    public const int OverlayLayer = 88;
+    public const int StaticLayer = 89;
 
-    public const int TotalComponents = 89;
+    public const int TotalComponents = 90;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -149,6 +150,7 @@ public static class GameComponentsLookup {
         "CameraConfinerCollider",
         "CameraConfiner",
         "CameraFollow",
+        "CameraOrthographicSize",
         "VirtualCamera",
         "MousePosition",
         "ActiveSceneName",
@@ -241,6 +243,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.GameCamera.CameraConfinerColliderComponent),
         typeof(SemoGames.GameCamera.CameraConfinerComponent),
         typeof(SemoGames.GameCamera.CameraFollowComponent),
+        typeof(SemoGames.GameCamera.CameraOrthographicSizeComponent),
         typeof(SemoGames.GameCamera.VirtualCameraComponent),
         typeof(SemoGames.GameInput.MousePositionComponent),
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
