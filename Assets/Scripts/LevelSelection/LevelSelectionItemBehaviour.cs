@@ -15,6 +15,8 @@ namespace SemoGames.LevelSelection
 
         [SerializeField] private Color _beatenLevelColor;
 
+        [SerializeField] private Color _notBeatenLevelColor;
+
         private int _levelIndex;
 
         public int LevelIndex
@@ -33,8 +35,11 @@ namespace SemoGames.LevelSelection
                     if (saveDataEntity.levelIndex.Value == _levelIndex)
                     {
                         _spriteRenderer.color = _beatenLevelColor;
+                        return;
                     }
                 }
+                
+                _spriteRenderer.color = _notBeatenLevelColor;
             }
         }
 

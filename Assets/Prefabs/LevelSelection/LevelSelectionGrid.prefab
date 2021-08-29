@@ -76,4 +76,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 4959052049984246125}
   _spacing: 2
-  _templateLine: {fileID: 0}
