@@ -79,7 +79,6 @@ namespace SemoGames.Controller
                 .Add(new CheckpointWallTriggeredSystem(gameContext))
                 .Add(new CollectableCollectedSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
-                .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new PlaySoundSystem(gameContext))
                 .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))

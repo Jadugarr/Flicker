@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Entitas;
+using SemoGames.Common;
 using SemoGames.Configurations;
 using SemoGames.GameCamera;
 using SemoGames.GameScene;
@@ -53,7 +54,8 @@ namespace SemoGames.Controller
                 .Add(new ProcessControllerToRestartTransitionSystem(gameContext))
                 .Add(new ProcessControllerToTeardownTransitionSystem(gameContext))
                 .Add(new ProcessLevelIndexToLoadTransitionSystem(gameContext))
-                .Add(new CheckIfTransitionIsFinishedSystem(gameContext));
+                .Add(new CheckIfTransitionIsFinishedSystem(gameContext))
+                .Add(new GarbageCollectionSystem(gameContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

@@ -63,7 +63,6 @@ namespace SemoGames.Controller
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
-                .Add(new GarbageCollectionSystem(gameContext))
                 .Add(new LoadGameSystem(saveDataContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownBumpersSystem())
