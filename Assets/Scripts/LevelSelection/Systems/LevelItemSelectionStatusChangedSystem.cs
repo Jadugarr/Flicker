@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
+using SemoGames.Utils;
 
 namespace SemoGames.LevelSelection
 {
     public class LevelItemSelectionStatusChangedSystem : ReactiveSystem<GameEntity>
     {
-        private static readonly int IsOutlineActive = Shader.PropertyToID("_IsOutlineActive");
-        
         public LevelItemSelectionStatusChangedSystem(IContext<GameEntity> context) : base(context)
         {
         }
@@ -30,7 +28,7 @@ namespace SemoGames.LevelSelection
         {
             foreach (GameEntity gameEntity in entities)
             {
-                gameEntity.spriteRenderer.Value.material.SetInteger(IsOutlineActive, Convert.ToInt32(gameEntity.isSelected));
+                gameEntity.spriteRenderer.Value.material.SetInteger(ShaderUtils.IsOutlineActive, Convert.ToInt32(gameEntity.isSelected));
             }
         }
     }

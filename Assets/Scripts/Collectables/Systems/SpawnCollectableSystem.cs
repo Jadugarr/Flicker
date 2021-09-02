@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Entitas;
 using SemoGames.Configurations;
 using SemoGames.Utils;
@@ -51,14 +52,15 @@ namespace SemoGames.Collectables.Systems
                         break;
                     }
                 }
-
-                if (found) continue;
                 
                 GameEntity collectableEntity = Contexts.sharedInstance.game.CreateEntity();
                 collectableEntity.isCollectable = true;
                 collectableEntity.AddCollectableId(spawnEntity.collectableId.Value);
                 await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.CollectableReference, collectableEntity, spawnEntity.view.Value.transform.position, Quaternion.identity);
+                Material collectableMaterial = collectableEntity.view.Value.GetComponentInChildren<SpriteRenderer>().material;
+                collectableMaterial.SetInt(ShaderUtils.IsOutlineActive, Convert.ToInt32(found));
                 collectableEntity.AddAnimator(collectableEntity.view.Value.GetComponentInChildren<Animator>());
+                
             }
         }
     }
