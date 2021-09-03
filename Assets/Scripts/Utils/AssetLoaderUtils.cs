@@ -9,22 +9,33 @@ namespace SemoGames.Utils
 {
     public static class AssetLoaderUtils
     {
-        public static async Task InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Vector3 position, Quaternion rotation)
+        public static async Task<bool> InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Vector3 position, Quaternion rotation)
         {
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(assetReference, position, rotation);
-            await AddAdditionalInfo(entityToAttach, handle);
+            return await AddAdditionalInfo(entityToAttach, handle);
         }
         
         
-        public static async Task InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Transform parent, bool worldPositionStays = false)
+        public static async Task<bool> InstantiateAssetAsyncTask(AssetReference assetReference, GameEntity entityToAttach, Transform parent, bool worldPositionStays = false)
         {
             AsyncOperationHandle<GameObject> handle = Addressables.InstantiateAsync(assetReference, parent, worldPositionStays);
-            await AddAdditionalInfo(entityToAttach, handle);
+            return await AddAdditionalInfo(entityToAttach, handle);
         }
 
-        private static async Task AddAdditionalInfo(GameEntity entity, AsyncOperationHandle<GameObject> handle)
+        private static async Task<bool> AddAdditionalInfo(GameEntity entity, AsyncOperationHandle<GameObject> handle)
         {
+            bool isStillValid = true;
+            entity.OnDestroyEntity += entity1 =>
+            {
+                isStillValid = false;
+            };
             GameObject resultObject = await handle.Task;
+
+            if (!isStillValid)
+            {
+                Addressables.Release(handle);
+                return false;
+            }
             
             if (entity != null && entity.isEnabled)
             {
@@ -33,6 +44,12 @@ namespace SemoGames.Utils
                 entity.AddPosition(resultObject.transform.position);
                 resultObject.Link(entity);
             }
+            else
+            {
+                Addressables.Release(handle);
+            }
+
+            return isStillValid;
         }
     }
 }
