@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Cinemachine.Utility;
 using Entitas.Unity;
 using SemoGames.Configurations;
@@ -39,9 +40,13 @@ namespace SemoGames.Player
             if (playerEntity.velocity.Value.magnitude >= velocityThreshold && angle <= angleThreshold)
             {
                 GameEntity impactStarEntity = Contexts.sharedInstance.game.CreateEntity();
+                GameEntity impactStarEntity2 = Contexts.sharedInstance.game.CreateEntity();
+                impactStarEntity2.isImpactStar = true;
                 impactStarEntity.isImpactStar = true;
-                bool isStillValid = await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity, contactPoint.point, Quaternion.identity);
-                if (isStillValid)
+                Task<bool> impactStar1Task = AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity, contactPoint.point, Quaternion.identity);
+                Task<bool> impactStar2Task = AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity2, contactPoint.point, Quaternion.identity);
+                
+                if (await impactStar1Task)
                 {
                     GameObject impactStarObject = impactStarEntity.view.Value;
                     impactStarObject.transform.Rotate(0, 0, Vector2.SignedAngle(Vector2.up, contactPoint.normal));
@@ -49,10 +54,7 @@ namespace SemoGames.Player
                     impactStarEntity.AddAnimation(impactAnimation);
                 }
 
-                GameEntity impactStarEntity2 = Contexts.sharedInstance.game.CreateEntity();
-                impactStarEntity2.isImpactStar = true;
-                bool isStillValid2 = await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.ImpactStarReference, impactStarEntity2, contactPoint.point, Quaternion.identity);
-                if (isStillValid2)
+                if (await impactStar2Task)
                 {
                     GameObject impactStarObject2 = impactStarEntity2.view.Value;
                     impactStarObject2.transform.Rotate(180 * contactPoint.normal.x, 180 * contactPoint.normal.y,
