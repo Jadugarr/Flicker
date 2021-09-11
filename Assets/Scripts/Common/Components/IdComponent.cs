@@ -1,10 +1,11 @@
 ﻿using Entitas;
+using Entitas.CodeGeneration.Attributes;
 
 namespace SemoGames.Common
 {
     [Game, Input]
     public class IdComponent : IComponent
     {
-        public int Value;
+        [PrimaryEntityIndex] public int Value;
     }
 }

@@ -11,6 +11,8 @@ namespace SemoGames.CheckpointWall
             {
                 GameEntity checkpointWallEntity = (GameEntity)transform.parent.gameObject.GetEntityLink().entity;
                 checkpointWallEntity.isTriggered = true;
+                
+                Contexts.sharedInstance.game.ReplaceLastTriggeredCheckpointEntityId(checkpointWallEntity.id.Value);
             }
         }
     }

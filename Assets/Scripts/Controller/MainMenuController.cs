@@ -58,8 +58,6 @@ namespace SemoGames.Controller
                 .Add(new TeardownPlayerSystem())
                 .Add(new LoadLevelSystem(gameContext))
                 .Add(new TeardownPlayerSpawnSystem())
-                .Add(new PlayerDiedSystem(gameContext))
-                .Add(new EntityDiedSystem(gameContext))
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))

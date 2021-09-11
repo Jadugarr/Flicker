@@ -26,9 +26,14 @@ namespace SemoGames.Player
         protected override async void Execute(List<GameEntity> entities)
         {
             GameContext gameContext = Contexts.sharedInstance.game;
-            GameEntity finishLevelDialogEntity = gameContext.CreateEntity();
-            await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.FinishLevelDialogReference, finishLevelDialogEntity, gameContext.staticLayer.Value.transform);
-            finishLevelDialogEntity.isFinishLevelDialog = true;
+            GameEntity lastCheckpointEntity =
+                gameContext.GetEntityWithId(gameContext.lastTriggeredCheckpointEntityId.Value);
+
+            foreach (GameEntity playerEntity in entities)
+            {
+                playerEntity.isDead = false;
+                playerEntity.ReplacePosition(lastCheckpointEntity.checkpointSpawnPosition.Value);
+            }
         }
     }
 }

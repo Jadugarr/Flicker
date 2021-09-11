@@ -70,8 +70,6 @@ namespace SemoGames.Controller
                 .Add(new TeardownFlipperSystem())
                 .Add(new InteractWithFlipperSystem(inputContext))
                 .Add(new StopInteractingWithFlipperSystem(inputContext))
-                .Add(new PlayerDiedSystem(gameContext))
-                .Add(new EntityDiedSystem(gameContext))
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new FastForwardActivatedSystem(gameContext))
@@ -95,7 +93,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownImpactStarsSystem())
                 .Add(new TeardownFlipperAnimationSystem())
                 .Add(new TeardownSpaceBarAnimationSystem())
-                .Add(new TeardownFlickLineSystem());
+                .Add(new TeardownFlickLineSystem())
+                .Add(new TeardownLastTriggeredCheckpointSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -117,6 +116,7 @@ namespace SemoGames.Controller
                 .Add(new KillVelocityOfPlayerWhenInGoal(gameContext))
                 .Add(new AdjustObstacleMoveTimerSystem(gameContext))
                 .Add(new MoveObstaclesSystem(gameContext))
+                .Add(new PlayerDiedSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))
                 .Add(new CleanupInputActionsSystem());

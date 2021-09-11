@@ -19,6 +19,7 @@ namespace SemoGames.CheckpointWall
             checkpointWallEntity.AddView(gameObject);
             checkpointWallEntity.AddPosition(gameObject.transform.position);
             checkpointWallEntity.AddSpriteRenderer(wallSpriteRenderer);
+            checkpointWallEntity.AddCheckpointSpawnPosition(wallTriggerObject.transform.position);
             gameObject.Link(checkpointWallEntity);
         }
     }
