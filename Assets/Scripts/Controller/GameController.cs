@@ -81,6 +81,7 @@ namespace SemoGames.Controller
                 .Add(new PlayFlipperTutorialAnimationSystem(gameContext))
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))
                 .Add(new DissolvePlayerAndTrailSystem(gameContext))
+                .Add(new ReverseDissolvePlayerAndTrailSystem(gameContext))
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))

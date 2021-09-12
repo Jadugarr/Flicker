@@ -4,15 +4,15 @@ using Entitas;
 
 namespace SemoGames.Effects
 {
-    public class DissolvePlayerAndTrailSystem : ReactiveSystem<GameEntity>
+    public class ReverseDissolvePlayerAndTrailSystem : ReactiveSystem<GameEntity>
     {
-        public DissolvePlayerAndTrailSystem(IContext<GameEntity> context) : base(context)
+        public ReverseDissolvePlayerAndTrailSystem(IContext<GameEntity> context) : base(context)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.Dissolve, GroupEvent.Added));
+            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.Dissolve, GroupEvent.Removed));
         }
 
         protected override bool Filter(GameEntity entity)
@@ -26,11 +26,12 @@ namespace SemoGames.Effects
             {
                 if (gameEntity.hasSpriteRenderer && gameEntity.spriteRenderer != null)
                 {
-                    gameEntity.spriteRenderer.Value.material.DOFloat(0f, "_DissolveStep", 0.5f);
+                    gameEntity.spriteRenderer.Value.material.DOFloat(1f, "_DissolveStep", 0.5f);
                 }
+
                 if (gameEntity.hasTrailRenderer && gameEntity.trailRenderer != null)
                 {
-                    gameEntity.trailRenderer.Value.material.DOFloat(0f, "_DissolveStep", 0.5f);
+                    gameEntity.trailRenderer.Value.material.DOFloat(1f, "_DissolveStep", 0.5f);
                 }
             }
         }

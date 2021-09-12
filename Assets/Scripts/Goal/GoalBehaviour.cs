@@ -24,6 +24,7 @@ namespace SemoGames.Goal
                 {
                     playerEntity.isIsInGoal = true;
                     playerEntity.isStopSimulation = true;
+                    playerEntity.isDissolve = true;
                 
                     GameEntity goalEntity = (GameEntity) gameObject.GetEntityLink().entity;
                     goalEntity.isPlaySound = true;
