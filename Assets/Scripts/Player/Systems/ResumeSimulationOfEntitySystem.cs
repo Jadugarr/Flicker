@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
 
 namespace SemoGames.Player
 {
-    public class KillVelocityOfPlayerWhenInGoal : ReactiveSystem<GameEntity>
+    public class ResumeSimulationOfEntitySystem : ReactiveSystem<GameEntity>
     {
-        public KillVelocityOfPlayerWhenInGoal(IContext<GameEntity> context) : base(context)
+        public ResumeSimulationOfEntitySystem(IContext<GameEntity> context) : base(context)
         {
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
         {
-            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.IsInGoal, GroupEvent.Added));
+            return context.CreateCollector(new TriggerOnEvent<GameEntity>(GameMatcher.StopSimulation,
+                GroupEvent.Removed));
         }
 
         protected override bool Filter(GameEntity entity)
@@ -24,14 +24,9 @@ namespace SemoGames.Player
         {
             foreach (GameEntity gameEntity in entities)
             {
-                if (gameEntity.hasVelocity)
-                {
-                    gameEntity.ReplaceVelocity(Vector3.zero);
-                }
-
                 if (gameEntity.hasRigidbody)
                 {
-                    gameEntity.rigidbody.Value.simulated = false;
+                    gameEntity.rigidbody.Value.simulated = true;
                 }
             }
         }

@@ -32,6 +32,7 @@ namespace SemoGames.Player
             foreach (GameEntity playerEntity in entities)
             {
                 playerEntity.isDead = false;
+                playerEntity.isStopSimulation = true;
                 playerEntity.ReplacePosition(lastCheckpointEntity.checkpointSpawnPosition.Value);
             }
         }
