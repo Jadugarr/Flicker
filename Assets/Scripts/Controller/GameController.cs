@@ -53,6 +53,7 @@ namespace SemoGames.Controller
                 .Add(new SwitchToPlayerInputMap(gameContext))
                 .Add(new SwitchToUiInputMapSystem(gameContext))
                 .Add(new SwitchToEnvironmentInputMapSystem(gameContext))
+                .Add(new SwitchToNothingInputMapSystem(gameContext))
                 .Add(new SpawnPlayerSystem(gameContext))
                 .Add(new SpawnCollectableSystem(gameContext))
                 .Add(new SetCameraFollowPlayerSystem(gameContext))
