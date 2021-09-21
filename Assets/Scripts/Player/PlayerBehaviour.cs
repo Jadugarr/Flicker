@@ -65,9 +65,17 @@ namespace SemoGames.Player
             }
         }
 
-        public void OnDeathAnimationFinished()
+        public void DissolveFinished()
         {
-            
+            GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
+            playerEntity.isMoveToLastCheckpoint = true;
+        }
+
+        public void ReverseDissolveFinished()
+        {
+            GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
+            playerEntity.isStopSimulation = false;
+            playerEntity.isDead = false;
         }
     }
 }

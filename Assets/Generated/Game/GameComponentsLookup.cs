@@ -94,16 +94,17 @@ public static class GameComponentsLookup {
     public const int Dead = 83;
     public const int GroundState = 84;
     public const int IsInGoal = 85;
-    public const int Player = 86;
-    public const int StopSimulation = 87;
-    public const int TrailRenderer = 88;
-    public const int FinishLevelDialog = 89;
-    public const int MainMenuBehaviour = 90;
-    public const int MainMenu = 91;
-    public const int OverlayLayer = 92;
-    public const int StaticLayer = 93;
+    public const int MoveToLastCheckpoint = 86;
+    public const int Player = 87;
+    public const int StopSimulation = 88;
+    public const int TrailRenderer = 89;
+    public const int FinishLevelDialog = 90;
+    public const int MainMenuBehaviour = 91;
+    public const int MainMenu = 92;
+    public const int OverlayLayer = 93;
+    public const int StaticLayer = 94;
 
-    public const int TotalComponents = 94;
+    public const int TotalComponents = 95;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -192,6 +193,7 @@ public static class GameComponentsLookup {
         "Dead",
         "GroundState",
         "IsInGoal",
+        "MoveToLastCheckpoint",
         "Player",
         "StopSimulation",
         "TrailRenderer",
@@ -289,6 +291,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Player.DeadComponent),
         typeof(SemoGames.Player.GroundStateComponent),
         typeof(SemoGames.Player.IsInGoalComponent),
+        typeof(SemoGames.Player.MoveToLastCheckpointComponent),
         typeof(SemoGames.Player.PlayerComponent),
         typeof(SemoGames.Player.StopSimulationComponent),
         typeof(SemoGames.Player.TrailRendererComponent),

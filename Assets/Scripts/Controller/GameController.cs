@@ -119,6 +119,7 @@ namespace SemoGames.Controller
                 .Add(new AdjustObstacleMoveTimerSystem(gameContext))
                 .Add(new MoveObstaclesSystem(gameContext))
                 .Add(new PlayerDiedSystem(gameContext))
+                .Add(new MoveToLastCheckpointSystem(gameContext))
                 .Add(new RenderVelocitySystem(gameContext))
                 .Add(new RenderPositionSystem(gameContext))
                 .Add(new CleanupInputActionsSystem());
