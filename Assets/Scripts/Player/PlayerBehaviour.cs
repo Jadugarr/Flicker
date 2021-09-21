@@ -64,5 +64,10 @@ namespace SemoGames.Player
                 }
             }
         }
+
+        public void OnDeathAnimationFinished()
+        {
+            
+        }
     }
 }

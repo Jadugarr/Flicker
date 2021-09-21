@@ -61,6 +61,7 @@ namespace SemoGames.Player
                 playerEntity.AddTrailRenderer(playerObject.GetComponentInChildren<TrailRenderer>());
                 playerEntity.AddAudioSource(playerObject.GetComponent<AudioSource>());
                 playerEntity.AddSpriteRenderer(playerObject.GetComponent<SpriteRenderer>());
+                playerEntity.AddAnimation(playerObject.GetComponent<Animation>());
             }
         }
     }
