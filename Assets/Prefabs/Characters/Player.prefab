@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc85c06b239472fb30f252decf6c265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animation: {fileID: 7154423210808433499}
 --- !u!82 &4065235797673495487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -331,9 +332,8 @@ Animation:
   m_GameObject: {fileID: 4292861056440168219}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 796fcd4fa1cee2747b2db2305c1a5c7d, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 796fcd4fa1cee2747b2db2305c1a5c7d, type: 2}
   - {fileID: 7400000, guid: f868f6baeb499f545bd2abfebe8dff07, type: 2}
   - {fileID: 7400000, guid: baa8b23ecf10b4842bf5ec2b07783200, type: 2}
   - {fileID: 7400000, guid: 3bf0e1e2fdaa52d4dab766158d1fbdde, type: 2}

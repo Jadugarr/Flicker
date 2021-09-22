@@ -10,6 +10,8 @@ namespace SemoGames.Player
 {
     public class PlayerBehaviour : MonoBehaviour
     {
+        [SerializeField] private Animation _animation;
+        
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (other.collider.CompareTag(Tags.Ground))
@@ -28,6 +30,7 @@ namespace SemoGames.Player
                 GameConfigurations.GameConstantsConfiguration.ImpactSoundFullVolumeVelocityThreshold;
             playerEntity.audioSource.Value.volume = Math.Min(playerEntity.velocity.Value.magnitude, velocityThreshold) /
                                                     velocityThreshold;
+            playerEntity.audioSource.Value.clip = GameConfigurations.SoundReferencesConfiguration.HitGroundSound;
             playerEntity.isPlaySound = true;
         }
 
@@ -67,12 +70,14 @@ namespace SemoGames.Player
 
         public void DissolveFinished()
         {
+            _animation.Stop();
             GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
             playerEntity.isMoveToLastCheckpoint = true;
         }
 
         public void ReverseDissolveFinished()
         {
+            _animation.Stop();
             GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
             playerEntity.isStopSimulation = false;
             playerEntity.isDead = false;

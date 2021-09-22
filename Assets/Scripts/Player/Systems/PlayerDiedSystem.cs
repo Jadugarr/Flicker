@@ -2,6 +2,7 @@
 using Cinemachine;
 using DG.Tweening;
 using Entitas;
+using SemoGames.Configurations;
 
 namespace SemoGames.Player
 {
@@ -33,6 +34,10 @@ namespace SemoGames.Player
                 DOTween.To(() => cameraPerlin.m_AmplitudeGain, value => cameraPerlin.m_AmplitudeGain = value, 0f, 0.2f);
                 playerEntity.isStopSimulation = true;
                 playerEntity.animation.Value.Play("DissolveAnimation");
+
+                playerEntity.audioSource.Value.clip = GameConfigurations.SoundReferencesConfiguration.DeathSound;
+                playerEntity.audioSource.Value.volume = 1f;
+                playerEntity.isPlaySound = true;
             }
         }
     }
