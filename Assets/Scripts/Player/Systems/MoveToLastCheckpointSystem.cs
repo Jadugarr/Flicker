@@ -30,6 +30,7 @@ namespace SemoGames.Player
             foreach (GameEntity playerEntity in entities)
             {
                 playerEntity.RemovePosition();
+                playerEntity.animation.Value.Play("MoveToRespawn");
                 DOTween.To(() => playerEntity.view.Value.transform.position, value => playerEntity.view.Value.transform.position = value,
                     lastCheckpointEntity.checkpointSpawnPosition.Value, 2f).onComplete += () =>
                 {
