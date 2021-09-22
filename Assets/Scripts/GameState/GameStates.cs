@@ -5,6 +5,7 @@
         Undefined,
         Waiting,
         Flicking,
-        UI
+        UI,
+        Respawning
     }
 }

@@ -18,6 +18,13 @@ namespace SemoGames.GameState
 
         public void Execute()
         {
+            if (IsInDeathState())
+            {
+                if (_gameContext.gameState.Value != GameStates.Respawning)
+                    _gameContext.ReplaceGameState(GameStates.Respawning);
+                return;
+            }
+            
             if (IsInUiState())
             {
                 if (_gameContext.gameState.Value != GameStates.UI)
@@ -40,6 +47,11 @@ namespace SemoGames.GameState
         {
             return _gameContext.isPause || _playerGroup.count <= 0 ||
                    (_playerGroup.count > 0 && _playerGroup.GetSingleEntity().isIsInGoal);
+        }
+
+        private bool IsInDeathState()
+        {
+            return _playerGroup.count > 0 && _playerGroup.GetSingleEntity().isDead;
         }
 
         private bool IsInFlickingState()

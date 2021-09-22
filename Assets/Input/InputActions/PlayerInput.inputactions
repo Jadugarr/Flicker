@@ -740,6 +740,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Nothing",
+            "id": "a3c13782-e87d-44d0-aa30-5d41f036e53e",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

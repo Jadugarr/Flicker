@@ -259,6 +259,8 @@ MonoBehaviour:
     type: 2}
   _gameConstantsConfiguration: {fileID: 11400000, guid: e108ff8d3ab91774993065a51207a66f,
     type: 2}
+  _soundReferencesConfiguration: {fileID: 11400000, guid: 472ec23455c1d7440b840b5cdc99c5f4,
+    type: 2}
   _gameCamera: {fileID: 793999423}
   _virtualCamera: {fileID: 1336013763}
   _confiner: {fileID: 1336013765}
@@ -444,7 +446,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e29f163a2e91c0248a4b65dc99cdc5b7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -656,6 +658,7 @@ GameObject:
   - component: {fileID: 984201593}
   - component: {fileID: 984201595}
   - component: {fileID: 984201594}
+  - component: {fileID: 984201596}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -732,6 +735,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &984201596
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984201592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 3
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1006923189
 GameObject:
   m_ObjectHideFlags: 0

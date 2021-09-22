@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
+using Cinemachine;
+using DG.Tweening;
 using Entitas;
-using Entitas.Unity;
 using SemoGames.Configurations;
-using SemoGames.Utils;
-using UnityEngine;
 
 namespace SemoGames.Player
 {
     public class PlayerDiedSystem : ReactiveSystem<GameEntity>
     {
+        private IGroup<GameEntity> _virtualCameraGroup;
+        
         public PlayerDiedSystem(IContext<GameEntity> context) : base(context)
         {
+            _virtualCameraGroup = context.GetGroup(GameMatcher.VirtualCamera);
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)
@@ -23,16 +25,19 @@ namespace SemoGames.Player
             return entity.isPlayer && entity.isDead;
         }
 
-        protected override async void Execute(List<GameEntity> entities)
+        protected override void Execute(List<GameEntity> entities)
         {
-            GameContext gameContext = Contexts.sharedInstance.game;
-            GameEntity lastCheckpointEntity =
-                gameContext.GetEntityWithId(gameContext.lastTriggeredCheckpointEntityId.Value);
-
             foreach (GameEntity playerEntity in entities)
             {
-                playerEntity.isDead = false;
-                playerEntity.ReplacePosition(lastCheckpointEntity.checkpointSpawnPosition.Value);
+                CinemachineBasicMultiChannelPerlin cameraPerlin = _virtualCameraGroup.GetSingleEntity().virtualCamera.Value.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                cameraPerlin.m_AmplitudeGain = 6;
+                DOTween.To(() => cameraPerlin.m_AmplitudeGain, value => cameraPerlin.m_AmplitudeGain = value, 0f, 0.2f);
+                playerEntity.isStopSimulation = true;
+                playerEntity.animation.Value.Play("DissolveAnimation");
+
+                playerEntity.audioSource.Value.clip = GameConfigurations.SoundReferencesConfiguration.DeathSound;
+                playerEntity.audioSource.Value.volume = 1f;
+                playerEntity.isPlaySound = true;
             }
         }
     }

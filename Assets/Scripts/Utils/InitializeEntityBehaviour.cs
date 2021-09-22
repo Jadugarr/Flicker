@@ -12,6 +12,7 @@ namespace SemoGames.Utils
         [SerializeField] private AssetReferenceConfiguration _assetReferenceConfiguration;
         [SerializeField] private GameSceneConfiguration _gameSceneConfiguration;
         [SerializeField] private GameConstantsConfiguration _gameConstantsConfiguration;
+        [SerializeField] private SoundReferencesConfiguration _soundReferencesConfiguration;
         [SerializeField] private Camera _gameCamera;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private CinemachineConfiner _confiner;
@@ -39,6 +40,7 @@ namespace SemoGames.Utils
             GameConfigurations.AssetReferenceConfiguration = _assetReferenceConfiguration;
             GameConfigurations.GameSceneConfiguration = _gameSceneConfiguration;
             GameConfigurations.GameConstantsConfiguration = _gameConstantsConfiguration;
+            GameConfigurations.SoundReferencesConfiguration = _soundReferencesConfiguration;
 
             #endregion
             
