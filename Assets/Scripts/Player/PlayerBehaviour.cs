@@ -82,5 +82,17 @@ namespace SemoGames.Player
             playerEntity.isStopSimulation = false;
             playerEntity.isDead = false;
         }
+
+        public void ActivateDissolve()
+        {
+            GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
+            playerEntity.isDissolve = true;
+        }
+
+        public void DeactivateDissolve()
+        {
+            GameEntity playerEntity = (GameEntity) gameObject.GetEntityLink().entity;
+            playerEntity.isDissolve = false;
+        }
     }
 }
