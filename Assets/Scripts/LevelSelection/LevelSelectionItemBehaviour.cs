@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Entitas;
 using Entitas.Unity;
+using SemoGames.Collectables;
+using SemoGames.Configurations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 
 namespace SemoGames.LevelSelection
@@ -24,7 +27,7 @@ namespace SemoGames.LevelSelection
 
         private int _levelIndex;
 
-        private List<GameObject> _spawnedCollectableObjects = new List<GameObject>(3);
+        private List<GameObject> _spawnedCollectableObjects = new List<GameObject>();
         private List<Tween> _activeTweens;
 
         public int LevelIndex
@@ -33,6 +36,7 @@ namespace SemoGames.LevelSelection
             set
             {
                 _levelIndex = value;
+                SpawnCollectableObjects();
                 _levelIndexText.text = _levelIndex.ToString();
 
                 IGroup<SaveDataEntity> savedLevelEntities =
@@ -52,16 +56,23 @@ namespace SemoGames.LevelSelection
             }
         }
 
-        private void Start()
+        private void SpawnCollectableObjects()
         {
-            for (int i = 0; i < 3; i++)
+            Addressables.LoadAssetAsync<GameObject>(
+                GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[_levelIndex]).Completed += handle =>
             {
-                GameObject spawned = Instantiate(_collectableTemplateObject, Vector3.zero, Quaternion.Euler(0, 0, 0),
-                    transform);
-                spawned.SetActive(true);
-                spawned.transform.SetAsFirstSibling();
-                _spawnedCollectableObjects.Add(spawned);
-            }
+                CollectableSpawnBehaviour[] spawnBehaviour =
+                    handle.Result.GetComponentsInChildren<CollectableSpawnBehaviour>();
+                
+                for (int i = 0; i < spawnBehaviour.Length; i++)
+                {
+                    GameObject spawned = Instantiate(_collectableTemplateObject, Vector3.zero, Quaternion.Euler(0, 0, 0),
+                        transform);
+                    spawned.SetActive(true);
+                    spawned.transform.SetAsFirstSibling();
+                    _spawnedCollectableObjects.Add(spawned);
+                }
+            };
         }
 
         public void OnPointerEnter(PointerEventData eventData)
