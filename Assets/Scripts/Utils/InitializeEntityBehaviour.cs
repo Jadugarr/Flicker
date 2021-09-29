@@ -1,10 +1,8 @@
 ﻿using Cinemachine;
 using SemoGames.Collectables;
 using SemoGames.Configurations;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 using Task = System.Threading.Tasks.Task;
 
