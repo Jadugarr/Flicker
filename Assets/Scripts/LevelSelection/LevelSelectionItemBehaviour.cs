@@ -5,6 +5,7 @@ using Entitas;
 using Entitas.Unity;
 using SemoGames.Collectables;
 using SemoGames.Configurations;
+using SemoGames.Utils;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -58,21 +59,40 @@ namespace SemoGames.LevelSelection
 
         private void SpawnCollectableObjects()
         {
-            Addressables.LoadAssetAsync<GameObject>(
-                GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences[_levelIndex]).Completed += handle =>
+            IGroup<GameEntity> collectableInfoGroup =
+                Contexts.sharedInstance.game.GetGroup(GameMatcher.AllOf(GameMatcher.CollectableInfo,
+                    GameMatcher.CollectableId, GameMatcher.LevelIndex));
+            IGroup<SaveDataEntity> savedCollectablesGroup =
+                Contexts.sharedInstance.saveData.GetGroup(SaveDataMatcher.Collectable);
+
+            foreach (GameEntity collectableInfoEntity in collectableInfoGroup.GetEntities())
             {
-                CollectableSpawnBehaviour[] spawnBehaviour =
-                    handle.Result.GetComponentsInChildren<CollectableSpawnBehaviour>();
-                
-                for (int i = 0; i < spawnBehaviour.Length; i++)
+                if (collectableInfoEntity.levelIndex.Value == _levelIndex)
                 {
-                    GameObject spawned = Instantiate(_collectableTemplateObject, Vector3.zero, Quaternion.Euler(0, 0, 0),
+                    GameObject spawned = Instantiate(_collectableTemplateObject, Vector3.zero,
+                        Quaternion.Euler(0, 0, 0),
                         transform);
                     spawned.SetActive(true);
                     spawned.transform.SetAsFirstSibling();
                     _spawnedCollectableObjects.Add(spawned);
+
+                    bool isFound = false;
+                    foreach (SaveDataEntity saveDataEntity in savedCollectablesGroup.GetEntities())
+                    {
+                        if (saveDataEntity.collectableId.Value == collectableInfoEntity.collectableId.Value)
+                        {
+                            isFound = true;
+                            spawned.GetComponentInChildren<SpriteRenderer>().material.SetFloat(ShaderUtils.IsOutlineActive, 0);
+                            break;
+                        }
+                    }
+
+                    if (!isFound)
+                    {
+                        spawned.GetComponentInChildren<SpriteRenderer>().material.SetFloat(ShaderUtils.IsOutlineActive, 1);
+                    }
                 }
-            };
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -80,7 +100,7 @@ namespace SemoGames.LevelSelection
             EntityLink entityLink = gameObject.GetEntityLink();
             if (entityLink != null)
             {
-                ((GameEntity) entityLink.entity).isSelected = true;
+                ((GameEntity)entityLink.entity).isSelected = true;
                 CancelTweens();
                 for (var index = 0; index < _spawnedCollectableObjects.Count; index++)
                 {
@@ -97,7 +117,7 @@ namespace SemoGames.LevelSelection
             EntityLink entityLink = gameObject.GetEntityLink();
             if (entityLink != null)
             {
-                ((GameEntity) entityLink.entity).isSelected = false;
+                ((GameEntity)entityLink.entity).isSelected = false;
                 CancelTweens();
                 for (var index = 0; index < _spawnedCollectableObjects.Count; index++)
                 {
