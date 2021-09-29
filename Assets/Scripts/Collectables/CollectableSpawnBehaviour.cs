@@ -7,6 +7,8 @@ namespace SemoGames.Collectables
     {
         [SerializeField] private int collectableId;
 
+        public int CollectableId => collectableId;
+
         private void Start()
         {
             GameEntity collectableSpawnEntity = Contexts.sharedInstance.game.CreateEntity();

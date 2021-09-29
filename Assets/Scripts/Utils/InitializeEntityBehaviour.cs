@@ -1,7 +1,12 @@
 ﻿using Cinemachine;
+using SemoGames.Collectables;
 using SemoGames.Configurations;
+using UnityEditor.VersionControl;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
+using Task = System.Threading.Tasks.Task;
 
 namespace SemoGames.Utils
 {
@@ -20,7 +25,7 @@ namespace SemoGames.Utils
         [SerializeField] private Image _pauseOverlay;
         [SerializeField] private float _startingCameraSize;
 
-        private void Start()
+        private async void Start()
         {
             #region Initialize entities
             GameContext gameContext = Contexts.sharedInstance.game;
@@ -44,7 +49,39 @@ namespace SemoGames.Utils
 
             #endregion
             
-            Destroy(gameObject);
+            await CreateCollectableInfos();
+            
+            //Destroy(gameObject);
+        }
+        private async Task CreateCollectableInfos()
+        {
+            AssetReference[] levelReferences = GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences;
+
+            for (var i = 0; i < levelReferences.Length; i++)
+            {
+                AssetReference levelReference = levelReferences[i];
+                await CreateCollectableInfo(levelReference, i);
+            }
+        }
+
+        private async Task CreateCollectableInfo(AssetReference levelReference, int levelIndex)
+        {
+            GameContext gameContext = Contexts.sharedInstance.game;
+            Addressables.LoadAssetAsync<GameObject>(levelReference).Completed += handle =>
+            {
+                CollectableSpawnBehaviour[] spawnBehaviour =
+                    handle.Result.GetComponentsInChildren<CollectableSpawnBehaviour>();
+
+                foreach (CollectableSpawnBehaviour collectableSpawnBehaviour in spawnBehaviour)
+                {
+                    GameEntity collectableInfoEntity = gameContext.CreateEntity();
+                    collectableInfoEntity.isCollectableInfo = true;
+                    collectableInfoEntity.AddLevelIndex(levelIndex);
+                    collectableInfoEntity.AddCollectableId(collectableSpawnBehaviour.CollectableId);
+                }
+
+                Addressables.Release(handle);
+            };
         }
     }
 }
