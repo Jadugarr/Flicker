@@ -261,6 +261,8 @@ MonoBehaviour:
     type: 2}
   _soundReferencesConfiguration: {fileID: 11400000, guid: 472ec23455c1d7440b840b5cdc99c5f4,
     type: 2}
+  _levelCoinMapConfiguration: {fileID: 11400000, guid: d0f0de4a463bab545b7c1638ccd81e8b,
+    type: 2}
   _gameCamera: {fileID: 793999423}
   _virtualCamera: {fileID: 1336013763}
   _confiner: {fileID: 1336013765}
@@ -1045,7 +1047,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1377,7 +1379,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -578840241
-  m_SortingLayer: -1
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4088e222fbea240ceb318507c580aa2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

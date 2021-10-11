@@ -1,4 +1,5 @@
-﻿using Cinemachine;
+﻿using System.Collections.Generic;
+using Cinemachine;
 using SemoGames.Collectables;
 using SemoGames.Configurations;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace SemoGames.Utils
         [SerializeField] private GameSceneConfiguration _gameSceneConfiguration;
         [SerializeField] private GameConstantsConfiguration _gameConstantsConfiguration;
         [SerializeField] private SoundReferencesConfiguration _soundReferencesConfiguration;
+        [SerializeField] private LevelCoinMapConfiguration _levelCoinMapConfiguration;
         [SerializeField] private Camera _gameCamera;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private CinemachineConfiner _confiner;
@@ -44,42 +46,28 @@ namespace SemoGames.Utils
             GameConfigurations.GameSceneConfiguration = _gameSceneConfiguration;
             GameConfigurations.GameConstantsConfiguration = _gameConstantsConfiguration;
             GameConfigurations.SoundReferencesConfiguration = _soundReferencesConfiguration;
+            GameConfigurations.LevelCoinMapConfiguration = _levelCoinMapConfiguration;
 
             #endregion
             
             await CreateCollectableInfos();
-            
-            //Destroy(gameObject);
         }
         private async Task CreateCollectableInfos()
         {
-            AssetReference[] levelReferences = GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences;
-
-            for (var i = 0; i < levelReferences.Length; i++)
-            {
-                AssetReference levelReference = levelReferences[i];
-                await CreateCollectableInfo(levelReference, i);
-            }
-        }
-
-        private async Task CreateCollectableInfo(AssetReference levelReference, int levelIndex)
-        {
             GameContext gameContext = Contexts.sharedInstance.game;
-            Addressables.LoadAssetAsync<GameObject>(levelReference).Completed += handle =>
-            {
-                CollectableSpawnBehaviour[] spawnBehaviour =
-                    handle.Result.GetComponentsInChildren<CollectableSpawnBehaviour>();
+            List<LevelCoinData> levelCoinDatas = GameConfigurations.LevelCoinMapConfiguration.CollectableIds;
 
-                foreach (CollectableSpawnBehaviour collectableSpawnBehaviour in spawnBehaviour)
+            for (var i = 0; i < levelCoinDatas.Count; i++)
+            {
+                LevelCoinData levelCoinData = levelCoinDatas[i];
+                foreach (int collectableId in levelCoinData.CollectableIds)
                 {
                     GameEntity collectableInfoEntity = gameContext.CreateEntity();
                     collectableInfoEntity.isCollectableInfo = true;
-                    collectableInfoEntity.AddLevelIndex(levelIndex);
-                    collectableInfoEntity.AddCollectableId(collectableSpawnBehaviour.CollectableId);
+                    collectableInfoEntity.AddLevelIndex(levelCoinData.LevelIndex);
+                    collectableInfoEntity.AddCollectableId(collectableId);
                 }
-
-                Addressables.Release(handle);
-            };
+            }
         }
     }
 }
