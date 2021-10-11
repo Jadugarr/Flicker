@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f96bce382f49a5867b99deb69a514b, type: 3}
+  m_Name: LevelCoinMapConfiguration
+  m_EditorClassIdentifier: 
+  _assetReferenceConfiguration: {fileID: 11400000, guid: 0791be50c8e21ed44b131c3c75b84600,
+    type: 2}
+  _collectableIds:
+  - LevelIndex: 0
+    CollectableIds: 
+  - LevelIndex: 1
+    CollectableIds: 00000000
+  - LevelIndex: 2
+    CollectableIds: 01000000
+  - LevelIndex: 3
+    CollectableIds: 
+  - LevelIndex: 4
+    CollectableIds: 020000000300000004000000
