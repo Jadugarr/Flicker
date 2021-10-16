@@ -15,11 +15,14 @@ namespace GameTimer.Systems
 
         public void Execute()
         {
-            GameEntity gameTimeEntity = _gameTimeGroup.GetSingleEntity();
-
-            if (gameTimeEntity.isActive)
+            if (_gameTimeGroup.count > 0)
             {
-                gameTimeEntity.ReplaceGameTime(gameTimeEntity.gameTime.Value + Time.deltaTime);
+                GameEntity gameTimeEntity = _gameTimeGroup.GetSingleEntity();
+
+                if (gameTimeEntity != null && gameTimeEntity.isActive)
+                {
+                    gameTimeEntity.ReplaceGameTime(gameTimeEntity.gameTime.Value + Time.deltaTime);
+                }
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Entitas;
+using SaveData.Systems;
 using SemoGames.Common;
 using SemoGames.Configurations;
 using SemoGames.GameCamera;
@@ -28,6 +29,7 @@ namespace SemoGames.Controller
         protected override void AfterStart()
         {
             Contexts.sharedInstance.game.CreateEntity().AddActiveSceneName(GameConfigurations.GameSceneConfiguration.MainMenuSceneName);
+            Contexts.sharedInstance.saveData.isLoadGameTrigger = true;
         }
 
         private void OnEntityCreated(IContext context, IEntity entity)
@@ -38,6 +40,7 @@ namespace SemoGames.Controller
         protected override Systems CreateUpdateSystems(IContext context)
         {
             GameContext gameContext = (GameContext) context;
+            SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
 
             return new Systems()
                 .Add(new InitCurrentSceneSystem())
@@ -55,7 +58,8 @@ namespace SemoGames.Controller
                 .Add(new ProcessControllerToTeardownTransitionSystem(gameContext))
                 .Add(new ProcessLevelIndexToLoadTransitionSystem(gameContext))
                 .Add(new CheckIfTransitionIsFinishedSystem(gameContext))
-                .Add(new GarbageCollectionSystem(gameContext));
+                .Add(new GarbageCollectionSystem(gameContext))
+                .Add(new LoadGameSystem(saveDataContext));
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
