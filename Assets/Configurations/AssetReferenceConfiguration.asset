@@ -16,47 +16,60 @@ MonoBehaviour:
     m_AssetGUID: a33ebe9f4081e434f938e21fc5938341
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   finishLevelDialogReference:
     m_AssetGUID: d0a8e66ecf6bae542a15307acd688ad4
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   levelAssetReferences:
   - m_AssetGUID: d6895f045b753994e906a0410905416a
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   - m_AssetGUID: 6eb433d937965094c8a6482f10a0945f
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   - m_AssetGUID: 2f32d4f52d712cd4b9110ce45faf7399
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   - m_AssetGUID: 6fca62c4aa5d5b64eaf7068b2a629bea
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   - m_AssetGUID: 2ea124d50a654ec4dbe3966657ba9b45
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   playerAssetReference:
     m_AssetGUID: 3457426de275a254392d94ae3919b419
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   flickLineRendererReference:
     m_AssetGUID: a309eeb82d9aed144ae0c0879f38f84d
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   impactStarReference:
     m_AssetGUID: fb44cd7278ece7c41bc0395d76a16824
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   collectableReference:
     m_AssetGUID: 4800ea4bb0e13514ea23342b4fe9101e
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   levelSelectionItemReference:
     m_AssetGUID: 32c91d4670b108a48ade8d6e89aee1c4
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
   levelSelectionConnectorReference:
     m_AssetGUID: 26355587a2477e94b9228d40184e32ec
     m_SubObjectName: 
     m_SubObjectType: 
+    m_EditorAssetChanged: 0
