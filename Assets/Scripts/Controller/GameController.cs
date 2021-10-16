@@ -1,6 +1,7 @@
 ﻿using Bumpers.Systems;
 using Entitas;
 using FastForward.Systems;
+using GameTimer.Systems;
 using Level.Systems;
 using SaveData.Systems;
 using SemoGames.Audio;
@@ -49,6 +50,7 @@ namespace SemoGames.Controller
                 .Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
                 .Add(new InitializeGameStateSystem())
+                .Add(new InitializeGameTimeSystem())
                 .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
                 .Add(new SwitchToPlayerInputMap(gameContext))
                 .Add(new SwitchToUiInputMapSystem(gameContext))
@@ -83,8 +85,13 @@ namespace SemoGames.Controller
                 .Add(new PlaySpaceBarAnimationSystem(gameContext))
                 .Add(new DissolvePlayerAndTrailSystem(gameContext))
                 .Add(new ReverseDissolvePlayerAndTrailSystem(gameContext))
+                .Add(new StopGameTimeSystem(gameContext))
+                .Add(new ResumeTimeSystem(gameContext))
+                .Add(new MeasureGameTimeSystem())
+                .Add(new SaveCollectedCollectableSystem(gameContext))
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
+                .Add(new SaveLevelTimeSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
@@ -96,7 +103,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownFlipperAnimationSystem())
                 .Add(new TeardownSpaceBarAnimationSystem())
                 .Add(new TeardownFlickLineSystem())
-                .Add(new TeardownLastTriggeredCheckpointSystem());
+                .Add(new TeardownLastTriggeredCheckpointSystem())
+                .Add(new TeardownGameTimeSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
