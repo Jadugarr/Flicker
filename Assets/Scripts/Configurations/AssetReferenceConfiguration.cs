@@ -34,6 +34,7 @@ namespace SemoGames.Configurations
         [SerializeField] private AssetReference collectableReference;
         [SerializeField] private AssetReference levelSelectionItemReference;
         [SerializeField] private AssetReference levelSelectionConnectorReference;
+        [SerializeField] private AssetReference levelTimerComponentReference;
         
         #endregion
 
@@ -56,6 +57,8 @@ namespace SemoGames.Configurations
         public AssetReference LevelSelectionItemReference => levelSelectionItemReference;
 
         public AssetReference LevelSelectionConnectorReference => levelSelectionConnectorReference;
+
+        public AssetReference LevelTimerComponentReference => levelTimerComponentReference;
 
         #endregion
     }

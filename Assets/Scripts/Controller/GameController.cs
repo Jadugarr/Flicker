@@ -51,6 +51,7 @@ namespace SemoGames.Controller
                 .Add(new InitializePlayerSystem())
                 .Add(new InitializeGameStateSystem())
                 .Add(new InitializeGameTimeSystem())
+                .Add(new InitializeLevelTimerSystem())
                 .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
                 .Add(new SwitchToPlayerInputMap(gameContext))
                 .Add(new SwitchToUiInputMapSystem(gameContext))
@@ -104,7 +105,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownSpaceBarAnimationSystem())
                 .Add(new TeardownFlickLineSystem())
                 .Add(new TeardownLastTriggeredCheckpointSystem())
-                .Add(new TeardownGameTimeSystem());
+                .Add(new TeardownGameTimeSystem())
+                .Add(new TeardownLevelTimerSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)

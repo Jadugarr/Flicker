@@ -67,47 +67,48 @@ public static class GameComponentsLookup {
     public const int ActiveSceneName = 56;
     public const int GameState = 57;
     public const int GameTime = 58;
-    public const int ControllerToRestartTransition = 59;
-    public const int ControllerToTeardownTransition = 60;
-    public const int EndLevelTransition = 61;
-    public const int LevelIndexToLoadTransition = 62;
-    public const int LevelTransitionOverlay = 63;
-    public const int SceneToAdd = 64;
-    public const int SceneToRemove = 65;
-    public const int StartLevelTransition = 66;
-    public const int TransitionCommands = 67;
-    public const int Goal = 68;
-    public const int Level = 69;
-    public const int LevelIndex = 70;
-    public const int PlayerSpawn = 71;
-    public const int LevelSelected = 72;
-    public const int LevelSelectionGridBehaviour = 73;
-    public const int LevelSelectionItemBehaviour = 74;
-    public const int LevelSelectionItemConnector = 75;
-    public const int LevelSelectionPlayer = 76;
-    public const int CurrentWaypointIndex = 77;
-    public const int NextWaypointIndex = 78;
-    public const int Obstacle = 79;
-    public const int TimeWhenMovementStarted = 80;
-    public const int Waypoints = 81;
-    public const int Pause = 82;
-    public const int PauseOverlay = 83;
-    public const int PauseTimeEnded = 84;
-    public const int PauseTimeStarted = 85;
-    public const int Dead = 86;
-    public const int GroundState = 87;
-    public const int IsInGoal = 88;
-    public const int MoveToLastCheckpoint = 89;
-    public const int Player = 90;
-    public const int StopSimulation = 91;
-    public const int TrailRenderer = 92;
-    public const int FinishLevelDialog = 93;
-    public const int MainMenuBehaviour = 94;
-    public const int MainMenu = 95;
-    public const int OverlayLayer = 96;
-    public const int StaticLayer = 97;
+    public const int LevelTimer = 59;
+    public const int ControllerToRestartTransition = 60;
+    public const int ControllerToTeardownTransition = 61;
+    public const int EndLevelTransition = 62;
+    public const int LevelIndexToLoadTransition = 63;
+    public const int LevelTransitionOverlay = 64;
+    public const int SceneToAdd = 65;
+    public const int SceneToRemove = 66;
+    public const int StartLevelTransition = 67;
+    public const int TransitionCommands = 68;
+    public const int Goal = 69;
+    public const int Level = 70;
+    public const int LevelIndex = 71;
+    public const int PlayerSpawn = 72;
+    public const int LevelSelected = 73;
+    public const int LevelSelectionGridBehaviour = 74;
+    public const int LevelSelectionItemBehaviour = 75;
+    public const int LevelSelectionItemConnector = 76;
+    public const int LevelSelectionPlayer = 77;
+    public const int CurrentWaypointIndex = 78;
+    public const int NextWaypointIndex = 79;
+    public const int Obstacle = 80;
+    public const int TimeWhenMovementStarted = 81;
+    public const int Waypoints = 82;
+    public const int Pause = 83;
+    public const int PauseOverlay = 84;
+    public const int PauseTimeEnded = 85;
+    public const int PauseTimeStarted = 86;
+    public const int Dead = 87;
+    public const int GroundState = 88;
+    public const int IsInGoal = 89;
+    public const int MoveToLastCheckpoint = 90;
+    public const int Player = 91;
+    public const int StopSimulation = 92;
+    public const int TrailRenderer = 93;
+    public const int FinishLevelDialog = 94;
+    public const int MainMenuBehaviour = 95;
+    public const int MainMenu = 96;
+    public const int OverlayLayer = 97;
+    public const int StaticLayer = 98;
 
-    public const int TotalComponents = 98;
+    public const int TotalComponents = 99;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -169,6 +170,7 @@ public static class GameComponentsLookup {
         "ActiveSceneName",
         "GameState",
         "GameTime",
+        "LevelTimer",
         "ControllerToRestartTransition",
         "ControllerToTeardownTransition",
         "EndLevelTransition",
@@ -270,6 +272,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.GameScene.ActiveSceneNameComponent),
         typeof(SemoGames.GameState.GameStateComponent),
         typeof(SemoGames.GameTimer.GameTimeComponent),
+        typeof(SemoGames.GameTimer.LevelTimerComponent),
         typeof(SemoGames.GameTransition.ControllerToRestartTransitionComponent),
         typeof(SemoGames.GameTransition.ControllerToTeardownTransitionComponent),
         typeof(SemoGames.GameTransition.EndLevelTransitionComponent),
