@@ -21,110 +21,78 @@ MonoBehaviour:
     m_Address: InputSettings
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 2ea124d50a654ec4dbe3966657ba9b45
     m_Address: Level_001
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: f6b010971a9dde8428b9668d1d437d94
     m_Address: InitScene
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 580b06805b10a9d45b0d5da68b3d16d7
     m_Address: GameScene
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: ca7d66ac0fcbb0c448587a70d69ca783
     m_Address: Assets/Input/InputActions/PlayerInput.inputactions
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: a33ebe9f4081e434f938e21fc5938341
     m_Address: Assets/Prefabs/UI/Dialogs/MainMenu.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 3457426de275a254392d94ae3919b419
     m_Address: Assets/Prefabs/Characters/Player.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: a309eeb82d9aed144ae0c0879f38f84d
     m_Address: FlickLineRenderer
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: d0a8e66ecf6bae542a15307acd688ad4
     m_Address: FinishLevelDialog
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 2397189c4bc2d8544bf2e2967f2d1f11
     m_Address: Level_002
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 6eb433d937965094c8a6482f10a0945f
     m_Address: Level_Tutorial_001
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 2f32d4f52d712cd4b9110ce45faf7399
     m_Address: Level_Tutorial_002
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: fb44cd7278ece7c41bc0395d76a16824
     m_Address: ImpactStar
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 6fca62c4aa5d5b64eaf7068b2a629bea
     m_Address: Level_Tutorial_003
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: d6895f045b753994e906a0410905416a
     m_Address: Level_MainMenu
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 4800ea4bb0e13514ea23342b4fe9101e
     m_Address: Collectable
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 32c91d4670b108a48ade8d6e89aee1c4
     m_Address: LevelSelectionItem
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 26355587a2477e94b9228d40184e32ec
     m_Address: Assets/Prefabs/LevelSelection/LevelSelectionConnector.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+  - m_GUID: 57e4fb4e70d697d4e801addc30c2464c
+    m_Address: LevelTimer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6ee6f672b34ed4a41b9d4a981b7bec8d, type: 2}
   m_SchemaSet:

@@ -23,8 +23,6 @@ namespace SemoGames.Controller
             GameEntity levelEntity = Contexts.sharedInstance.game.CreateEntity();
             levelEntity.isLevel = true;
             levelEntity.AddLevelIndex(0);
-            
-            Contexts.sharedInstance.saveData.isLoadGameTrigger = true;
         }
 
         public override GameControllerType GetGameControllerType()
@@ -61,7 +59,6 @@ namespace SemoGames.Controller
                 .Add(new PauseSystem(gameContext))
                 .Add(new UnpauseSystem(gameContext))
                 .Add(new HandleTrailRendererEmissionSystem(gameContext))
-                .Add(new LoadGameSystem(saveDataContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownBumpersSystem())
                 .Add(new TeardownImpactStarsSystem())

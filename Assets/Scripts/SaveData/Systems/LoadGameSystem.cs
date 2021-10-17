@@ -46,6 +46,16 @@ namespace SaveData.Systems
                 beatenLevel.isLevel = true;
                 beatenLevel.AddLevelIndex(beatenLevelIndex);
             }
+
+            if (gameSaveData.BeatenLevelTimes != null)
+            {
+                foreach (BeatenLevelTimeData beatenLevelTime in gameSaveData.BeatenLevelTimes)
+                {
+                    SaveDataEntity beatenTime = Contexts.sharedInstance.saveData.CreateEntity();
+                    beatenTime.AddLevelIndex(beatenLevelTime.LevelIndex);
+                    beatenTime.AddGameTime(beatenLevelTime.FastestTime);
+                }
+            }
         }
     }
 }

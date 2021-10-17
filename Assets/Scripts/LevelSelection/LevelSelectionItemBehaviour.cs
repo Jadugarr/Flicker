@@ -26,6 +26,8 @@ namespace SemoGames.LevelSelection
 
         [SerializeField] private GameObject _collectableTemplateObject;
 
+        [SerializeField] private TMP_Text _fastestTimeTextfield;
+
         private int _levelIndex;
 
         private List<GameObject> _spawnedCollectableObjects = new List<GameObject>();
@@ -38,6 +40,7 @@ namespace SemoGames.LevelSelection
             {
                 _levelIndex = value;
                 SpawnCollectableObjects();
+                ShowFastestTime();
                 _levelIndexText.text = _levelIndex.ToString();
 
                 IGroup<SaveDataEntity> savedLevelEntities =
@@ -55,6 +58,25 @@ namespace SemoGames.LevelSelection
 
                 _spriteRenderer.color = _notBeatenLevelColor;
             }
+        }
+
+        private void ShowFastestTime()
+        {
+            IGroup<SaveDataEntity> _saveDataGroup =
+                Contexts.sharedInstance.saveData.GetGroup(SaveDataMatcher.AllOf(SaveDataMatcher.LevelIndex,
+                    SaveDataMatcher.GameTime));
+
+            foreach (SaveDataEntity saveDataEntity in _saveDataGroup.GetEntities())
+            {
+                if (saveDataEntity.levelIndex.Value == _levelIndex)
+                {
+                    _fastestTimeTextfield.gameObject.SetActive(true);
+                    _fastestTimeTextfield.text = FormattingUtils.FormatDuration(saveDataEntity.gameTime.Value);
+                    return;
+                }
+            }
+
+            _fastestTimeTextfield.gameObject.SetActive(false);
         }
 
         private void SpawnCollectableObjects()
@@ -82,14 +104,16 @@ namespace SemoGames.LevelSelection
                         if (saveDataEntity.collectableId.Value == collectableInfoEntity.collectableId.Value)
                         {
                             isFound = true;
-                            spawned.GetComponentInChildren<SpriteRenderer>().material.SetFloat(ShaderUtils.IsOutlineActive, 0);
+                            spawned.GetComponentInChildren<SpriteRenderer>().material
+                                .SetFloat(ShaderUtils.IsOutlineActive, 0);
                             break;
                         }
                     }
 
                     if (!isFound)
                     {
-                        spawned.GetComponentInChildren<SpriteRenderer>().material.SetFloat(ShaderUtils.IsOutlineActive, 1);
+                        spawned.GetComponentInChildren<SpriteRenderer>().material
+                            .SetFloat(ShaderUtils.IsOutlineActive, 1);
                     }
                 }
             }
@@ -109,6 +133,11 @@ namespace SemoGames.LevelSelection
                     DOTween.To(() => collectable.transform.position, value => collectable.transform.position = value,
                         newPos, 0.2f);
                 }
+
+                var position = transform.position;
+                DOTween.To(() => _fastestTimeTextfield.gameObject.transform.position,
+                    value => _fastestTimeTextfield.gameObject.transform.position = value, new Vector3(position.x, position.y - 0.6f, position.z),
+                    0.2f);
             }
         }
 
@@ -125,6 +154,10 @@ namespace SemoGames.LevelSelection
                     DOTween.To(() => collectable.transform.position, value => collectable.transform.position = value,
                         transform.position, 0.2f);
                 }
+                
+                DOTween.To(() => _fastestTimeTextfield.gameObject.transform.position,
+                    value => _fastestTimeTextfield.gameObject.transform.position = value, transform.position,
+                    0.2f);
             }
         }
 
@@ -149,7 +182,7 @@ namespace SemoGames.LevelSelection
 
         private Vector3 InstantiateInCircle(int howMany, int index)
         {
-            float radius = 1;
+            float radius = 1.2f;
             float angle = ((index + 1) * Mathf.PI) / (howMany + 1) + Mathf.PI / 2;
             return transform.position +
                    (new Vector3(Mathf.Sin(angle), Mathf.Cos(angle), 0)) * radius;

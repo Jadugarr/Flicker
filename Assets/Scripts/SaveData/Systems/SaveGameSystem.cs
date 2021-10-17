@@ -10,6 +10,7 @@ namespace SaveData.Systems
     {
         private IGroup<SaveDataEntity> _collectedCollectablesGroup;
         private IGroup<SaveDataEntity> _beatenLevelsGroup;
+        private IGroup<SaveDataEntity> _beatenLevelTimeGroup;
 
         public SaveGameSystem(IContext<SaveDataEntity> context) : base(context)
         {
@@ -17,6 +18,8 @@ namespace SaveData.Systems
                 context.GetGroup(SaveDataMatcher.AllOf(SaveDataMatcher.CollectableId, SaveDataMatcher.Collectable));
             _beatenLevelsGroup =
                 context.GetGroup(SaveDataMatcher.AllOf(SaveDataMatcher.Level, SaveDataMatcher.LevelIndex));
+            _beatenLevelTimeGroup =
+                context.GetGroup(SaveDataMatcher.AllOf(SaveDataMatcher.LevelIndex, SaveDataMatcher.GameTime));
         }
 
         protected override ICollector<SaveDataEntity> GetTrigger(IContext<SaveDataEntity> context)
@@ -34,6 +37,7 @@ namespace SaveData.Systems
         {
             List<int> collectedIds = new List<int>();
             List<int> beatenLevelIndices = new List<int>();
+            List<BeatenLevelTimeData> beatenLevelTimes = new List<BeatenLevelTimeData>(); 
 
             foreach (SaveDataEntity saveDataEntity in _collectedCollectablesGroup.GetEntities())
             {
@@ -45,10 +49,20 @@ namespace SaveData.Systems
                 beatenLevelIndices.Add(beatenLevelEntity.levelIndex.Value);
             }
 
+            foreach (SaveDataEntity beatenLevelTimeEntity in _beatenLevelTimeGroup.GetEntities())
+            {
+                beatenLevelTimes.Add(new BeatenLevelTimeData
+                {
+                    LevelIndex = beatenLevelTimeEntity.levelIndex.Value,
+                    FastestTime = beatenLevelTimeEntity.gameTime.Value
+                });
+            }
+
             GameSaveData saveData = new GameSaveData
             {
                 CollectedIds = collectedIds.ToArray(),
-                BeatenLevelIndices = beatenLevelIndices.ToArray()
+                BeatenLevelIndices = beatenLevelIndices.ToArray(),
+                BeatenLevelTimes = beatenLevelTimes.ToArray()
             };
 
             string json = JsonConvert.SerializeObject(saveData);

@@ -73,3 +73,8 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  levelTimerComponentReference:
+    m_AssetGUID: 57e4fb4e70d697d4e801addc30c2464c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

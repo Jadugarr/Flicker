@@ -7,5 +7,6 @@ namespace SemoGames.SaveData
     {
         public int[] CollectedIds;
         public int[] BeatenLevelIndices;
+        public BeatenLevelTimeData[] BeatenLevelTimes;
     }
 }
