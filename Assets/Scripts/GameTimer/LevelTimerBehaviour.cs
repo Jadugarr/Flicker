@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using Entitas;
+using SemoGames.Utils;
 using TMPro;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace SemoGames.GameTimer
             if (_currentTimeGroup.count == 1)
             {
                 GameEntity currentTime = _currentTimeGroup.GetSingleEntity();
-                _gameTimerTextfield.text = currentTime.gameTime.Value.ToString(new CultureInfo("de"));
+                _gameTimerTextfield.text = FormattingUtils.FormatDuration(currentTime.gameTime.Value);
             }
         }
     }
