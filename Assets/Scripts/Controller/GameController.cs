@@ -19,6 +19,7 @@ using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
 using SemoGames.UI;
+using Speedrun.Systems;
 
 namespace SemoGames.Controller
 {
@@ -93,6 +94,7 @@ namespace SemoGames.Controller
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new SaveLevelTimeSystem(gameContext))
+                .Add(new ReachedGoalInSpeedrunSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())

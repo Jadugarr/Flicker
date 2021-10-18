@@ -20,7 +20,7 @@ namespace SemoGames.UI
 
         protected override bool Filter(GameEntity entity)
         {
-            return true;
+            return !Contexts.sharedInstance.gameSettings.isSpeedrun;
         }
 
         protected override async void Execute(List<GameEntity> entities)
