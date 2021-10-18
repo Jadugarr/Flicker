@@ -102,13 +102,14 @@ public static class GameComponentsLookup {
     public const int Player = 91;
     public const int StopSimulation = 92;
     public const int TrailRenderer = 93;
-    public const int FinishLevelDialog = 94;
-    public const int MainMenuBehaviour = 95;
-    public const int MainMenu = 96;
-    public const int OverlayLayer = 97;
-    public const int StaticLayer = 98;
+    public const int FinishSpeedrunDialog = 94;
+    public const int FinishLevelDialog = 95;
+    public const int MainMenuBehaviour = 96;
+    public const int MainMenu = 97;
+    public const int OverlayLayer = 98;
+    public const int StaticLayer = 99;
 
-    public const int TotalComponents = 99;
+    public const int TotalComponents = 100;
 
     public static readonly string[] componentNames = {
         "AudioSource",
@@ -205,6 +206,7 @@ public static class GameComponentsLookup {
         "Player",
         "StopSimulation",
         "TrailRenderer",
+        "FinishSpeedrunDialog",
         "FinishLevelDialog",
         "MainMenuBehaviour",
         "MainMenu",
@@ -307,6 +309,7 @@ public static class GameComponentsLookup {
         typeof(SemoGames.Player.PlayerComponent),
         typeof(SemoGames.Player.StopSimulationComponent),
         typeof(SemoGames.Player.TrailRendererComponent),
+        typeof(SemoGames.Speedrun.FinishSpeedrunDialogComponent),
         typeof(SemoGames.UI.FinishLevelDialogComponent),
         typeof(SemoGames.UI.MainMenuBehaviourComponent),
         typeof(SemoGames.UI.MainMenuComponent),

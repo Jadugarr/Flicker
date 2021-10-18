@@ -3,6 +3,7 @@ using Entitas;
 using SemoGames.Configurations;
 using SemoGames.Controller;
 using SemoGames.GameTransition;
+using SemoGames.Utils;
 
 namespace Speedrun.Systems
 {
@@ -29,19 +30,29 @@ namespace Speedrun.Systems
         {
             int levelCount = GameConfigurations.AssetReferenceConfiguration.LevelAssetReferences.Length;
             int currentLevelIndex = _levelEntityGroup.GetSingleEntity().levelIndex.Value;
-            TransitionUtils.StartTransitionSequence(
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.ControllerToRestartTransition,
-                    TransitionComponent = new ControllerToRestartTransitionComponent {Value = GameControllerType.Game}
-                },
-                new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
-                    TransitionComponent = new LevelIndexToLoadTransitionComponent
-                        {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 1}
-                }
-            );
+            if (currentLevelIndex >= levelCount -1)
+            {
+                GameContext gameContext = Contexts.sharedInstance.game;
+                GameEntity finishSpeedrunDialogEntity = gameContext.CreateEntity();
+                await AssetLoaderUtils.InstantiateAssetAsyncTask(GameConfigurations.AssetReferenceConfiguration.FinishSpeedrunDialogReference, finishSpeedrunDialogEntity, gameContext.staticLayer.Value.transform);
+                finishSpeedrunDialogEntity.isFinishSpeedrunDialog = true;
+            }
+            else
+            {
+                TransitionUtils.StartTransitionSequence(
+                    new TransitionComponentData
+                    {
+                        Index = GameComponentsLookup.ControllerToRestartTransition,
+                        TransitionComponent = new ControllerToRestartTransitionComponent {Value = GameControllerType.Game}
+                    },
+                    new TransitionComponentData
+                    {
+                        Index = GameComponentsLookup.LevelIndexToLoadTransition,
+                        TransitionComponent = new LevelIndexToLoadTransitionComponent
+                            {Value = currentLevelIndex < levelCount - 1 ? currentLevelIndex+1 : 1}
+                    }
+                );
+            }
         }
     }
 }

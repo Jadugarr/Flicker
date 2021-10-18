@@ -34,6 +34,8 @@ namespace SemoGames.UI
 
         private void OnStartGameClicked()
         {
+            Contexts.sharedInstance.gameSettings.isSpeedrun = false;
+            
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -65,8 +67,8 @@ namespace SemoGames.UI
         private void OnSpeedrunModeButtonClicked()
         {
             Contexts.sharedInstance.gameSettings.isSpeedrun = true;
-            
-            
+            Contexts.sharedInstance.saveData.DestroyAllEntities();
+
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
