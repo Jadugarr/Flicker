@@ -95,6 +95,7 @@ namespace SemoGames.Controller
                 .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new SaveLevelTimeSystem(gameContext))
                 .Add(new ReachedGoalInSpeedrunSystem(gameContext))
+                .Add(new CheckIfAllCollectedSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
@@ -108,7 +109,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownFlickLineSystem())
                 .Add(new TeardownLastTriggeredCheckpointSystem())
                 .Add(new TeardownGameTimeSystem())
-                .Add(new TeardownLevelTimerSystem());
+                .Add(new TeardownLevelTimerSystem())
+                .Add(new TeardownAllCollectedSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
