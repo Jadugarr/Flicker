@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using SemoGames.Collectables;
+﻿using SemoGames.Collectables;
 using SemoGames.Configurations;
 using UnityEditor;
 using UnityEngine;
