@@ -11,6 +11,11 @@ namespace GameTimer.Systems
 
             foreach (GameEntity gameEntity in gameTimeGroup.GetEntities())
             {
+                if (gameEntity.isSpeedrunTime)
+                {
+                    continue;
+                }
+                
                 gameEntity.DestroyEntity();
             }
         }

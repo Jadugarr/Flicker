@@ -1,8 +1,11 @@
-﻿using Entitas.Unity;
+﻿using Entitas;
+using Entitas.Unity;
 using SemoGames.Configurations;
 using SemoGames.Controller;
 using SemoGames.Extensions;
 using SemoGames.GameTransition;
+using SemoGames.Utils;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,12 +16,15 @@ namespace SemoGames.Speedrun
         [SerializeField] private Button restartLevelButton;
         [SerializeField] private Button mainMenuButton;
         [SerializeField] private Button quitGameButton;
+        [SerializeField] private TMP_Text speedrunTimeText;
 
         private void Awake()
         {
             restartLevelButton.onClick.AddListener(OnRestartClicked);
             mainMenuButton.onClick.AddListener(OnMainMenuClicked);
             quitGameButton.onClick.AddListener(OnQuitGameClicked);
+            
+            ShowSpeedrunTime();
         }
 
         private void Start()
@@ -33,6 +39,19 @@ namespace SemoGames.Speedrun
             quitGameButton.onClick.RemoveListener(OnQuitGameClicked);
         }
 
+        private void ShowSpeedrunTime()
+        {
+            IGroup<GameEntity> gameTimeGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.GameTime);
+            if (gameTimeGroup.count > 0)
+            {
+                speedrunTimeText.text = FormattingUtils.FormatDuration(gameTimeGroup.GetSingleEntity().gameTime.Value);
+            }
+            else
+            {
+                Debug.LogWarning("Can't display speedrun time, because there is no GameTime component!");
+            }
+        }
+
         private void OnQuitGameClicked()
         {
 #if UNITY_EDITOR
@@ -45,6 +64,7 @@ namespace SemoGames.Speedrun
         private void OnMainMenuClicked()
         {
             Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
+            Contexts.sharedInstance.gameSettings.isSpeedrun = false;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -76,6 +96,8 @@ namespace SemoGames.Speedrun
         private void OnRestartClicked()
         {
             Contexts.sharedInstance.saveData.DestroyAllEntities();
+            Contexts.sharedInstance.gameSettings.isSpeedrun = false;
+            Contexts.sharedInstance.gameSettings.isSpeedrun = true;
             
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData

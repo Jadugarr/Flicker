@@ -57,6 +57,7 @@ MonoBehaviour:
   restartLevelButton: {fileID: 1589617744489204962}
   mainMenuButton: {fileID: 1546991233147928209}
   quitGameButton: {fileID: 8442570477088085457}
+  speedrunTimeText: {fileID: 4192090244086129901}
 --- !u!1 &2031323878045835695
 GameObject:
   m_ObjectHideFlags: 0

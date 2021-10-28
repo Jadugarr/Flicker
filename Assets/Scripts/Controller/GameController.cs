@@ -45,6 +45,7 @@ namespace SemoGames.Controller
             GameContext gameContext = (GameContext) context;
             InputContext inputContext = Contexts.sharedInstance.input;
             SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
+            GameSettingsContext gameSettingsContext = Contexts.sharedInstance.gameSettings;
             
             return new Systems()
                 .Add(new InitializePauseSystem())
@@ -96,6 +97,7 @@ namespace SemoGames.Controller
                 .Add(new SaveLevelTimeSystem(gameContext))
                 .Add(new ReachedGoalInSpeedrunSystem(gameContext))
                 .Add(new CheckIfAllCollectedSystem(gameContext))
+                .Add(new RemoveSpeedrunTimerSystem(gameSettingsContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
