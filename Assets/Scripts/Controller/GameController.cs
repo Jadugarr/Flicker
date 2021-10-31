@@ -14,6 +14,7 @@ using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.GameState;
+using SemoGames.GameTimer;
 using SemoGames.Goal.Systems;
 using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
@@ -53,6 +54,7 @@ namespace SemoGames.Controller
                 .Add(new InitializePlayerSystem())
                 .Add(new InitializeGameStateSystem())
                 .Add(new InitializeGameTimeSystem())
+                .Add(new InitializeSpeedrunTimeSystem())
                 .Add(new InitializeLevelTimerSystem())
                 .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
                 .Add(new SwitchToPlayerInputMap(gameContext))
@@ -98,6 +100,7 @@ namespace SemoGames.Controller
                 .Add(new ReachedGoalInSpeedrunSystem(gameContext))
                 .Add(new CheckIfAllCollectedSystem(gameContext))
                 .Add(new RemoveSpeedrunTimerSystem(gameSettingsContext))
+                .Add(new UpdateLevelTimerSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())

@@ -8,25 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly SemoGames.GameTimer.SpeedrunTimeComponent speedrunTimeComponent = new SemoGames.GameTimer.SpeedrunTimeComponent();
+    public SemoGames.GameTimer.SpeedrunTimeComponent speedrunTime { get { return (SemoGames.GameTimer.SpeedrunTimeComponent)GetComponent(GameComponentsLookup.SpeedrunTime); } }
+    public bool hasSpeedrunTime { get { return HasComponent(GameComponentsLookup.SpeedrunTime); } }
 
-    public bool isSpeedrunTime {
-        get { return HasComponent(GameComponentsLookup.SpeedrunTime); }
-        set {
-            if (value != isSpeedrunTime) {
-                var index = GameComponentsLookup.SpeedrunTime;
-                if (value) {
-                    var componentPool = GetComponentPool(index);
-                    var component = componentPool.Count > 0
-                            ? componentPool.Pop()
-                            : speedrunTimeComponent;
+    public void AddSpeedrunTime(float newValue) {
+        var index = GameComponentsLookup.SpeedrunTime;
+        var component = (SemoGames.GameTimer.SpeedrunTimeComponent)CreateComponent(index, typeof(SemoGames.GameTimer.SpeedrunTimeComponent));
+        component.Value = newValue;
+        AddComponent(index, component);
+    }
 
-                    AddComponent(index, component);
-                } else {
-                    RemoveComponent(index);
-                }
-            }
-        }
+    public void ReplaceSpeedrunTime(float newValue) {
+        var index = GameComponentsLookup.SpeedrunTime;
+        var component = (SemoGames.GameTimer.SpeedrunTimeComponent)CreateComponent(index, typeof(SemoGames.GameTimer.SpeedrunTimeComponent));
+        component.Value = newValue;
+        ReplaceComponent(index, component);
+    }
+
+    public void RemoveSpeedrunTime() {
+        RemoveComponent(GameComponentsLookup.SpeedrunTime);
     }
 }
 

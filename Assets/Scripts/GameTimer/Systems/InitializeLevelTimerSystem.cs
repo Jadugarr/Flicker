@@ -1,5 +1,6 @@
 ﻿using Entitas;
 using SemoGames.Configurations;
+using SemoGames.GameTimer;
 using SemoGames.Utils;
 
 namespace GameTimer.Systems
@@ -14,6 +15,7 @@ namespace GameTimer.Systems
                 GameConfigurations.AssetReferenceConfiguration.LevelTimerComponentReference, levelTimerEntity,
                 gameContext.staticLayer.Value.transform);
             levelTimerEntity.isLevelTimer = true;
+            levelTimerEntity.AddLevelTimerBehaviour(levelTimerEntity.view.Value.GetComponent<LevelTimerBehaviour>());
         }
     }
 }

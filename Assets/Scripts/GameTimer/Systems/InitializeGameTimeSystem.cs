@@ -17,11 +17,6 @@ namespace GameTimer.Systems
         {
             if (_gameTimeGroup.count > 0)
             {
-                if (_gameTimeGroup.GetSingleEntity().isSpeedrunTime)
-                {
-                    return;
-                }
-                
                 foreach (GameEntity entity in _gameTimeGroup.GetEntities())
                 {
                     entity.DestroyEntity();
@@ -30,10 +25,6 @@ namespace GameTimer.Systems
 
             GameEntity timeEntity = Contexts.sharedInstance.game.CreateEntity();
             timeEntity.isActive = true;
-            if (Contexts.sharedInstance.gameSettings.isSpeedrun)
-            {
-                timeEntity.isSpeedrunTime = true;
-            }
             timeEntity.AddGameTime(0f);
         }
     }
