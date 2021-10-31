@@ -11,7 +11,8 @@ namespace GameTimer.Systems
         public UpdateLevelTimerSystem(IContext<GameEntity> context) : base(context)
         {
             _gameTimeGroup = context.GetGroup(GameMatcher.GameTime);
-            _levelTimerGroup = context.GetGroup(GameMatcher.LevelTimerBehaviour);
+            _levelTimerGroup =
+                context.GetGroup(GameMatcher.AllOf(GameMatcher.LevelTimer, GameMatcher.LevelTimerBehaviour));
         }
 
         protected override ICollector<GameEntity> GetTrigger(IContext<GameEntity> context)

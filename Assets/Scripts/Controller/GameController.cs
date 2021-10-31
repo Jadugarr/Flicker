@@ -56,6 +56,7 @@ namespace SemoGames.Controller
                 .Add(new InitializeGameTimeSystem())
                 .Add(new InitializeSpeedrunTimeSystem())
                 .Add(new InitializeLevelTimerSystem())
+                .Add(new InitializeLevelSpeedrunTimerSystem())
                 .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
                 .Add(new SwitchToPlayerInputMap(gameContext))
                 .Add(new SwitchToUiInputMapSystem(gameContext))
