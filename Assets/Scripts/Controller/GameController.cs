@@ -43,11 +43,11 @@ namespace SemoGames.Controller
 
         protected override Systems CreateUpdateSystems(IContext context)
         {
-            GameContext gameContext = (GameContext) context;
+            GameContext gameContext = (GameContext)context;
             InputContext inputContext = Contexts.sharedInstance.input;
             SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
             GameSettingsContext gameSettingsContext = Contexts.sharedInstance.gameSettings;
-            
+
             return new Systems()
                 .Add(new InitializePauseSystem())
                 .Add(new InitializeLevelSystem())
@@ -93,7 +93,10 @@ namespace SemoGames.Controller
                 .Add(new ReverseDissolvePlayerAndTrailSystem(gameContext))
                 .Add(new StopGameTimeSystem(gameContext))
                 .Add(new ResumeTimeSystem(gameContext))
+                .Add(new StopSpeedrunTimeSystem(gameContext))
+                .Add(new ResumeSpeedrunTimeSystem(gameContext))
                 .Add(new MeasureGameTimeSystem())
+                .Add(new MeasureSpeedrunTimeSystem())
                 .Add(new SaveCollectedCollectableSystem(gameContext))
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
@@ -102,6 +105,7 @@ namespace SemoGames.Controller
                 .Add(new CheckIfAllCollectedSystem(gameContext))
                 .Add(new RemoveSpeedrunTimerSystem(gameSettingsContext))
                 .Add(new UpdateLevelTimerSystem(gameContext))
+                .Add(new UpdateSpeedrunLevelTimerSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
@@ -126,7 +130,7 @@ namespace SemoGames.Controller
 
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
-            GameContext gameContext = (GameContext) context;
+            GameContext gameContext = (GameContext)context;
 
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))
