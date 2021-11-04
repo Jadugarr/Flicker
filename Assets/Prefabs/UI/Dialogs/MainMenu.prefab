@@ -208,6 +208,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedrunButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7278772494986810786, guid: f0b7f064b28843b42b22a8297bbd5d75,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7278772494986810787, guid: f0b7f064b28843b42b22a8297bbd5d75,
         type: 3}
       propertyPath: m_Pivot.x
