@@ -14,13 +14,11 @@ using SemoGames.Flipper;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
 using SemoGames.GameState;
-using SemoGames.GameTimer;
 using SemoGames.Goal.Systems;
 using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
 using SemoGames.UI;
-using Speedrun.Systems;
 
 namespace SemoGames.Controller
 {
@@ -46,7 +44,6 @@ namespace SemoGames.Controller
             GameContext gameContext = (GameContext)context;
             InputContext inputContext = Contexts.sharedInstance.input;
             SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
-            GameSettingsContext gameSettingsContext = Contexts.sharedInstance.gameSettings;
 
             return new Systems()
                 .Add(new InitializePauseSystem())
@@ -54,9 +51,7 @@ namespace SemoGames.Controller
                 .Add(new InitializePlayerSystem())
                 .Add(new InitializeGameStateSystem())
                 .Add(new InitializeGameTimeSystem())
-                .Add(new InitializeSpeedrunTimeSystem())
                 .Add(new InitializeLevelTimerSystem())
-                .Add(new InitializeLevelSpeedrunTimerSystem())
                 .Add(new CheckGameStateSystem(gameContext, inputContext.playerInput.Value))
                 .Add(new SwitchToPlayerInputMap(gameContext))
                 .Add(new SwitchToUiInputMapSystem(gameContext))
@@ -93,19 +88,13 @@ namespace SemoGames.Controller
                 .Add(new ReverseDissolvePlayerAndTrailSystem(gameContext))
                 .Add(new StopGameTimeSystem(gameContext))
                 .Add(new ResumeTimeSystem(gameContext))
-                .Add(new StopSpeedrunTimeSystem(gameContext))
-                .Add(new ResumeSpeedrunTimeSystem(gameContext))
                 .Add(new MeasureGameTimeSystem())
-                .Add(new MeasureSpeedrunTimeSystem())
                 .Add(new SaveCollectedCollectableSystem(gameContext))
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new SaveLevelTimeSystem(gameContext))
-                .Add(new ReachedGoalInSpeedrunSystem(gameContext))
                 .Add(new CheckIfAllCollectedSystem(gameContext))
-                .Add(new RemoveSpeedrunTimerSystem(gameSettingsContext))
                 .Add(new UpdateLevelTimerSystem(gameContext))
-                .Add(new UpdateSpeedrunLevelTimerSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())

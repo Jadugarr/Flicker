@@ -20,9 +20,6 @@ namespace GameTimer.Systems
                 levelTimerEntity.isSpeedrunLevelTimer = true;
                 levelTimerEntity.AddLevelTimerBehaviour(levelTimerEntity.view.Value
                     .GetComponent<LevelTimerBehaviour>());
-
-                var positionComponent = levelTimerEntity.position.Value;
-
                 // changing the speedrun timer's position in a super hacky way
                 Vector3 transformPosition = levelTimerEntity.view.Value.transform.position;
                 levelTimerEntity.view.Value.transform.position =

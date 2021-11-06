@@ -41,14 +41,14 @@ namespace SemoGames.Speedrun
 
         private void ShowSpeedrunTime()
         {
-            IGroup<GameEntity> gameTimeGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.GameTime);
-            if (gameTimeGroup.count > 0)
+            IGroup<GameEntity> speedrunTimeGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.SpeedrunTime);
+            if (speedrunTimeGroup.count > 0)
             {
-                speedrunTimeText.text = FormattingUtils.FormatDuration(gameTimeGroup.GetSingleEntity().gameTime.Value);
+                speedrunTimeText.text = FormattingUtils.FormatDuration(speedrunTimeGroup.GetSingleEntity().speedrunTime.Value);
             }
             else
             {
-                Debug.LogWarning("Can't display speedrun time, because there is no GameTime component!");
+                Debug.LogWarning("Can't display speedrun time, because there is no SpeedrunTime component!");
             }
         }
 
@@ -96,10 +96,13 @@ namespace SemoGames.Speedrun
         private void OnRestartClicked()
         {
             Contexts.sharedInstance.saveData.DestroyAllEntities();
-            Contexts.sharedInstance.gameSettings.isSpeedrun = false;
-            Contexts.sharedInstance.gameSettings.isSpeedrun = true;
             
             TransitionUtils.StartTransitionSequence(
+                new TransitionComponentData
+                {
+                    Index = GameComponentsLookup.ControllerToRestartTransition,
+                    TransitionComponent = new ControllerToRestartTransitionComponent {Value = GameControllerType.Speedrun}
+                },
                 new TransitionComponentData
                 {
                     Index = GameComponentsLookup.ControllerToRestartTransition,

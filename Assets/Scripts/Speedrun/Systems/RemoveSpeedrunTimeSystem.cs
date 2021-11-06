@@ -5,13 +5,13 @@ using SemoGames.Extensions;
 
 namespace GameTimer.Systems
 {
-    public class RemoveSpeedrunTimerSystem : ReactiveSystem<GameSettingsEntity>
+    public class RemoveSpeedrunTimeSystem : ReactiveSystem<GameSettingsEntity>
     {
-        private IGroup<GameEntity> _gameTimeGroup;
+        private IGroup<GameEntity> _speedrunTimeGroup;
 
-        public RemoveSpeedrunTimerSystem(IContext<GameSettingsEntity> context) : base(context)
+        public RemoveSpeedrunTimeSystem(IContext<GameSettingsEntity> context) : base(context)
         {
-            _gameTimeGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.GameTime);
+            _speedrunTimeGroup = Contexts.sharedInstance.game.GetGroup(GameMatcher.SpeedrunTime);
         }
 
         protected override ICollector<GameSettingsEntity> GetTrigger(IContext<GameSettingsEntity> context)
@@ -27,7 +27,7 @@ namespace GameTimer.Systems
 
         protected override void Execute(List<GameSettingsEntity> entities)
         {
-            foreach (GameEntity gameEntity in _gameTimeGroup.GetEntities())
+            foreach (GameEntity gameEntity in _speedrunTimeGroup.GetEntities())
             {
                 gameEntity.DestroyEntity();
             }

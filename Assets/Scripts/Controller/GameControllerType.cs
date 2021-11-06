@@ -7,6 +7,8 @@ namespace SemoGames.Controller
         Input,
         Game,
         MainMenu,
-        LevelSelection
+        LevelSelection,
+        Speedrun,
+        GameSettings
     }
 }

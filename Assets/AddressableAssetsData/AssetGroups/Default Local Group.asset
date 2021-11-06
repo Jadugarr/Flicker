@@ -97,6 +97,10 @@ MonoBehaviour:
     m_Address: FinishSpeedrunDialog
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 77c29a6bb6ed85340adaa0abdc64e9e3
+    m_Address: SpeedrunController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6ee6f672b34ed4a41b9d4a981b7bec8d, type: 2}
   m_SchemaSet:

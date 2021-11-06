@@ -72,6 +72,7 @@ namespace SemoGames.UI
         private void OnMainMenuClicked()
         {
             Contexts.sharedInstance.saveData.isSaveGameTrigger = true;
+            Contexts.sharedInstance.gameSettings.isSpeedrun = false;
             TransitionUtils.StartTransitionSequence(
                 new TransitionComponentData
                 {
@@ -91,11 +92,6 @@ namespace SemoGames.UI
                     TransitionComponent = new SceneToAddComponent
                         {Value = GameConfigurations.GameSceneConfiguration.MainMenuSceneName}
                 }
-                /*new TransitionComponentData
-                {
-                    Index = GameComponentsLookup.LevelIndexToLoadTransition,
-                    TransitionComponent = new LevelIndexToLoadTransitionComponent {Value = 0}
-                }*/
             );
 
             GameEntity dialogEntity = gameObject.GetEntityLink().entity as GameEntity;

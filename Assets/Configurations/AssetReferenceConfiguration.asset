@@ -83,3 +83,8 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  _speedrunControllerReference:
+    m_AssetGUID: 77c29a6bb6ed85340adaa0abdc64e9e3
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0

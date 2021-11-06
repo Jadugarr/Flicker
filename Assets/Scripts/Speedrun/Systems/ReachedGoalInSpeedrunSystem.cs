@@ -5,7 +5,7 @@ using SemoGames.Controller;
 using SemoGames.GameTransition;
 using SemoGames.Utils;
 
-namespace Speedrun.Systems
+namespace SemoGames.Speedrun
 {
     public class ReachedGoalInSpeedrunSystem : ReactiveSystem<GameEntity>
     {
