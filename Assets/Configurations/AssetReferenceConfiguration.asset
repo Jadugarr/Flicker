@@ -22,6 +22,11 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  finishSpeedrunDialogReference:
+    m_AssetGUID: 9e25ff699ac99ae4e9565e7230e08c3d
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   levelAssetReferences:
   - m_AssetGUID: d6895f045b753994e906a0410905416a
     m_SubObjectName: 
@@ -75,6 +80,11 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   levelTimerComponentReference:
     m_AssetGUID: 57e4fb4e70d697d4e801addc30c2464c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _speedrunControllerReference:
+    m_AssetGUID: 77c29a6bb6ed85340adaa0abdc64e9e3
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

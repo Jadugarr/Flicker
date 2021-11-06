@@ -1,4 +1,6 @@
 using Entitas;
+using Entitas.Unity;
+using SemoGames.Extensions;
 using UnityEngine;
 
 namespace SemoGames.Controller
@@ -31,10 +33,20 @@ namespace SemoGames.Controller
         private void Start()
         {
             BeforeStart();
-
+            EntityLink link = gameObject.GetEntityLink();
             IContext context = GetContext();
-            controllerEntity = Contexts.sharedInstance.game.CreateEntity();
-            controllerEntity.AddController(this);
+            if (link != null)
+            {
+                controllerEntity = (GameEntity)link.entity;
+                controllerEntity.AddController(this);
+            }
+            else
+            {
+                controllerEntity = Contexts.sharedInstance.game.CreateEntity();
+                controllerEntity.AddController(this);
+                controllerEntity.AddView(gameObject);
+                gameObject.Link(controllerEntity);
+            }
             CreateSystems(context);
 
             updateSystems.Initialize();
@@ -57,7 +69,7 @@ namespace SemoGames.Controller
         private void OnDestroy()
         {
             //Teardown();
-            controllerEntity.Destroy();
+            controllerEntity.DestroyEntity();
         }
 
         public void RestartController()

@@ -12,6 +12,7 @@ namespace SemoGames.Configurations
 
         [SerializeField] private AssetReference mainMenuReference;
         [SerializeField] private AssetReference finishLevelDialogReference;
+        [SerializeField] private AssetReference finishSpeedrunDialogReference;
 
         #endregion
 
@@ -38,6 +39,12 @@ namespace SemoGames.Configurations
         
         #endregion
 
+        #region Controllers
+
+        [SerializeField] private AssetReference _speedrunControllerReference;
+
+        #endregion
+        
         #region Read-only Properties
 
         public AssetReference MainMenuReference => mainMenuReference;
@@ -59,6 +66,10 @@ namespace SemoGames.Configurations
         public AssetReference LevelSelectionConnectorReference => levelSelectionConnectorReference;
 
         public AssetReference LevelTimerComponentReference => levelTimerComponentReference;
+
+        public AssetReference FinishSpeedrunDialogReference => finishSpeedrunDialogReference;
+
+        public AssetReference SpeedrunControllerReference => _speedrunControllerReference;
 
         #endregion
     }

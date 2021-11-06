@@ -41,10 +41,10 @@ namespace SemoGames.Controller
 
         protected override Systems CreateUpdateSystems(IContext context)
         {
-            GameContext gameContext = (GameContext) context;
+            GameContext gameContext = (GameContext)context;
             InputContext inputContext = Contexts.sharedInstance.input;
             SaveDataContext saveDataContext = Contexts.sharedInstance.saveData;
-            
+
             return new Systems()
                 .Add(new InitializePauseSystem())
                 .Add(new InitializeLevelSystem())
@@ -93,6 +93,8 @@ namespace SemoGames.Controller
                 .Add(new SaveGameSystem(saveDataContext))
                 .Add(new SaveBeatenLevelSystem(gameContext))
                 .Add(new SaveLevelTimeSystem(gameContext))
+                .Add(new CheckIfAllCollectedSystem(gameContext))
+                .Add(new UpdateLevelTimerSystem(gameContext))
                 .Add(new TeardownObstaclesSystem(gameContext))
                 .Add(new TeardownPauseSystem())
                 .Add(new TeardownBumpersSystem())
@@ -106,7 +108,8 @@ namespace SemoGames.Controller
                 .Add(new TeardownFlickLineSystem())
                 .Add(new TeardownLastTriggeredCheckpointSystem())
                 .Add(new TeardownGameTimeSystem())
-                .Add(new TeardownLevelTimerSystem());
+                .Add(new TeardownLevelTimerSystem())
+                .Add(new TeardownAllCollectedSystem());
         }
 
         protected override Systems CreateLateUpdateSystems(IContext context)
@@ -116,7 +119,7 @@ namespace SemoGames.Controller
 
         protected override Systems CreateFixedUpdateSystems(IContext context)
         {
-            GameContext gameContext = (GameContext) context;
+            GameContext gameContext = (GameContext)context;
 
             return new Systems()
                 .Add(new SyncVelocitySystem(gameContext))

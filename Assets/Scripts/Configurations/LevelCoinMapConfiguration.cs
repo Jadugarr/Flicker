@@ -12,6 +12,21 @@ namespace SemoGames.Configurations
         [SerializeField] private List<LevelCoinData> _collectableIds;
 
         public List<LevelCoinData> CollectableIds => _collectableIds;
+
+        public bool TryGetCoinDataByLevelIndex(int levelIndex, out LevelCoinData levelCoinData)
+        {
+            foreach (LevelCoinData coinData in _collectableIds)
+            {
+                if (coinData.LevelIndex == levelIndex)
+                {
+                    levelCoinData = coinData;
+                    return true;
+                }
+            }
+
+            levelCoinData = default;
+            return false;
+        }
     }
 
     [Serializable]
