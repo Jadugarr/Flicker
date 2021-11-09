@@ -48,6 +48,10 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 5388100dc75e5be4c82575bb03b2bb75
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   playerAssetReference:
     m_AssetGUID: 3457426de275a254392d94ae3919b419
     m_SubObjectName: 

@@ -25,3 +25,5 @@ MonoBehaviour:
     CollectableIds: 
   - LevelIndex: 4
     CollectableIds: 020000000300000004000000
+  - LevelIndex: 5
+    CollectableIds: 
