@@ -27,6 +27,7 @@ namespace SemoGames.Collectables.Systems
             foreach (GameEntity gameEntity in entities)
             {
                 gameEntity.animator.Value.SetTrigger(Collected);
+                gameEntity.isPlaySound = true;
             }
         }
     }

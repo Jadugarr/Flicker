@@ -60,6 +60,7 @@ namespace SemoGames.Collectables.Systems
                 Material collectableMaterial = collectableEntity.view.Value.GetComponentInChildren<SpriteRenderer>().material;
                 collectableMaterial.SetInt(ShaderUtils.IsOutlineActive, Convert.ToInt32(found));
                 collectableEntity.AddAnimator(collectableEntity.view.Value.GetComponentInChildren<Animator>());
+                collectableEntity.AddAudioSource(collectableEntity.view.Value.GetComponentInChildren<AudioSource>());
                 
             }
         }
