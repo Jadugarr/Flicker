@@ -3,7 +3,9 @@ using Entitas;
 using Entitas.Unity;
 using SemoGames.Configurations;
 using SemoGames.Controller;
+using SemoGames.Extensions;
 using SemoGames.GameTransition;
+using SemoGames.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -58,15 +60,22 @@ namespace SemoGames.UI
             );
 
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
-
-            gameObject.Unlink();
-            mainMenuEntity?.Destroy();
-            Destroy(gameObject);
+            mainMenuEntity?.DestroyEntity();
         }
 
         private void OnSpeedrunModeButtonClicked()
         {
-            Contexts.sharedInstance.gameSettings.isSpeedrun = true;
+            GameContext gameContext = Contexts.sharedInstance.game;
+            gameContext.CreateEntity().AddTeardownController(GameControllerType.MainMenu);
+            GameEntity dialogEntity = gameContext.CreateEntity();
+            AssetLoaderUtils.InstantiateAssetAsyncTask(
+                GameConfigurations.AssetReferenceConfiguration.ExplainSpeedrunDialogReference, dialogEntity,
+                gameContext.staticLayer.Value.transform);
+            GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
+            mainMenuEntity?.DestroyEntity();
+            //gameContext.CreateEntity().AddLeve
+
+            /*Contexts.sharedInstance.gameSettings.isSpeedrun = true;
             Contexts.sharedInstance.saveData.DestroyAllEntities();
 
             TransitionUtils.StartTransitionSequence(
@@ -96,10 +105,7 @@ namespace SemoGames.UI
             );
             
             GameEntity mainMenuEntity = gameObject.GetEntityLink().entity as GameEntity;
-            
-            gameObject.Unlink();
-            mainMenuEntity?.Destroy();
-            Destroy(gameObject);
+            mainMenuEntity?.DestroyEntity();*/
         }
 
         private void OnQuitGameButtonClicked()

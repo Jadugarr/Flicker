@@ -1,17 +1,14 @@
 ﻿using Bumpers.Systems;
 using Entitas;
 using Level.Systems;
-using SaveData.Systems;
 using SemoGames.Common;
 using SemoGames.Effects;
 using SemoGames.Flick;
 using SemoGames.GameCamera;
 using SemoGames.GameInput;
-using SemoGames.GameTransition;
 using SemoGames.Obstacles.Systems;
 using SemoGames.Pause;
 using SemoGames.Player;
-using SemoGames.SaveData;
 using SemoGames.UI;
 
 namespace SemoGames.Controller
@@ -20,9 +17,6 @@ namespace SemoGames.Controller
     {
         protected override void AfterStart()
         {
-            GameEntity levelEntity = Contexts.sharedInstance.game.CreateEntity();
-            levelEntity.isLevel = true;
-            levelEntity.AddLevelIndex(0);
         }
 
         public override GameControllerType GetGameControllerType()
@@ -43,7 +37,8 @@ namespace SemoGames.Controller
             return new Systems()
                 .Add(new InitializeMainMenuSceneSystem())
                 .Add(new InstantiateMainMenuSystem(gameContext))
-                .Add(new InitializeLevelSystem())
+                .Add(new InitializeMainMenuLevelSystem())
+                //.Add(new InitializeLevelSystem())
                 .Add(new InitializePlayerSystem())
                 .Add(new SpawnPlayerSystem(gameContext))
                 .Add(new SetCameraConfinerSystem(gameContext))

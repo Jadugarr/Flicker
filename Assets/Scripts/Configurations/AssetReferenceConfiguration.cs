@@ -13,6 +13,7 @@ namespace SemoGames.Configurations
         [SerializeField] private AssetReference mainMenuReference;
         [SerializeField] private AssetReference finishLevelDialogReference;
         [SerializeField] private AssetReference finishSpeedrunDialogReference;
+        [SerializeField] private AssetReference explainSpeedrunDialogReference;
 
         #endregion
 
@@ -56,6 +57,8 @@ namespace SemoGames.Configurations
         public AssetReference FlickLineRendererReference => flickLineRendererReference;
 
         public AssetReference FinishLevelDialogReference => finishLevelDialogReference;
+
+        public AssetReference ExplainSpeedrunDialogReference => explainSpeedrunDialogReference;
 
         public AssetReference ImpactStarReference => impactStarReference;
 

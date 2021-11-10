@@ -75,14 +75,17 @@ namespace SemoGames.Controller
         public void RestartController()
         {
             updateSystems.ClearReactiveSystems();
+            updateSystems.ActivateReactiveSystems();
             updateSystems.Cleanup();
             updateSystems.TearDown();
 
             fixedUpdateSystems.ClearReactiveSystems();
+            fixedUpdateSystems.ActivateReactiveSystems();
             fixedUpdateSystems.Cleanup();
             fixedUpdateSystems.TearDown();
 
             lateUpdateSystems.ClearReactiveSystems();
+            lateUpdateSystems.ActivateReactiveSystems();
             lateUpdateSystems.Cleanup();
             lateUpdateSystems.TearDown();
 
