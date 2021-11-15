@@ -1,0 +1,162 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Bumpers.BumperBehaviour" preserve="all" />
+    <type fullname="Controller.GameInputController" preserve="all" />
+    <type fullname="GameCamera.CameraConfinerColliderBehaviour" preserve="all" />
+    <type fullname="SemoGames.CheckpointWall.CheckpointWallBehaviour" preserve="all" />
+    <type fullname="SemoGames.CheckpointWall.CheckpointWallTriggerBehaviour" preserve="all" />
+    <type fullname="SemoGames.Collectables.CollectableBehaviour" preserve="all" />
+    <type fullname="SemoGames.Collectables.CollectableSpawnBehaviour" preserve="all" />
+    <type fullname="SemoGames.Collectables.UICollectableBehaviour" preserve="all" />
+    <type fullname="SemoGames.Configurations.AssetReferenceConfiguration" preserve="all" />
+    <type fullname="SemoGames.Configurations.GameConstantsConfiguration" preserve="all" />
+    <type fullname="SemoGames.Configurations.GameSceneConfiguration" preserve="all" />
+    <type fullname="SemoGames.Configurations.LevelCoinMapConfiguration" preserve="all" />
+    <type fullname="SemoGames.Configurations.SoundReferencesConfiguration" preserve="all" />
+    <type fullname="SemoGames.Controller.GameController" preserve="all" />
+    <type fullname="SemoGames.Controller.GameSettingsController" preserve="all" />
+    <type fullname="SemoGames.Controller.InitController" preserve="all" />
+    <type fullname="SemoGames.Controller.SpeedrunController" preserve="all" />
+    <type fullname="SemoGames.Effects.AnimationCooldownBehaviour" preserve="all" />
+    <type fullname="SemoGames.Effects.FlipperAnimationBehaviour" preserve="all" />
+    <type fullname="SemoGames.Effects.ImpactStarBehaviour" preserve="all" />
+    <type fullname="SemoGames.Effects.LineRendererAnimationBehaviour" preserve="all" />
+    <type fullname="SemoGames.Effects.MainMenuDemoFlickBehaviour" preserve="all" />
+    <type fullname="SemoGames.Effects.SpaceBarAnimationBehaviour" preserve="all" />
+    <type fullname="SemoGames.GameInput.GameInputBehaviour" preserve="all" />
+    <type fullname="SemoGames.GameTimer.LevelTimerBehaviour" preserve="all" />
+    <type fullname="SemoGames.Goal.GoalBehaviour" preserve="all" />
+    <type fullname="SemoGames.Level.DeathPlaneBehaviour" preserve="all" />
+    <type fullname="SemoGames.Level.PlayerSpawnBehaviour" preserve="all" />
+    <type fullname="SemoGames.Level.WaveTileBehaviour" preserve="all" />
+    <type fullname="SemoGames.LevelSelection.LevelSelectionItemBehaviour" preserve="all" />
+    <type fullname="SemoGames.Obstacles.MovingObstacleBehaviour" preserve="all" />
+    <type fullname="SemoGames.Player.PlayerBehaviour" preserve="all" />
+    <type fullname="SemoGames.Speedrun.ExplainSpeedrunDialogBehaviour" preserve="all" />
+    <type fullname="SemoGames.Speedrun.FinishSpeedrunDialogBehaviour" preserve="all" />
+    <type fullname="SemoGames.UI.FinishLevelDialogBehaviour" preserve="all" />
+    <type fullname="SemoGames.UI.MainMenuBehaviour" preserve="all" />
+    <type fullname="SemoGames.Utils.BezierCollider2D" preserve="all" />
+    <type fullname="SemoGames.Utils.InitializeEntityBehaviour" preserve="all" />
+    <type fullname="TileOutlineController" preserve="all" />
+  </assembly>
+  <assembly fullname="Cinemachine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Cinemachine.CinemachineBasicMultiChannelPerlin" preserve="all" />
+    <type fullname="Cinemachine.CinemachineBrain" preserve="all" />
+    <type fullname="Cinemachine.CinemachineConfiner" preserve="all" />
+    <type fullname="Cinemachine.CinemachineFramingTransposer" preserve="all" />
+    <type fullname="Cinemachine.CinemachinePipeline" preserve="all" />
+    <type fullname="Cinemachine.CinemachineVirtualCamera" preserve="all" />
+    <type fullname="Cinemachine.NoiseSettings" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.U2D.SpriteShape" preserve="all" />
+    <type fullname="UnityEngine.U2D.SpriteShapeController" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.2D.Tilemap.Extras, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.RuleTile" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.InputSystem, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputSettings" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.PlayerInput" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.UI.InputSystemUIInputModule" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Volume" preserve="all" />
+    <type fullname="UnityEngine.Rendering.VolumeProfile" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.Bloom" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.Light2D" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.LegacyResourcesProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="TMPro.TextMeshPro" preserve="all" />
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Animation" preserve="all" />
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+    <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+    <type fullname="UnityEngine.AudioSource" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.LightmapSettings" preserve="all" />
+    <type fullname="UnityEngine.LineRenderer" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.RenderSettings" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.TrailRenderer" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.GridModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Grid" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.ParticleSystem" preserve="all" />
+    <type fullname="UnityEngine.ParticleSystemRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider2D" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider2D" preserve="all" />
+    <type fullname="UnityEngine.CircleCollider2D" preserve="all" />
+    <type fullname="UnityEngine.CompositeCollider2D" preserve="all" />
+    <type fullname="UnityEngine.EdgeCollider2D" preserve="all" />
+    <type fullname="UnityEngine.HingeJoint2D" preserve="all" />
+    <type fullname="UnityEngine.PhysicsMaterial2D" preserve="all" />
+    <type fullname="UnityEngine.PolygonCollider2D" preserve="all" />
+    <type fullname="UnityEngine.Rigidbody2D" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.U2D.SpriteShapeRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TilemapModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Tilemaps.Tile" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.Tilemap" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.TilemapCollider2D" preserve="all" />
+    <type fullname="UnityEngine.Tilemaps.TilemapRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
+    <type fullname="UnityEngine.EventSystems.Physics2DRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+</linker>
